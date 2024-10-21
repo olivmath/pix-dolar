@@ -4,7 +4,7 @@
   "documentation" : { },
   "id" : 1,
   "lastModifiedAgent" : "structurizr-ui",
-  "lastModifiedDate" : "2024-10-21T04:38:42Z",
+  "lastModifiedDate" : "2024-10-21T04:40:04Z",
   "model" : {
     "people" : [ {
       "description" : "End user performing deposits and investments.",
@@ -19,7 +19,7 @@
         "destinationId" : "3",
         "id" : "12",
         "properties" : {
-          "structurizr.dsl.identifier" : "2c21d241-1611-46be-b3db-aef7434e6472"
+          "structurizr.dsl.identifier" : "71d9fdcb-de8d-4cd5-a61c-d8a2a289f3fc"
         },
         "sourceId" : "1",
         "tags" : "Relationship"
@@ -34,7 +34,7 @@
         "destinationId" : "2",
         "id" : "18",
         "properties" : {
-          "structurizr.dsl.identifier" : "61311004-cc23-40c5-9f9d-ac15d89d0219"
+          "structurizr.dsl.identifier" : "1aadd537-37cc-4bec-a03f-818b2c198ed9"
         },
         "sourceId" : "1",
         "tags" : "Relationship"
@@ -55,7 +55,7 @@
           "destinationId" : "4",
           "id" : "14",
           "properties" : {
-            "structurizr.dsl.identifier" : "f07f1f2c-072e-4ca3-8d1f-2516358276d1"
+            "structurizr.dsl.identifier" : "9f9cdb98-c5d8-4554-ae17-65fc9fc6cdf0"
           },
           "sourceId" : "3",
           "tags" : "Relationship"
@@ -112,7 +112,7 @@
           "destinationId" : "9",
           "id" : "15",
           "properties" : {
-            "structurizr.dsl.identifier" : "31c73a03-9bc7-4e3e-967e-76b2300d085a"
+            "structurizr.dsl.identifier" : "ec5de56e-b823-468f-a4b6-09f75fa4d7be"
           },
           "sourceId" : "4",
           "tags" : "Relationship"
@@ -121,7 +121,7 @@
           "destinationId" : "10",
           "id" : "16",
           "properties" : {
-            "structurizr.dsl.identifier" : "33bdc705-097c-4a40-8fa7-b4ddd25e3ccc"
+            "structurizr.dsl.identifier" : "47d659ca-eb3e-4723-8e8f-25e2e194a808"
           },
           "sourceId" : "4",
           "tags" : "Relationship"
@@ -130,7 +130,7 @@
           "destinationId" : "11",
           "id" : "17",
           "properties" : {
-            "structurizr.dsl.identifier" : "4b71bd6c-4fa6-4552-83c6-733198680efe"
+            "structurizr.dsl.identifier" : "7ec9e128-59b7-4ed8-811f-7234b4eda4c0"
           },
           "sourceId" : "4",
           "tags" : "Relationship"
@@ -220,7 +220,7 @@
     } ],
     "configuration" : {
       "branding" : { },
-      "lastSavedView" : "Investment_System_Context",
+      "lastSavedView" : "Backend_Components_View",
       "metadataSymbols" : "SquareBrackets",
       "styles" : {
         "elements" : [ {
@@ -259,27 +259,27 @@
       },
       "elements" : [ {
         "id" : "1",
-        "x" : 200,
+        "x" : 199,
         "y" : 770
       }, {
         "id" : "3",
-        "x" : 900,
+        "x" : 899,
         "y" : 820
       }, {
         "id" : "4",
-        "x" : 1650,
+        "x" : 1649,
         "y" : 820
       }, {
         "id" : "9",
-        "x" : 2400,
+        "x" : 2399,
         "y" : 220
       }, {
         "id" : "10",
-        "x" : 2400,
+        "x" : 2399,
         "y" : 1420
       }, {
         "id" : "11",
-        "x" : 2400,
+        "x" : 2399,
         "y" : 820
       } ],
       "externalSoftwareSystemBoundariesVisible" : false,
@@ -314,12 +314,12 @@
       },
       "elements" : [ {
         "id" : "1",
-        "x" : 199,
-        "y" : 200
+        "x" : 200,
+        "y" : 199
       }, {
         "id" : "2",
-        "x" : 899,
-        "y" : 250
+        "x" : 900,
+        "y" : 249
       } ],
       "enterpriseBoundaryVisible" : true,
       "key" : "Investment_System_Context",
@@ -327,14 +327,14 @@
       "relationships" : [ {
         "id" : "13",
         "vertices" : [ {
-          "x" : 761,
-          "y" : 550
+          "x" : 762,
+          "y" : 549
         } ]
       }, {
         "id" : "18",
         "vertices" : [ {
-          "x" : 761,
-          "y" : 250
+          "x" : 762,
+          "y" : 249
         } ]
       } ],
       "softwareSystemId" : "2"
