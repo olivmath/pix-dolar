@@ -1,28 +1,39 @@
 views {
-        # Diagrama de contexto do sistema
-        systemContext system "Contexto_do_Sistema_de_Investimento" {
-            include *
-            autolayout lr
-        }
+    # System context diagram
+    systemContext system "Investment_System_Context" {
+        include *
+        autolayout lr
+    }
 
-        # Diagrama de contêineres
-        container system "Conteineres_do_Sistema_de_Investimento" {
-            include *
-            autolayout lr
-        }
+    # Container diagram
+    container system "Investment_System_Containers" {
+        include *
+        autolayout lr
+    }
 
-            styles {
-            element "Person" {
-                shape person
-            }
-            element "Software System" {
-                background #2D882D
-            }
-            element "Container" {
-                background #55aa55
-            }
-            element "Database" {
-                shape cylinder
-            }
+    # Backend components view
+    component backend "Backend_Components_View" {
+        include *
+        autoLayout lr
+    }
+
+    # Styling for the elements in the diagrams
+    styles {
+        element "Person" {
+            shape person
+            background #08427b
+            color #ffffff
+        }
+        element "Container" {
+            background #438dd5
+            color #ffffff
+        }
+        element "Component" {
+            background #85bbf0
+            color #000000
+        }
+        element "Database" {
+            shape cylinder
         }
     }
+}

@@ -1,37 +1,38 @@
 model {
-        user = person "Cliente" "Usuário final que realiza depósitos e investimentos."
+    user = person "Customer" "End user performing deposits and investments."
 
-        system = softwareSystem "${ORGANISATION_NAME}" "Sistema que permite depósitos em Pix e investimentos em DeFi" {
-            frontend = container "Frontend" "Interface de usuário para depósitos e investimentos." {
-                technology "React/Vue.js"
-            }
-            
-            backend = container "Backend" "API responsável por lógica de negócios, integração com provedores externos e o banco de dados." {
-                technology "Rust/Tide"
-            }
-
-            database = container "Banco de Dados" "Armazena dados do cliente e transações financeiras." {
-                technology "PostgreSQL"
-                tags "Database"
-            }
-
-            # Sistema de pagamento via Pix
-            paymentGateway = container "${PAYMENT_PROVIDER_NAME}" "Sistema responsável pelos depósitos via Pix e conversão para USDC." {
-                tags "SaaSPix"
-            }
-            # Provedor de Blockchain (Alchemy)
-            blockchain = container "${BLOCKCHAIN_PROVIDER}" "Plataforma de blockchain que gerencia os contratos inteligentes para investimentos." {
-                technology "Alchemy"
-                tags "BlockchainProvider"
-            }
-
-            user -> frontend "Interage via browser"
-            frontend -> backend "Comunica-se via API HTTP"
-            backend -> database "Lê e grava dados"
-            backend -> paymentGateway "Integra-se para processar depósitos, conversões e saques"
-            backend -> blockchain "Integra-se para realizar depósitos e retiradas em DeFi"
+    system = softwareSystem "${ORGANISATION_NAME}" "System that enables Pix deposits and DeFi investments" {
+        frontend = container "Frontend" "User interface for deposits and investments." {
+            technology "React/Vue.js"
+        }
+        
+        backend = container "Backend" "API responsible for business logic, external provider integration, and the database." {
+            authService = component "Authentication Service" "Manages login via email and generates access tokens."
+            depositService = component "Deposit Service" "Integrates with the Pix provider to process deposits."
+            blockchainService = component "Blockchain Service" "Manages integration with DeFi platforms and blockchain."
+            notificationService = component "Notification Service" "Sends notifications to customers about financial operations."
         }
 
+        database = container "Database" "Stores customer data and financial transactions." {
+            technology "PostgreSQL"
+            tags "Database"
+        }
 
-        user -> system "Uses"
+        # Pix Payment System
+        paymentGateway = container "${PAYMENT_PROVIDER_NAME}" "System responsible for Pix deposits and conversion to USDC." {
+            tags "SaaSPix"
+        }
+        # Blockchain Provider (Alchemy)
+        blockchain = container "${BLOCKCHAIN_PROVIDER}" "Blockchain platform managing smart contracts for investments." {
+            technology "Alchemy"
+            tags "BlockchainProvider"
+        }
+
+        user -> frontend "Interacts via browser"
+        frontend -> backend "Communicates via HTTP API"
+        backend -> database "Reads and writes data"
+        backend -> paymentGateway "Integrates to process deposits, conversions, and withdrawals"
+        backend -> blockchain "Integrates for DeFi deposits and withdrawals"
     }
+    user -> system "Uses"
+}
