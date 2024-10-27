@@ -14,13 +14,15 @@ views {
     # Backend components view
     component backend "Backend_Components_View" {
         include *
-        autoLayout lr
+        autoLayout bt
     }
 
     # Styling for the elements in the diagrams
+    # shape <Box|RoundedBox|Circle|Ellipse|Hexagon|Cylinder|Pipe|Person|Robot|Folder|WebBrowser|MobileDevicePortrait|MobileDeviceLandscape|Component>
+
     styles {
         element "Person" {
-            shape person
+            shape Person
             background #08427b
             color #ffffff
         }
@@ -32,8 +34,18 @@ views {
             background #85bbf0
             color #000000
         }
+
+        element "Saas" {
+            shape Hexagon
+        }
+        element "Frontend" {
+            shape MobileDevicePortrait
+        }
+        element "Backend" {
+            shape RoundedBox
+        }
         element "Database" {
-            shape cylinder
+            shape Cylinder
         }
     }
 }
