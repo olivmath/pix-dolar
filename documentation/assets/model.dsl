@@ -94,6 +94,7 @@ model {
             eth_sign = component "Sign Tx" "Signs Ethereum transactions, facilitating secure fund transfers on the blockchain."
         }
 
+        user -> frontend "Interact via Browser or Mobile App"
         // User Interactions
         frontend -> backend "Communicates via HTTP API, enabling the frontend to send user requests to the backend for processing."
         backend -> database "Reads and writes data to store KYC/KYT user information, transaction histories, and balances securely."
@@ -114,7 +115,7 @@ model {
         // operations flow
         loginModule -> paymentGatewayAdapter "Initiates payment actions for user account deposits and withdrawals."
         paymentGatewayAdapter -> paymentGateway "Handles external requests to manage Pix transactions and conversions."
-        paymentGateway -> webhookModule 
+        paymentGateway -> webhookModule "Notifies about conclusion of payment operations"
         webhookModule -> userCRUD "Updates user account data based on events received from the payment gateway."
         userCRUD -> databaseAdapter "Interfaces with the Database Adapter to retrieve and update user-specific data."
         databaseAdapter -> database "Executes SQL commands to retrieve, insert, or update records within the PostgreSQL database."
