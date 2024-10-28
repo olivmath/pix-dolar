@@ -4,7 +4,7 @@
   "documentation" : { },
   "id" : 1,
   "lastModifiedAgent" : "structurizr-ui",
-  "lastModifiedDate" : "2024-10-28T04:13:06Z",
+  "lastModifiedDate" : "2024-10-28T04:37:12Z",
   "model" : {
     "people" : [ {
       "description" : "End user performing deposits and investments.",
@@ -17,9 +17,9 @@
       "relationships" : [ {
         "description" : "Uses",
         "destinationId" : "2",
-        "id" : "78",
+        "id" : "83",
         "properties" : {
-          "structurizr.dsl.identifier" : "f0668a8d-208d-4ca4-87d9-4e82101e3905"
+          "structurizr.dsl.identifier" : "1041fd93-ef5e-49d9-8878-5ea601a32afd"
         },
         "sourceId" : "1",
         "tags" : "Relationship"
@@ -28,7 +28,7 @@
     } ],
     "softwareSystems" : [ {
       "containers" : [ {
-        "description" : "User interface for deposits and investments.",
+        "description" : "User interface for deposits and investments, enabling interaction with all core features.",
         "documentation" : { },
         "id" : "3",
         "name" : "Frontend",
@@ -36,19 +36,20 @@
           "structurizr.dsl.identifier" : "frontend"
         },
         "relationships" : [ {
-          "description" : "Communicates via HTTP API",
+          "description" : "Communicates via HTTP API, enabling the frontend to send user requests to the backend for processing.",
           "destinationId" : "4",
-          "id" : "31",
+          "id" : "32",
           "properties" : {
-            "structurizr.dsl.identifier" : "78fa9fc9-0a67-42a6-9b63-bb9e0618ac6f"
+            "structurizr.dsl.identifier" : "8da1e96e-6a83-4b83-b91a-81851130b94f"
           },
           "sourceId" : "3",
           "tags" : "Relationship"
         }, {
+          "description" : "Sends frontend HTTP requests to the REST API for handling specific user operations.",
           "destinationId" : "5",
-          "id" : "39",
+          "id" : "40",
           "properties" : {
-            "structurizr.dsl.identifier" : "b5564df7-1e42-4fe6-9e05-fdc49c9c2b96"
+            "structurizr.dsl.identifier" : "4cb3585c-99ab-4549-ab1d-8bc8b2acfc89"
           },
           "sourceId" : "3",
           "tags" : "Relationship"
@@ -57,7 +58,7 @@
         "technology" : "React/Next.js"
       }, {
         "components" : [ {
-          "description" : "Manages HTTP connections.",
+          "description" : "Manages HTTP connections, enabling the frontend to interact with backend services.",
           "documentation" : { },
           "id" : "5",
           "name" : "REST API",
@@ -65,10 +66,11 @@
             "structurizr.dsl.identifier" : "restapi"
           },
           "relationships" : [ {
+            "description" : "Routes login requests for authentication validation and generation.",
             "destinationId" : "6",
-            "id" : "40",
+            "id" : "41",
             "properties" : {
-              "structurizr.dsl.identifier" : "c88608a9-75fe-49bf-9f9e-370cca7f7bd7"
+              "structurizr.dsl.identifier" : "ce4c018e-b91e-40de-9fe4-2d5b8a913af1"
             },
             "sourceId" : "5",
             "tags" : "Relationship"
@@ -76,7 +78,7 @@
           "tags" : "Element,Component",
           "technology" : "Next.js API"
         }, {
-          "description" : "Validates if the user exists and triggers login through Google Auth.",
+          "description" : "Validates if the user exists and triggers login through Google Auth, creating user accounts if new.",
           "documentation" : { },
           "id" : "6",
           "name" : "Login Module",
@@ -84,34 +86,38 @@
             "structurizr.dsl.identifier" : "loginmodule"
           },
           "relationships" : [ {
-            "destinationId" : "9",
-            "id" : "45",
-            "properties" : {
-              "structurizr.dsl.identifier" : "3d3c6432-165b-43eb-868d-85541dbf7edb"
-            },
-            "sourceId" : "6",
-            "tags" : "Relationship"
-          }, {
-            "destinationId" : "10",
-            "id" : "47",
-            "properties" : {
-              "structurizr.dsl.identifier" : "f8ec9712-06e1-4eec-a30b-590b0eb819ba"
-            },
-            "sourceId" : "6",
-            "tags" : "Relationship"
-          }, {
-            "destinationId" : "8",
-            "id" : "48",
-            "properties" : {
-              "structurizr.dsl.identifier" : "e8e289c4-9ecd-4298-9336-cc430ba7bd6e"
-            },
-            "sourceId" : "6",
-            "tags" : "Relationship"
-          }, {
+            "description" : "Redirects login requests to Google OAuth for secure user authentication.",
             "destinationId" : "12",
-            "id" : "50",
+            "id" : "42",
             "properties" : {
-              "structurizr.dsl.identifier" : "9848d823-e687-4973-b859-50d8eb5d7f7d"
+              "structurizr.dsl.identifier" : "2a4e2783-dff7-4207-bbde-336ae7454960"
+            },
+            "sourceId" : "6",
+            "tags" : "Relationship"
+          }, {
+            "description" : "Initiates payment actions for user account deposits and withdrawals.",
+            "destinationId" : "9",
+            "id" : "44",
+            "properties" : {
+              "structurizr.dsl.identifier" : "141fbbc8-ad3d-4b65-a4a4-23b87ce33126"
+            },
+            "sourceId" : "6",
+            "tags" : "Relationship"
+          }, {
+            "description" : "Coordinates with the Web3 Module to execute DeFi deposits and withdrawals on behalf of the user.",
+            "destinationId" : "10",
+            "id" : "55",
+            "properties" : {
+              "structurizr.dsl.identifier" : "d3e885d3-8f3d-4171-8724-401a1a1eb48d"
+            },
+            "sourceId" : "6",
+            "tags" : "Relationship"
+          }, {
+            "description" : "Retrieves or updates user account information during the login and KYC processes.",
+            "destinationId" : "8",
+            "id" : "56",
+            "properties" : {
+              "structurizr.dsl.identifier" : "f2016f9f-01bc-4884-9e48-56ca8bbeece1"
             },
             "sourceId" : "6",
             "tags" : "Relationship"
@@ -119,7 +125,7 @@
           "tags" : "Element,Component",
           "technology" : "Custom TypeScript Module"
         }, {
-          "description" : "Handles connection and queries to the PostgreSQL database.",
+          "description" : "Handles data interaction with PostgreSQL, supporting queries and updates.",
           "documentation" : { },
           "id" : "7",
           "name" : "Database Adapter",
@@ -127,10 +133,11 @@
             "structurizr.dsl.identifier" : "databaseadapter"
           },
           "relationships" : [ {
+            "description" : "Executes SQL commands to retrieve, insert, or update records within the PostgreSQL database.",
             "destinationId" : "14",
-            "id" : "44",
+            "id" : "50",
             "properties" : {
-              "structurizr.dsl.identifier" : "14ff32f6-b6d9-41a1-86e6-686aa9c0f982"
+              "structurizr.dsl.identifier" : "33e81a80-e78b-4007-9faf-2ad98c192aea"
             },
             "sourceId" : "7",
             "tags" : "Relationship"
@@ -138,7 +145,7 @@
           "tags" : "Element,Component",
           "technology" : "SQL Database Client"
         }, {
-          "description" : "Manages user data including KYC and other information.",
+          "description" : "Manages user-related data, including KYC verification and general user information.",
           "documentation" : { },
           "id" : "8",
           "name" : "User CRUD",
@@ -146,18 +153,20 @@
             "structurizr.dsl.identifier" : "usercrud"
           },
           "relationships" : [ {
+            "description" : "Interfaces with the Database Adapter to retrieve and update user-specific data.",
             "destinationId" : "7",
-            "id" : "42",
+            "id" : "49",
             "properties" : {
-              "structurizr.dsl.identifier" : "bca666db-4233-4168-b5d5-9c8c6877ddda"
+              "structurizr.dsl.identifier" : "84b8df09-fd76-4c85-9767-deed73eda8ff"
             },
             "sourceId" : "8",
             "tags" : "Relationship"
           }, {
+            "description" : "Provides user reference data for cross-referencing blockchain transactions.",
             "destinationId" : "11",
-            "id" : "43",
+            "id" : "51",
             "properties" : {
-              "structurizr.dsl.identifier" : "9d611204-bd82-432b-a0d0-7d0103ab1570"
+              "structurizr.dsl.identifier" : "095cbafb-e304-4119-9bbc-2179daafb970"
             },
             "sourceId" : "8",
             "tags" : "Relationship"
@@ -165,7 +174,7 @@
           "tags" : "Element,Component",
           "technology" : "Custom TypeScript Module"
         }, {
-          "description" : "Generates Pix QR Codes, converts Pix to USDC, and manages withdrawals to company wallets.",
+          "description" : "Manages Pix QR code generation, Pix-to-USDC conversions, and withdrawals.",
           "documentation" : { },
           "id" : "9",
           "name" : "Payment Gateway Adapter",
@@ -173,42 +182,56 @@
             "structurizr.dsl.identifier" : "paymentgatewayadapter"
           },
           "relationships" : [ {
+            "description" : "Handles external requests to manage Pix transactions and conversions.",
             "destinationId" : "15",
-            "id" : "46",
+            "id" : "45",
             "properties" : {
-              "structurizr.dsl.identifier" : "194bb3af-1dd5-4e5a-9910-e0d09fba58b1"
+              "structurizr.dsl.identifier" : "d84005ab-57d1-4b03-bf11-8350a0ec5c6e"
             },
             "sourceId" : "9",
             "tags" : "Relationship"
           }, {
+            "description" : "Requests the generation of a Pix QR code for user deposits.",
             "destinationId" : "16",
-            "id" : "70",
+            "id" : "73",
             "properties" : {
-              "structurizr.dsl.identifier" : "baa6c135-2b36-4140-88f9-f804d77b6853"
+              "structurizr.dsl.identifier" : "2fd72ee0-f6bf-410a-a295-033d30fa5e40"
             },
             "sourceId" : "9",
             "tags" : "Relationship"
           }, {
+            "description" : "Requests the generation of USDC address for DeFi withdraw.",
             "destinationId" : "17",
-            "id" : "72",
+            "id" : "75",
             "properties" : {
-              "structurizr.dsl.identifier" : "1f94b94e-440f-4d87-9e2f-aa0954fe30a8"
+              "structurizr.dsl.identifier" : "a006dcd0-77a9-4198-a107-1b5b1956c6b5"
             },
             "sourceId" : "9",
             "tags" : "Relationship"
           }, {
+            "description" : "Initiates a Pix-to-USDC swap for currency conversion within the platform.",
             "destinationId" : "18",
-            "id" : "74",
+            "id" : "77",
             "properties" : {
-              "structurizr.dsl.identifier" : "fa896dba-2f71-4b58-aa40-a49e6a14e784"
+              "structurizr.dsl.identifier" : "0ad37301-ecaf-435d-b469-3eee545f1425"
             },
             "sourceId" : "9",
             "tags" : "Relationship"
           }, {
+            "description" : "Processes Pix withdrawals, sending funds to a user's external account.",
             "destinationId" : "19",
-            "id" : "76",
+            "id" : "79",
             "properties" : {
-              "structurizr.dsl.identifier" : "27d5d117-947a-4a63-a480-4098757bc425"
+              "structurizr.dsl.identifier" : "6e5494bf-026b-481a-b7e4-f7beae8fc1bf"
+            },
+            "sourceId" : "9",
+            "tags" : "Relationship"
+          }, {
+            "description" : "Manages Web3 withdrawals, sending funds to the company's secure HSM wallet.",
+            "destinationId" : "20",
+            "id" : "81",
+            "properties" : {
+              "structurizr.dsl.identifier" : "2b636804-bd34-4cde-b0db-386ec1fe2460"
             },
             "sourceId" : "9",
             "tags" : "Relationship"
@@ -216,7 +239,7 @@
           "tags" : "Element,Component",
           "technology" : "Custom TypeScript Adapter/Brasil Bitcoin"
         }, {
-          "description" : "Handles deposits and withdrawals from DeFi platforms via the Alchemy blockchain gateway.",
+          "description" : "Manages deposits and withdrawals to DeFi platforms through Alchemy.",
           "documentation" : { },
           "id" : "10",
           "name" : "Web3 Module",
@@ -224,55 +247,62 @@
             "structurizr.dsl.identifier" : "web3module"
           },
           "relationships" : [ {
-            "destinationId" : "28",
-            "id" : "49",
-            "properties" : {
-              "structurizr.dsl.identifier" : "b025bdb2-2e83-47fd-9cea-9df4eee1cd6b"
-            },
-            "sourceId" : "10",
-            "tags" : "Relationship"
-          }, {
-            "destinationId" : "22",
+            "description" : "Requests secure cryptographic operations like signing and key management from HSM.",
+            "destinationId" : "29",
             "id" : "54",
             "properties" : {
-              "structurizr.dsl.identifier" : "8f8baa39-e54f-4d25-af47-7121a57ac5c4"
+              "structurizr.dsl.identifier" : "2564aaf9-879b-4598-92b9-e63fa8e097f0"
             },
             "sourceId" : "10",
             "tags" : "Relationship"
           }, {
-            "destinationId" : "21",
-            "id" : "55",
-            "linkedRelationshipId" : "54",
-            "sourceId" : "10"
-          }, {
+            "description" : "Interacts with the USDC token for approval and transfer to DeFi Protocols.",
             "destinationId" : "23",
             "id" : "57",
             "properties" : {
-              "structurizr.dsl.identifier" : "8a9f6926-319a-4572-b537-7251d7bfd573"
+              "structurizr.dsl.identifier" : "9584d339-ae0b-4d7f-859a-3500dbeaf73a"
             },
             "sourceId" : "10",
             "tags" : "Relationship"
           }, {
+            "description" : "Interacts with the USDC token for approval and transfer to DeFi Protocols.",
+            "destinationId" : "22",
+            "id" : "58",
+            "linkedRelationshipId" : "57",
+            "sourceId" : "10"
+          }, {
+            "description" : "Executes a DeFi deposit, adding user funds to a DeFi pool.",
             "destinationId" : "24",
-            "id" : "59",
+            "id" : "60",
             "properties" : {
-              "structurizr.dsl.identifier" : "5c9f9d39-a179-4c42-95c8-e09afab6bdc4"
+              "structurizr.dsl.identifier" : "ca30a078-60f5-4417-bab3-18abdbedcd90"
             },
             "sourceId" : "10",
             "tags" : "Relationship"
           }, {
-            "destinationId" : "29",
-            "id" : "66",
+            "description" : "Initiates a DeFi withdrawal, transferring funds back to the company's secure HSM wallet.",
+            "destinationId" : "25",
+            "id" : "62",
             "properties" : {
-              "structurizr.dsl.identifier" : "c9ebb63a-ddd8-47ee-ba4f-38c19fc84b71"
+              "structurizr.dsl.identifier" : "31518698-74cd-484b-8680-2c226bae3544"
             },
             "sourceId" : "10",
             "tags" : "Relationship"
           }, {
+            "description" : "Generates a secure wallet address and cryptographic key using HSM.",
             "destinationId" : "30",
-            "id" : "68",
+            "id" : "69",
             "properties" : {
-              "structurizr.dsl.identifier" : "087ebcf1-20c3-479c-915c-5c209e1d5f86"
+              "structurizr.dsl.identifier" : "8e8561ea-0111-4d4a-91bf-3696c3ea0a66"
+            },
+            "sourceId" : "10",
+            "tags" : "Relationship"
+          }, {
+            "description" : "Signs blockchain transactions with the private key stored in HSM for added security.",
+            "destinationId" : "31",
+            "id" : "71",
+            "properties" : {
+              "structurizr.dsl.identifier" : "1c4bb0a9-02d1-4ef8-a761-81fd7e70be30"
             },
             "sourceId" : "10",
             "tags" : "Relationship"
@@ -280,7 +310,7 @@
           "tags" : "Element,Component",
           "technology" : "Web3 TypeScript SDK"
         }, {
-          "description" : "Fetches blockchain history (via The Graph) and integrates structured data into the user database.",
+          "description" : "Retrieves blockchain data through The Graph and structures it for storage and access.",
           "documentation" : { },
           "id" : "11",
           "name" : "Indexer Module",
@@ -288,10 +318,11 @@
             "structurizr.dsl.identifier" : "indexermodule"
           },
           "relationships" : [ {
-            "destinationId" : "20",
-            "id" : "41",
+            "description" : "Queries the Indexer Provider to fetch blockchain transaction history.",
+            "destinationId" : "21",
+            "id" : "52",
             "properties" : {
-              "structurizr.dsl.identifier" : "c2b5baf6-f8c8-4743-97d6-f58da08b4c46"
+              "structurizr.dsl.identifier" : "bb1cdf3e-b323-4b35-a3d2-624a25e77724"
             },
             "sourceId" : "11",
             "tags" : "Relationship"
@@ -299,7 +330,7 @@
           "tags" : "Element,Component",
           "technology" : "The Graph API"
         }, {
-          "description" : "Make login using Google Account",
+          "description" : "Handles user authentication with Google OAuth, ensuring secure logins and JWT issuance.",
           "documentation" : { },
           "id" : "12",
           "name" : "Google Oath Module",
@@ -307,35 +338,37 @@
             "structurizr.dsl.identifier" : "googleoathmodule"
           },
           "relationships" : [ {
-            "description" : "Authenticates user via Google Auth",
-            "destinationId" : "25",
-            "id" : "51",
-            "properties" : {
-              "structurizr.dsl.identifier" : "6f73100c-2271-4d9b-8046-90ed2fea99ac"
-            },
-            "sourceId" : "12",
-            "tags" : "Relationship"
-          }, {
+            "description" : "Authenticates user via Google Auth for a seamless login experience.",
             "destinationId" : "26",
-            "id" : "61",
+            "id" : "43",
             "properties" : {
-              "structurizr.dsl.identifier" : "f2d04d12-dd14-4dfe-b875-9dbff861b6d5"
+              "structurizr.dsl.identifier" : "74c363cc-2556-4104-8bfc-96c4e02bdfab"
             },
             "sourceId" : "12",
             "tags" : "Relationship"
           }, {
+            "description" : "Uses Google OAuth 2.0 to authenticate the user and issue a secure JWT token.",
             "destinationId" : "27",
             "id" : "64",
             "properties" : {
-              "structurizr.dsl.identifier" : "1a6d255a-5fa1-4a45-89f9-61b81cffd3a1"
+              "structurizr.dsl.identifier" : "7a53a3ed-64e2-47ca-8dfa-30fe9415c6c6"
+            },
+            "sourceId" : "12",
+            "tags" : "Relationship"
+          }, {
+            "description" : "Handles session termination by invalidating the JWT token.",
+            "destinationId" : "28",
+            "id" : "67",
+            "properties" : {
+              "structurizr.dsl.identifier" : "2bbe4ac4-5fa3-4477-83a6-ecdcdd9d9629"
             },
             "sourceId" : "12",
             "tags" : "Relationship"
           } ],
           "tags" : "Element,Component",
-          "technology" : "Google Oath"
+          "technology" : "Google OAuth"
         }, {
-          "description" : "Handles the webhook from the Payment Gateway",
+          "description" : "Processes incoming webhooks from the payment gateway, updating user data upon events.",
           "documentation" : { },
           "id" : "13",
           "name" : "Webhook Module",
@@ -343,18 +376,20 @@
             "structurizr.dsl.identifier" : "webhookmodule"
           },
           "relationships" : [ {
+            "description" : "Updates user account data based on events received from the payment gateway.",
             "destinationId" : "8",
-            "id" : "52",
+            "id" : "48",
             "properties" : {
-              "structurizr.dsl.identifier" : "bad40424-f142-47a9-a938-35b90d314fef"
+              "structurizr.dsl.identifier" : "111a6549-b7a2-42eb-935a-7965ff8e89c1"
             },
             "sourceId" : "13",
             "tags" : "Relationship"
           }, {
+            "description" : "Triggers Web3 actions based on payment events for deposits and withdrawals.",
             "destinationId" : "10",
             "id" : "53",
             "properties" : {
-              "structurizr.dsl.identifier" : "d081cb17-115f-438c-ba41-57ec69a0d0fe"
+              "structurizr.dsl.identifier" : "a1e5fa20-b60b-4a18-af99-383ae508e4f3"
             },
             "sourceId" : "13",
             "tags" : "Relationship"
@@ -362,7 +397,7 @@
           "tags" : "Element,Component",
           "technology" : "Custom TypeScript Adapter/Brasil Bitcoin"
         } ],
-        "description" : "API responsible for business logic, external provider integration, and the database.",
+        "description" : "API responsible for business logic, external provider integration, and database communication.",
         "documentation" : { },
         "id" : "4",
         "name" : "Backend",
@@ -370,119 +405,136 @@
           "structurizr.dsl.identifier" : "backend"
         },
         "relationships" : [ {
-          "description" : "Reads and writes data",
+          "description" : "Reads and writes data to store KYC/KYT user information, transaction histories, and balances securely.",
           "destinationId" : "14",
-          "id" : "32",
-          "properties" : {
-            "structurizr.dsl.identifier" : "67cbb5b2-551c-40f5-8e77-4f056d2d00c9"
-          },
-          "sourceId" : "4",
-          "tags" : "Relationship"
-        }, {
-          "description" : "Integrates for deposits, conversions, and withdrawals",
-          "destinationId" : "15",
           "id" : "33",
           "properties" : {
-            "structurizr.dsl.identifier" : "07f0d3ab-83ac-4904-b366-41a286ab29b6"
+            "structurizr.dsl.identifier" : "cdf7a62e-ac81-4469-bf04-c1155ba66b06"
           },
           "sourceId" : "4",
           "tags" : "Relationship"
         }, {
-          "description" : "Integrates for DeFi deposits and withdrawals",
-          "destinationId" : "21",
+          "description" : "Integrates for deposits, conversions, and withdrawals, allowing seamless Pix and USDC management.",
+          "destinationId" : "15",
           "id" : "34",
           "properties" : {
-            "structurizr.dsl.identifier" : "21c1ea43-b64c-4d6a-923b-c9b8f2ace626"
+            "structurizr.dsl.identifier" : "439f5d5e-c4b9-46b4-a787-059db456d25c"
           },
           "sourceId" : "4",
           "tags" : "Relationship"
         }, {
-          "description" : "Fetches blockchain history data",
-          "destinationId" : "20",
+          "description" : "Integrates for DeFi deposits and withdrawals, enabling interaction with decentralized finance protocols.",
+          "destinationId" : "22",
           "id" : "35",
           "properties" : {
-            "structurizr.dsl.identifier" : "feec8c55-1b31-45c7-96aa-b748f9c16738"
+            "structurizr.dsl.identifier" : "937adbe8-fcf4-4a3f-846c-4233154ca5e2"
           },
           "sourceId" : "4",
           "tags" : "Relationship"
         }, {
-          "description" : "Handles authentication through Google Auth",
-          "destinationId" : "25",
+          "description" : "Fetches blockchain history data, providing structured transaction history to users.",
+          "destinationId" : "21",
           "id" : "36",
           "properties" : {
-            "structurizr.dsl.identifier" : "383cd74c-2e6b-47e3-8245-dd1c57f66d77"
+            "structurizr.dsl.identifier" : "585f6f89-a30c-436f-884d-e2157cffcc4e"
           },
           "sourceId" : "4",
           "tags" : "Relationship"
         }, {
-          "description" : "Accesses secure key storage",
-          "destinationId" : "28",
-          "id" : "38",
+          "description" : "Handles authentication through Google Auth, securing user login and session management.",
+          "destinationId" : "26",
+          "id" : "37",
           "properties" : {
-            "structurizr.dsl.identifier" : "c8e09773-7c3c-4d1d-9197-2f634ed7719f"
+            "structurizr.dsl.identifier" : "ae8d2f4c-6e49-4848-9368-29fcce3034c2"
           },
           "sourceId" : "4",
           "tags" : "Relationship"
         }, {
-          "destinationId" : "22",
-          "id" : "56",
-          "linkedRelationshipId" : "54",
-          "sourceId" : "4"
+          "description" : "Accesses secure key storage for multisig and other cryptographic functions.",
+          "destinationId" : "29",
+          "id" : "39",
+          "properties" : {
+            "structurizr.dsl.identifier" : "fba49e47-7033-4f51-8287-ab1adf6fc12e"
+          },
+          "sourceId" : "4",
+          "tags" : "Relationship"
         }, {
+          "description" : "Interacts with the USDC token for approval and transfer to DeFi Protocols.",
           "destinationId" : "23",
-          "id" : "58",
+          "id" : "59",
           "linkedRelationshipId" : "57",
           "sourceId" : "4"
         }, {
+          "description" : "Executes a DeFi deposit, adding user funds to a DeFi pool.",
           "destinationId" : "24",
-          "id" : "60",
-          "linkedRelationshipId" : "59",
+          "id" : "61",
+          "linkedRelationshipId" : "60",
           "sourceId" : "4"
         }, {
-          "destinationId" : "26",
-          "id" : "62",
-          "linkedRelationshipId" : "61",
+          "description" : "Initiates a DeFi withdrawal, transferring funds back to the company's secure HSM wallet.",
+          "destinationId" : "25",
+          "id" : "63",
+          "linkedRelationshipId" : "62",
           "sourceId" : "4"
         }, {
+          "description" : "Uses Google OAuth 2.0 to authenticate the user and issue a secure JWT token.",
           "destinationId" : "27",
           "id" : "65",
           "linkedRelationshipId" : "64",
           "sourceId" : "4"
         }, {
-          "destinationId" : "29",
-          "id" : "67",
-          "linkedRelationshipId" : "66",
+          "description" : "Handles session termination by invalidating the JWT token.",
+          "destinationId" : "28",
+          "id" : "68",
+          "linkedRelationshipId" : "67",
           "sourceId" : "4"
         }, {
+          "description" : "Generates a secure wallet address and cryptographic key using HSM.",
           "destinationId" : "30",
-          "id" : "69",
-          "linkedRelationshipId" : "68",
+          "id" : "70",
+          "linkedRelationshipId" : "69",
           "sourceId" : "4"
         }, {
+          "description" : "Signs blockchain transactions with the private key stored in HSM for added security.",
+          "destinationId" : "31",
+          "id" : "72",
+          "linkedRelationshipId" : "71",
+          "sourceId" : "4"
+        }, {
+          "description" : "Requests the generation of a Pix QR code for user deposits.",
           "destinationId" : "16",
-          "id" : "71",
-          "linkedRelationshipId" : "70",
+          "id" : "74",
+          "linkedRelationshipId" : "73",
           "sourceId" : "4"
         }, {
+          "description" : "Requests the generation of USDC address for DeFi withdraw.",
           "destinationId" : "17",
-          "id" : "73",
-          "linkedRelationshipId" : "72",
+          "id" : "76",
+          "linkedRelationshipId" : "75",
           "sourceId" : "4"
         }, {
+          "description" : "Initiates a Pix-to-USDC swap for currency conversion within the platform.",
           "destinationId" : "18",
-          "id" : "75",
-          "linkedRelationshipId" : "74",
+          "id" : "78",
+          "linkedRelationshipId" : "77",
           "sourceId" : "4"
         }, {
+          "description" : "Processes Pix withdrawals, sending funds to a user's external account.",
           "destinationId" : "19",
-          "id" : "77",
-          "linkedRelationshipId" : "76",
+          "id" : "80",
+          "linkedRelationshipId" : "79",
+          "sourceId" : "4"
+        }, {
+          "description" : "Manages Web3 withdrawals, sending funds to the company's secure HSM wallet.",
+          "destinationId" : "20",
+          "id" : "82",
+          "linkedRelationshipId" : "81",
           "sourceId" : "4"
         } ],
         "tags" : "Element,Container,Backend",
         "technology" : "TypeScript/Next.js"
       }, {
-        "description" : "Stores customer data and financial transactions.",
+        "description" : "Stores customer data, transaction history, and other critical financial records.",
         "documentation" : { },
         "id" : "14",
         "name" : "Database",
@@ -493,55 +545,78 @@
         "technology" : "PostgreSQL"
       }, {
         "components" : [ {
-          "description" : "Generate a QRcode for client make deposit",
+          "description" : "Generates a Pix QR code for customer deposits, initiating the deposit process.",
           "documentation" : { },
           "id" : "16",
           "name" : "Deposit QRcode PIX",
           "properties" : {
-            "structurizr.dsl.identifier" : "generatedeposit"
+            "structurizr.dsl.identifier" : "generatepixdeposit"
           },
           "tags" : "Element,Component"
         }, {
-          "description" : "Convert PIX to USDC or vice versa",
+          "description" : "Generates a USDC Address for withdraw from DeFi protocol, initiating the deposit process.",
           "documentation" : { },
           "id" : "17",
+          "name" : "Deposit USDC Address",
+          "properties" : {
+            "structurizr.dsl.identifier" : "generateusdcdeposit"
+          },
+          "tags" : "Element,Component"
+        }, {
+          "description" : "Handles conversion between Pix and USDC, facilitating currency exchanges.",
+          "documentation" : { },
+          "id" : "18",
           "name" : "SWAP PIX/USDC",
           "properties" : {
             "structurizr.dsl.identifier" : "swap"
           },
           "tags" : "Element,Component"
         }, {
-          "description" : "Withdraw to client PIX",
+          "description" : "Facilitates Pix withdrawals, enabling users to transfer funds to external accounts.",
           "documentation" : { },
-          "id" : "18",
+          "id" : "19",
           "name" : "Withdraw PIX",
           "properties" : {
             "structurizr.dsl.identifier" : "withdrawpix"
           },
           "tags" : "Element,Component"
         }, {
-          "description" : "Withdraw to HSM wallet",
+          "description" : "Performs Web3-based withdrawals, transferring funds to the company's wallet in USDC.",
           "documentation" : { },
-          "id" : "19",
+          "id" : "20",
           "name" : "Withdraw Web3",
           "properties" : {
             "structurizr.dsl.identifier" : "withdrawweb3"
           },
           "tags" : "Element,Component"
         } ],
-        "description" : "Processes Pix deposits and converts them to USDC.",
+        "description" : "Processes Pix deposits and converts them to USDC, supporting payment actions.",
         "documentation" : { },
         "id" : "15",
         "name" : "Payment Gateway (SaaS Pix)",
         "properties" : {
           "structurizr.dsl.identifier" : "paymentgateway"
         },
+        "relationships" : [ {
+          "destinationId" : "13",
+          "id" : "46",
+          "properties" : {
+            "structurizr.dsl.identifier" : "830d2678-e6fa-42b4-bfd2-b531e5e7cb98"
+          },
+          "sourceId" : "15",
+          "tags" : "Relationship"
+        }, {
+          "destinationId" : "4",
+          "id" : "47",
+          "linkedRelationshipId" : "46",
+          "sourceId" : "15"
+        } ],
         "tags" : "Element,Container,Saas",
         "technology" : "Brasil Bitcoin"
       }, {
-        "description" : "Reads and indexes blockchain data transactions.",
+        "description" : "Reads and indexes blockchain transactions, providing historical data for user accounts.",
         "documentation" : { },
-        "id" : "20",
+        "id" : "21",
         "name" : "Indexer Provider",
         "properties" : {
           "structurizr.dsl.identifier" : "indexerprovider"
@@ -550,39 +625,36 @@
         "technology" : "The Graph"
       }, {
         "components" : [ {
-          "description" : "Manages USDC token transfers",
+          "description" : "Manages USDC token interactions on the blockchain, enabling transfers for user transactions.",
           "documentation" : { },
-          "id" : "22",
+          "id" : "23",
           "name" : "USDC Token",
           "properties" : {
             "structurizr.dsl.identifier" : "usdctoken"
           },
-          "tags" : "Element,Component",
-          "technology" : "Web3"
+          "tags" : "Element,Component"
         }, {
-          "description" : "Deposits amount (USDC) into DeFi Pool.",
+          "description" : "Executes deposits into DeFi pools, allowing users to invest USDC.",
           "documentation" : { },
-          "id" : "23",
+          "id" : "24",
           "name" : "Deposit Function",
           "properties" : {
             "structurizr.dsl.identifier" : "defidepositfunction"
           },
-          "tags" : "Element,Component",
-          "technology" : "Web3"
+          "tags" : "Element,Component"
         }, {
-          "description" : "Withdraws balance from DeFi Pool (USDC).",
+          "description" : "Handles withdrawals from DeFi pools, enabling users to retrieve invested funds.",
           "documentation" : { },
-          "id" : "24",
+          "id" : "25",
           "name" : "Withdraw Function",
           "properties" : {
             "structurizr.dsl.identifier" : "defiwithdrawfunction"
           },
-          "tags" : "Element,Component",
-          "technology" : "Web3"
+          "tags" : "Element,Component"
         } ],
-        "description" : "Blockchain platform managing smart contracts for investments.",
+        "description" : "Blockchain platform supporting DeFi investments and smart contract interactions.",
         "documentation" : { },
-        "id" : "21",
+        "id" : "22",
         "name" : "Blockchain Provider (Alchemy)",
         "properties" : {
           "structurizr.dsl.identifier" : "blockchain"
@@ -591,74 +663,76 @@
         "technology" : "Alchemy"
       }, {
         "components" : [ {
-          "description" : "Uses Google OAuth 2.0 to get JWT token",
+          "description" : "Initiates Google OAuth to authenticate users and issue JWT tokens for secure sessions.",
           "documentation" : { },
-          "id" : "26",
+          "id" : "27",
           "name" : "Login",
           "properties" : {
             "structurizr.dsl.identifier" : "login"
           },
           "relationships" : [ {
+            "description" : "Returns the JWT token to the frontend for secure session handling.",
             "destinationId" : "3",
-            "id" : "63",
+            "id" : "66",
             "properties" : {
-              "structurizr.dsl.identifier" : "28a3dece-35b4-4898-bc40-97703706bf64"
+              "structurizr.dsl.identifier" : "f7fe5728-6586-4285-aa6d-5209144711e3"
             },
-            "sourceId" : "26",
+            "sourceId" : "27",
             "tags" : "Relationship"
           } ],
           "tags" : "Element,Component"
         }, {
-          "description" : "Disable JWT token",
+          "description" : "Invalidates JWT tokens upon user logout, maintaining session security.",
           "documentation" : { },
-          "id" : "27",
+          "id" : "28",
           "name" : "Logout",
           "properties" : {
             "structurizr.dsl.identifier" : "logout"
           },
           "tags" : "Element,Component"
         } ],
-        "description" : "External service for user authentication via Google.",
+        "description" : "Handles user authentication using Google OAuth, issuing secure JWTs for logins.",
         "documentation" : { },
-        "id" : "25",
+        "id" : "26",
         "name" : "Google Authentication",
         "properties" : {
           "structurizr.dsl.identifier" : "googleoauthprovider"
         },
         "relationships" : [ {
+          "description" : "Redirects authentication responses back to the frontend post-login.",
           "destinationId" : "3",
-          "id" : "37",
+          "id" : "38",
           "properties" : {
-            "structurizr.dsl.identifier" : "c68694b9-76f5-4b2a-860d-be7ac4abf052"
+            "structurizr.dsl.identifier" : "79d0b8ec-f3e3-40e2-ad52-b2d68e453a5e"
           },
-          "sourceId" : "25",
+          "sourceId" : "26",
           "tags" : "Relationship"
         } ],
         "tags" : "Element,Container,Saas",
         "technology" : "OAuth 2.0"
       }, {
         "components" : [ {
-          "description" : "Generates a random private key and public key",
+          "description" : "Generates secure cryptographic keys for user wallets, enabling DeFi transactions.",
           "documentation" : { },
-          "id" : "29",
+          "id" : "30",
           "name" : "New Wallet",
           "properties" : {
             "structurizr.dsl.identifier" : "newwallet"
           },
           "tags" : "Element,Component"
         }, {
-          "description" : "Expect a tx to sign and return signature",
+          "description" : "Signs Ethereum transactions, facilitating secure fund transfers on the blockchain.",
           "documentation" : { },
-          "id" : "30",
+          "id" : "31",
           "name" : "Sign Tx",
           "properties" : {
             "structurizr.dsl.identifier" : "eth_sign"
           },
           "tags" : "Element,Component"
         } ],
-        "description" : "Manages secure storage of keys for multisig and other critical operations.",
+        "description" : "Manages cryptographic keys and secure operations, including wallet creation and transaction signing.",
         "documentation" : { },
-        "id" : "28",
+        "id" : "29",
         "name" : "HSM Service",
         "properties" : {
           "structurizr.dsl.identifier" : "hsmprovider"
@@ -679,87 +753,85 @@
   },
   "name" : "Investment System",
   "properties" : {
-    "structurizr.dsl" : "Ly8gQ29uc3RhbnRzCiFjb25zdCBPUkdBTklTQVRJT05fTkFNRSAiSW52ZXN0bWVudCBTeXN0ZW0iCiFjb25zdCBQQVlNRU5UX1BST1ZJREVSX05BTUUgIlBheW1lbnQgR2F0ZXdheSAoU2FhUyBQaXgpIgohY29uc3QgQkxPQ0tDSEFJTl9QUk9WSURFUiAiQmxvY2tjaGFpbiBQcm92aWRlciAoQWxjaGVteSkiCiFjb25zdCBOT1RJRklDQVRJT05fUFJPVklERVJfTkFNRSAiTm90aWZpY2F0aW9uIFByb3ZpZGVyIChFbWFpbC9TTVMpIgohY29uc3QgSU5ERVhFUl9QUk9WSURFUl9OQU1FICJJbmRleGVyIFByb3ZpZGVyIgohY29uc3QgQVVUSF9QUk9WSURFUl9OQU1FICJHb29nbGUgQXV0aGVudGljYXRpb24iCiFjb25zdCBIU01fUFJPVklERVJfTkFNRSAiSFNNIFNlcnZpY2UiCgovLyBXb3Jrc3BhY2UKd29ya3NwYWNlICIke09SR0FOSVNBVElPTl9OQU1FfSIgIkludmVzdG1lbnQgc3lzdGVtIGludGVncmF0ZWQgd2l0aCBQaXggYW5kIERlRmkiIHsKICAgIG1vZGVsIHsKICAgICAgICB1c2VyID0gcGVyc29uICJDdXN0b21lciIgIkVuZCB1c2VyIHBlcmZvcm1pbmcgZGVwb3NpdHMgYW5kIGludmVzdG1lbnRzLiIKICAgIAogICAgICAgIHN5c3RlbSA9IHNvZnR3YXJlU3lzdGVtICIke09SR0FOSVNBVElPTl9OQU1FfSIgIlN5c3RlbSB0aGF0IGVuYWJsZXMgUGl4IGRlcG9zaXRzIGFuZCBEZUZpIGludmVzdG1lbnRzIiB7CiAgICAgICAgICAgIGZyb250ZW5kID0gY29udGFpbmVyICJGcm9udGVuZCIgIlVzZXIgaW50ZXJmYWNlIGZvciBkZXBvc2l0cyBhbmQgaW52ZXN0bWVudHMuIiB7CiAgICAgICAgICAgICAgICB0ZWNobm9sb2d5ICJSZWFjdC9OZXh0LmpzIgogICAgICAgICAgICAgICAgdGFncyAiRnJvbnRlbmQiCiAgICAgICAgICAgIH0KICAgIAogICAgICAgICAgICBiYWNrZW5kID0gY29udGFpbmVyICJCYWNrZW5kIiAiQVBJIHJlc3BvbnNpYmxlIGZvciBidXNpbmVzcyBsb2dpYywgZXh0ZXJuYWwgcHJvdmlkZXIgaW50ZWdyYXRpb24sIGFuZCB0aGUgZGF0YWJhc2UuIiB7CiAgICAgICAgICAgICAgICB0ZWNobm9sb2d5ICJUeXBlU2NyaXB0L05leHQuanMiCiAgICAgICAgICAgICAgICB0YWdzICJCYWNrZW5kIgogICAgCiAgICAgICAgICAgICAgICByZXN0QVBJID0gY29tcG9uZW50ICJSRVNUIEFQSSIgIk1hbmFnZXMgSFRUUCBjb25uZWN0aW9ucy4iIHsKICAgICAgICAgICAgICAgICAgICB0ZWNobm9sb2d5ICJOZXh0LmpzIEFQSSIKICAgICAgICAgICAgICAgIH0KICAgIAogICAgICAgICAgICAgICAgbG9naW5Nb2R1bGUgPSBjb21wb25lbnQgIkxvZ2luIE1vZHVsZSIgIlZhbGlkYXRlcyBpZiB0aGUgdXNlciBleGlzdHMgYW5kIHRyaWdnZXJzIGxvZ2luIHRocm91Z2ggR29vZ2xlIEF1dGguIiB7CiAgICAgICAgICAgICAgICAgICAgdGVjaG5vbG9neSAiQ3VzdG9tIFR5cGVTY3JpcHQgTW9kdWxlIgogICAgICAgICAgICAgICAgfQogICAgCiAgICAgICAgICAgICAgICBkYXRhYmFzZUFkYXB0ZXIgPSBjb21wb25lbnQgIkRhdGFiYXNlIEFkYXB0ZXIiICJIYW5kbGVzIGNvbm5lY3Rpb24gYW5kIHF1ZXJpZXMgdG8gdGhlIFBvc3RncmVTUUwgZGF0YWJhc2UuIiB7CiAgICAgICAgICAgICAgICAgICAgdGVjaG5vbG9neSAiU1FMIERhdGFiYXNlIENsaWVudCIKICAgICAgICAgICAgICAgIH0KICAgIAogICAgICAgICAgICAgICAgdXNlckNSVUQgPSBjb21wb25lbnQgIlVzZXIgQ1JVRCIgIk1hbmFnZXMgdXNlciBkYXRhIGluY2x1ZGluZyBLWUMgYW5kIG90aGVyIGluZm9ybWF0aW9uLiIgewogICAgICAgICAgICAgICAgICAgIHRlY2hub2xvZ3kgIkN1c3RvbSBUeXBlU2NyaXB0IE1vZHVsZSIKICAgICAgICAgICAgICAgIH0KICAgIAogICAgICAgICAgICAgICAgcGF5bWVudEdhdGV3YXlBZGFwdGVyID0gY29tcG9uZW50ICJQYXltZW50IEdhdGV3YXkgQWRhcHRlciIgIkdlbmVyYXRlcyBQaXggUVIgQ29kZXMsIGNvbnZlcnRzIFBpeCB0byBVU0RDLCBhbmQgbWFuYWdlcyB3aXRoZHJhd2FscyB0byBjb21wYW55IHdhbGxldHMuIiB7CiAgICAgICAgICAgICAgICAgICAgdGVjaG5vbG9neSAiQ3VzdG9tIFR5cGVTY3JpcHQgQWRhcHRlci9CcmFzaWwgQml0Y29pbiIKICAgICAgICAgICAgICAgIH0KICAgIAogICAgICAgICAgICAgICAgd2ViM01vZHVsZSA9IGNvbXBvbmVudCAiV2ViMyBNb2R1bGUiICJIYW5kbGVzIGRlcG9zaXRzIGFuZCB3aXRoZHJhd2FscyBmcm9tIERlRmkgcGxhdGZvcm1zIHZpYSB0aGUgQWxjaGVteSBibG9ja2NoYWluIGdhdGV3YXkuIiB7CiAgICAgICAgICAgICAgICAgICAgdGVjaG5vbG9neSAiV2ViMyBUeXBlU2NyaXB0IFNESyIKICAgICAgICAgICAgICAgIH0KICAgIAogICAgICAgICAgICAgICAgaW5kZXhlck1vZHVsZSA9IGNvbXBvbmVudCAiSW5kZXhlciBNb2R1bGUiICJGZXRjaGVzIGJsb2NrY2hhaW4gaGlzdG9yeSAodmlhIFRoZSBHcmFwaCkgYW5kIGludGVncmF0ZXMgc3RydWN0dXJlZCBkYXRhIGludG8gdGhlIHVzZXIgZGF0YWJhc2UuIiB7CiAgICAgICAgICAgICAgICAgICAgdGVjaG5vbG9neSAiVGhlIEdyYXBoIEFQSSIKICAgICAgICAgICAgICAgIH0KICAgIAogICAgICAgICAgICAgICAgZ29vZ2xlT2F0aE1vZHVsZSA9IGNvbXBvbmVudCAiR29vZ2xlIE9hdGggTW9kdWxlIiAiTWFrZSBsb2dpbiB1c2luZyBHb29nbGUgQWNjb3VudCIgewogICAgICAgICAgICAgICAgICAgIHRlY2hub2xvZ3kgIkdvb2dsZSBPYXRoIgogICAgICAgICAgICAgICAgfQogICAgCiAgICAgICAgICAgICAgICB3ZWJob29rTW9kdWxlID0gY29tcG9uZW50ICJXZWJob29rIE1vZHVsZSIgIkhhbmRsZXMgdGhlIHdlYmhvb2sgZnJvbSB0aGUgUGF5bWVudCBHYXRld2F5IiB7CiAgICAgICAgICAgICAgICAgICAgdGVjaG5vbG9neSAiQ3VzdG9tIFR5cGVTY3JpcHQgQWRhcHRlci9CcmFzaWwgQml0Y29pbiIKICAgICAgICAgICAgICAgIH0KICAgICAgICAgICAgfQogICAgCiAgICAgICAgICAgIGRhdGFiYXNlID0gY29udGFpbmVyICJEYXRhYmFzZSIgIlN0b3JlcyBjdXN0b21lciBkYXRhIGFuZCBmaW5hbmNpYWwgdHJhbnNhY3Rpb25zLiIgewogICAgICAgICAgICAgICAgdGVjaG5vbG9neSAiUG9zdGdyZVNRTCIKICAgICAgICAgICAgICAgIHRhZ3MgIkRhdGFiYXNlIgogICAgICAgICAgICB9CiAgICAKICAgICAgICAgICAgcGF5bWVudEdhdGV3YXkgPSBjb250YWluZXIgIiR7UEFZTUVOVF9QUk9WSURFUl9OQU1FfSIgIlByb2Nlc3NlcyBQaXggZGVwb3NpdHMgYW5kIGNvbnZlcnRzIHRoZW0gdG8gVVNEQy4iIHsKICAgICAgICAgICAgICAgIHRlY2hub2xvZ3kgIkJyYXNpbCBCaXRjb2luIgogICAgICAgICAgICAgICAgdGFncyAiU2FhcyIKICAgICAgICAgICAgICAgIGdlbmVyYXRlRGVwb3NpdCA9IGNvbXBvbmVudCAiRGVwb3NpdCBRUmNvZGUgUElYIiAiR2VuZXJhdGUgYSBRUmNvZGUgZm9yIGNsaWVudCBtYWtlIGRlcG9zaXQiCiAgICAgICAgICAgICAgICBzd2FwID0gY29tcG9uZW50ICJTV0FQIFBJWC9VU0RDIiAiQ29udmVydCBQSVggdG8gVVNEQyBvciB2aWNlIHZlcnNhIgogICAgICAgICAgICAgICAgd2l0aGRyYXdQSVggPSBjb21wb25lbnQgIldpdGhkcmF3IFBJWCIgIldpdGhkcmF3IHRvIGNsaWVudCBQSVgiCiAgICAgICAgICAgICAgICB3aXRoZHJhd1dlYjMgPSBjb21wb25lbnQgIldpdGhkcmF3IFdlYjMiICJXaXRoZHJhdyB0byBIU00gd2FsbGV0IgogICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgIH0KICAgIAogICAgICAgICAgICBpbmRleGVyUHJvdmlkZXIgPSBjb250YWluZXIgIiR7SU5ERVhFUl9QUk9WSURFUl9OQU1FfSIgIlJlYWRzIGFuZCBpbmRleGVzIGJsb2NrY2hhaW4gZGF0YSB0cmFuc2FjdGlvbnMuIiB7CiAgICAgICAgICAgICAgICB0ZWNobm9sb2d5ICJUaGUgR3JhcGgiCiAgICAgICAgICAgICAgICB0YWdzICJTYWFzIgogICAgICAgICAgICB9CiAgICAKICAgICAgICAgICAgYmxvY2tjaGFpbiA9IGNvbnRhaW5lciAiJHtCTE9DS0NIQUlOX1BST1ZJREVSfSIgIkJsb2NrY2hhaW4gcGxhdGZvcm0gbWFuYWdpbmcgc21hcnQgY29udHJhY3RzIGZvciBpbnZlc3RtZW50cy4iIHsKICAgICAgICAgICAgICAgIHRlY2hub2xvZ3kgIkFsY2hlbXkiCiAgICAgICAgICAgICAgICB0YWdzICJTYWFzIgogICAgCiAgICAgICAgICAgICAgICB1c2RjVG9rZW4gPSBjb21wb25lbnQgIlVTREMgVG9rZW4iICJNYW5hZ2VzIFVTREMgdG9rZW4gdHJhbnNmZXJzIiB7CiAgICAgICAgICAgICAgICAgICAgdGVjaG5vbG9neSAiV2ViMyIKICAgICAgICAgICAgICAgIH0KICAgICAgICAgICAgICAgIGRlZmlEZXBvc2l0RnVuY3Rpb24gPSBjb21wb25lbnQgIkRlcG9zaXQgRnVuY3Rpb24iICJEZXBvc2l0cyBhbW91bnQgKFVTREMpIGludG8gRGVGaSBQb29sLiIgewogICAgICAgICAgICAgICAgICAgIHRlY2hub2xvZ3kgIldlYjMiCiAgICAgICAgICAgICAgICB9CiAgICAgICAgICAgICAgICBkZWZpV2l0aGRyYXdGdW5jdGlvbiA9IGNvbXBvbmVudCAiV2l0aGRyYXcgRnVuY3Rpb24iICJXaXRoZHJhd3MgYmFsYW5jZSBmcm9tIERlRmkgUG9vbCAoVVNEQykuIiB7CiAgICAgICAgICAgICAgICAgICAgdGVjaG5vbG9neSAiV2ViMyIKICAgICAgICAgICAgICAgIH0KICAgICAgICAgICAgfQogICAgCiAgICAgICAgICAgIGdvb2dsZU9hdXRoUHJvdmlkZXIgPSBjb250YWluZXIgIiR7QVVUSF9QUk9WSURFUl9OQU1FfSIgIkV4dGVybmFsIHNlcnZpY2UgZm9yIHVzZXIgYXV0aGVudGljYXRpb24gdmlhIEdvb2dsZS4iIHsKICAgICAgICAgICAgICAgIHRhZ3MgIlNhYXMiCiAgICAgICAgICAgICAgICB0ZWNobm9sb2d5ICJPQXV0aCAyLjAiCiAgICAKICAgICAgICAgICAgICAgIGxvZ2luID0gY29tcG9uZW50ICJMb2dpbiIgIlVzZXMgR29vZ2xlIE9BdXRoIDIuMCB0byBnZXQgSldUIHRva2VuIgogICAgICAgICAgICAgICAgbG9nb3V0ID0gY29tcG9uZW50ICJMb2dvdXQiICJEaXNhYmxlIEpXVCB0b2tlbiIKICAgICAgICAgICAgfQogICAgCiAgICAgICAgICAgIGhzbVByb3ZpZGVyID0gY29udGFpbmVyICIke0hTTV9QUk9WSURFUl9OQU1FfSIgIk1hbmFnZXMgc2VjdXJlIHN0b3JhZ2Ugb2Yga2V5cyBmb3IgbXVsdGlzaWcgYW5kIG90aGVyIGNyaXRpY2FsIG9wZXJhdGlvbnMuIiB7CiAgICAgICAgICAgICAgICB0YWdzICJTYWFzIgogICAgICAgICAgICAgICAgdGVjaG5vbG9neSAiRElOQU1PIgogICAgCiAgICAgICAgICAgICAgICBuZXdXYWxsZXQgPSBjb21wb25lbnQgIk5ldyBXYWxsZXQiICJHZW5lcmF0ZXMgYSByYW5kb20gcHJpdmF0ZSBrZXkgYW5kIHB1YmxpYyBrZXkiCiAgICAgICAgICAgICAgICBldGhfc2lnbiA9IGNvbXBvbmVudCAiU2lnbiBUeCIgIkV4cGVjdCBhIHR4IHRvIHNpZ24gYW5kIHJldHVybiBzaWduYXR1cmUiCiAgICAgICAgICAgIH0KICAgIAogICAgICAgICAgICAvLyBVc2VyIEludGVyYWN0aW9ucwogICAgICAgICAgICBmcm9udGVuZCAtPiBiYWNrZW5kICJDb21tdW5pY2F0ZXMgdmlhIEhUVFAgQVBJIgogICAgICAgICAgICBiYWNrZW5kIC0+IGRhdGFiYXNlICJSZWFkcyBhbmQgd3JpdGVzIGRhdGEiCiAgICAgICAgICAgIGJhY2tlbmQgLT4gcGF5bWVudEdhdGV3YXkgIkludGVncmF0ZXMgZm9yIGRlcG9zaXRzLCBjb252ZXJzaW9ucywgYW5kIHdpdGhkcmF3YWxzIgogICAgICAgICAgICBiYWNrZW5kIC0+IGJsb2NrY2hhaW4gIkludGVncmF0ZXMgZm9yIERlRmkgZGVwb3NpdHMgYW5kIHdpdGhkcmF3YWxzIgogICAgICAgICAgICBiYWNrZW5kIC0+IGluZGV4ZXJQcm92aWRlciAiRmV0Y2hlcyBibG9ja2NoYWluIGhpc3RvcnkgZGF0YSIKICAgICAgICAgICAgYmFja2VuZCAtPiBnb29nbGVPYXV0aFByb3ZpZGVyICJIYW5kbGVzIGF1dGhlbnRpY2F0aW9uIHRocm91Z2ggR29vZ2xlIEF1dGgiCiAgICAgICAgICAgIGdvb2dsZU9hdXRoUHJvdmlkZXIgLT4gZnJvbnRlbmQKICAgICAgICAgICAgYmFja2VuZCAtPiBoc21Qcm92aWRlciAiQWNjZXNzZXMgc2VjdXJlIGtleSBzdG9yYWdlIgogICAgCiAgICAgICAgICAgIC8vIEludGVybmFsIEludGVyYWN0aW9ucwogICAgICAgICAgICBmcm9udGVuZCAtPiByZXN0QVBJCiAgICAgICAgICAgIHJlc3RBUEkgLT4gbG9naW5Nb2R1bGUKICAgICAgICAgICAgaW5kZXhlck1vZHVsZSAtPiBpbmRleGVyUHJvdmlkZXIKICAgICAgICAgICAgdXNlckNSVUQgLT4gZGF0YWJhc2VBZGFwdGVyCiAgICAgICAgICAgIHVzZXJDUlVEIC0+IGluZGV4ZXJNb2R1bGUKICAgICAgICAgICAgZGF0YWJhc2VBZGFwdGVyIC0+IGRhdGFiYXNlCiAgICAgICAgICAgIGxvZ2luTW9kdWxlIC0+IHBheW1lbnRHYXRld2F5QWRhcHRlcgogICAgICAgICAgICBwYXltZW50R2F0ZXdheUFkYXB0ZXIgLT4gcGF5bWVudEdhdGV3YXkKICAgICAgICAgICAgbG9naW5Nb2R1bGUgLT4gd2ViM01vZHVsZQogICAgICAgICAgICBsb2dpbk1vZHVsZSAtPiB1c2VyQ1JVRAogICAgICAgICAgICB3ZWIzTW9kdWxlIC0+IGhzbVByb3ZpZGVyCiAgICAgICAgICAgIGxvZ2luTW9kdWxlIC0+IGdvb2dsZU9hdGhNb2R1bGUKICAgICAgICAgICAgZ29vZ2xlT2F0aE1vZHVsZSAtPiBnb29nbGVPYXV0aFByb3ZpZGVyICJBdXRoZW50aWNhdGVzIHVzZXIgdmlhIEdvb2dsZSBBdXRoIgogICAgICAgICAgICB3ZWJob29rTW9kdWxlIC0+IHVzZXJDUlVECiAgICAgICAgICAgIHdlYmhvb2tNb2R1bGUgLT4gd2ViM01vZHVsZQogICAgCiAgICAKICAgICAgICAgICAgLy8gQmxvY2tjaGFpbiBJbnRlcmFjdGlvbnMKICAgICAgICAgICAgd2ViM01vZHVsZSAtPiB1c2RjVG9rZW4KICAgICAgICAgICAgd2ViM01vZHVsZSAtPiBkZWZpRGVwb3NpdEZ1bmN0aW9uCiAgICAgICAgICAgIHdlYjNNb2R1bGUgLT4gZGVmaVdpdGhkcmF3RnVuY3Rpb24KICAgIAogICAgICAgICAgICAvLyBHb29nbGUgSW50ZXJhY3Rpb25zCiAgICAgICAgICAgIGdvb2dsZU9hdGhNb2R1bGUgLT4gbG9naW4KICAgICAgICAgICAgbG9naW4gLT4gZnJvbnRlbmQKICAgICAgICAgICAgZ29vZ2xlT2F0aE1vZHVsZSAtPiBsb2dvdXQKICAgIAogICAgCiAgICAKICAgICAgICAgICAgLy8gSFNNIEludGVyYWN0aW9ucwogICAgICAgICAgICB3ZWIzTW9kdWxlIC0+IG5ld1dhbGxldAogICAgICAgICAgICB3ZWIzTW9kdWxlIC0+IGV0aF9zaWduCiAgICAKICAgIAogICAgICAgICAgICAvLyBQYXltZW50IEdhdGV3YXkgSW50ZXJhY3Rpb25zCiAgICAgICAgICAgIHBheW1lbnRHYXRld2F5QWRhcHRlciAtPiBnZW5lcmF0ZURlcG9zaXQKICAgICAgICAgICAgcGF5bWVudEdhdGV3YXlBZGFwdGVyIC0+IHN3YXAKICAgICAgICAgICAgcGF5bWVudEdhdGV3YXlBZGFwdGVyIC0+IHdpdGhkcmF3UElYCiAgICAgICAgICAgIHBheW1lbnRHYXRld2F5QWRhcHRlciAtPiB3aXRoZHJhd1dlYjMKICAgICAgICB9CiAgICAKICAgICAgICB1c2VyIC0+IHN5c3RlbSAiVXNlcyIKICAgIH0KICAgIHZpZXdzIHsKICAgICAgICAjIFN5c3RlbSBDb250ZXh0IERpYWdyYW0KICAgICAgICBzeXN0ZW1Db250ZXh0IHN5c3RlbSAiSW52ZXN0bWVudF9TeXN0ZW1fQ29udGV4dCIgewogICAgICAgICAgICBpbmNsdWRlICoKICAgICAgICB9CiAgICAKICAgICAgICAjIENvbnRhaW5lciBEaWFncmFtCiAgICAgICAgY29udGFpbmVyIHN5c3RlbSAiSW52ZXN0bWVudF9TeXN0ZW1fQ29udGFpbmVycyIgewogICAgICAgICAgICBpbmNsdWRlICoKICAgICAgICB9CiAgICAKICAgICAgICAjIEJhY2tlbmQgQ29tcG9uZW50cyBWaWV3CiAgICAgICAgY29tcG9uZW50IGJhY2tlbmQgIkJhY2tlbmRfQ29tcG9uZW50c19WaWV3IiB7CiAgICAgICAgICAgIGluY2x1ZGUgKgogICAgICAgIH0KICAgIAogICAgICAgICMgQmxvY2tjaGFpbiBDb21wb25lbnRzIFZpZXcKICAgICAgICBjb21wb25lbnQgYmxvY2tjaGFpbiAiQmxvY2tjaGFpbl9Qcm92aWRlcl9Db21wb25lbnRzX1ZpZXciIHsKICAgICAgICAgICAgaW5jbHVkZSAqCiAgICAgICAgfQogICAgICAgICMgUGF5bWVudCBHYXRld2F5IENvbXBvbmVudHMgVmlldwogICAgICAgIGNvbXBvbmVudCBwYXltZW50R2F0ZXdheSAiUGF5bWVudF9HYXRld2F5X0NvbXBvbmVudHNfVmlldyIgewogICAgICAgICAgICBpbmNsdWRlICoKICAgICAgICB9CiAgICAgICAgIyBIU00gQ29tcG9uZW50cyBWaWV3CiAgICAgICAgY29tcG9uZW50IGhzbVByb3ZpZGVyICJIU01fQ29tcG9uZW50c19WaWV3IiB7CiAgICAgICAgICAgIGluY2x1ZGUgKgogICAgICAgIH0KICAgICAgICAjIEdvb2dsZSBDb21wb25lbnRzIFZpZXcKICAgICAgICBjb21wb25lbnQgZ29vZ2xlT2F1dGhQcm92aWRlciAiR29vZ2xlX09BdXRoX0NvbXBvbmVudHNfVmlldyIgewogICAgICAgICAgICBpbmNsdWRlICoKICAgICAgICB9CiAgICAKICAgICAgICAjIFN0eWxpbmcgZm9yIERpYWdyYW0gRWxlbWVudHMKICAgICAgICBzdHlsZXMgewogICAgICAgICAgICBlbGVtZW50ICJQZXJzb24iIHsKICAgICAgICAgICAgICAgIHNoYXBlIFBlcnNvbgogICAgICAgICAgICAgICAgYmFja2dyb3VuZCAjMDg0MjdiCiAgICAgICAgICAgICAgICBjb2xvciAjZmZmZmZmCiAgICAgICAgICAgIH0KICAgICAgICAgICAgZWxlbWVudCAiQ29udGFpbmVyIiB7CiAgICAgICAgICAgICAgICBiYWNrZ3JvdW5kICM0MzhkZDUKICAgICAgICAgICAgICAgIGNvbG9yICNmZmZmZmYKICAgICAgICAgICAgfQogICAgICAgICAgICBlbGVtZW50ICJDb21wb25lbnQiIHsKICAgICAgICAgICAgICAgIGJhY2tncm91bmQgIzg1YmJmMAogICAgICAgICAgICAgICAgY29sb3IgIzAwMDAwMAogICAgICAgICAgICB9CiAgICAgICAgICAgIGVsZW1lbnQgIlNhYXMiIHsKICAgICAgICAgICAgICAgIHNoYXBlIEhleGFnb24KICAgICAgICAgICAgfQogICAgICAgICAgICBlbGVtZW50ICJGcm9udGVuZCIgewogICAgICAgICAgICAgICAgc2hhcGUgTW9iaWxlRGV2aWNlUG9ydHJhaXQKICAgICAgICAgICAgfQogICAgICAgICAgICBlbGVtZW50ICJCYWNrZW5kIiB7CiAgICAgICAgICAgICAgICBzaGFwZSBSb3VuZGVkQm94CiAgICAgICAgICAgIH0KICAgICAgICAgICAgZWxlbWVudCAiRGF0YWJhc2UiIHsKICAgICAgICAgICAgICAgIHNoYXBlIEN5bGluZGVyCiAgICAgICAgICAgIH0KICAgICAgICB9CiAgICB9Cn0="
+    "structurizr.dsl" : "Ly8gQ29uc3RhbnRzCiFjb25zdCBPUkdBTklTQVRJT05fTkFNRSAiSW52ZXN0bWVudCBTeXN0ZW0iCiFjb25zdCBQQVlNRU5UX1BST1ZJREVSX05BTUUgIlBheW1lbnQgR2F0ZXdheSAoU2FhUyBQaXgpIgohY29uc3QgQkxPQ0tDSEFJTl9QUk9WSURFUiAiQmxvY2tjaGFpbiBQcm92aWRlciAoQWxjaGVteSkiCiFjb25zdCBOT1RJRklDQVRJT05fUFJPVklERVJfTkFNRSAiTm90aWZpY2F0aW9uIFByb3ZpZGVyIChFbWFpbC9TTVMpIgohY29uc3QgSU5ERVhFUl9QUk9WSURFUl9OQU1FICJJbmRleGVyIFByb3ZpZGVyIgohY29uc3QgQVVUSF9QUk9WSURFUl9OQU1FICJHb29nbGUgQXV0aGVudGljYXRpb24iCiFjb25zdCBIU01fUFJPVklERVJfTkFNRSAiSFNNIFNlcnZpY2UiCgovLyBXb3Jrc3BhY2UKd29ya3NwYWNlICIke09SR0FOSVNBVElPTl9OQU1FfSIgIkludmVzdG1lbnQgc3lzdGVtIGludGVncmF0ZWQgd2l0aCBQaXggYW5kIERlRmkiIHsKICAgIG1vZGVsIHsKICAgICAgICB1c2VyID0gcGVyc29uICJDdXN0b21lciIgIkVuZCB1c2VyIHBlcmZvcm1pbmcgZGVwb3NpdHMgYW5kIGludmVzdG1lbnRzLiIKICAgIAogICAgICAgIHN5c3RlbSA9IHNvZnR3YXJlU3lzdGVtICIke09SR0FOSVNBVElPTl9OQU1FfSIgIlN5c3RlbSB0aGF0IGVuYWJsZXMgUGl4IGRlcG9zaXRzIGFuZCBEZUZpIGludmVzdG1lbnRzIiB7CiAgICAgICAgICAgIGZyb250ZW5kID0gY29udGFpbmVyICJGcm9udGVuZCIgIlVzZXIgaW50ZXJmYWNlIGZvciBkZXBvc2l0cyBhbmQgaW52ZXN0bWVudHMsIGVuYWJsaW5nIGludGVyYWN0aW9uIHdpdGggYWxsIGNvcmUgZmVhdHVyZXMuIiB7CiAgICAgICAgICAgICAgICB0ZWNobm9sb2d5ICJSZWFjdC9OZXh0LmpzIgogICAgICAgICAgICAgICAgdGFncyAiRnJvbnRlbmQiCiAgICAgICAgICAgIH0KICAgIAogICAgICAgICAgICBiYWNrZW5kID0gY29udGFpbmVyICJCYWNrZW5kIiAiQVBJIHJlc3BvbnNpYmxlIGZvciBidXNpbmVzcyBsb2dpYywgZXh0ZXJuYWwgcHJvdmlkZXIgaW50ZWdyYXRpb24sIGFuZCBkYXRhYmFzZSBjb21tdW5pY2F0aW9uLiIgewogICAgICAgICAgICAgICAgdGVjaG5vbG9neSAiVHlwZVNjcmlwdC9OZXh0LmpzIgogICAgICAgICAgICAgICAgdGFncyAiQmFja2VuZCIKICAgIAogICAgICAgICAgICAgICAgcmVzdEFQSSA9IGNvbXBvbmVudCAiUkVTVCBBUEkiICJNYW5hZ2VzIEhUVFAgY29ubmVjdGlvbnMsIGVuYWJsaW5nIHRoZSBmcm9udGVuZCB0byBpbnRlcmFjdCB3aXRoIGJhY2tlbmQgc2VydmljZXMuIiB7CiAgICAgICAgICAgICAgICAgICAgdGVjaG5vbG9neSAiTmV4dC5qcyBBUEkiCiAgICAgICAgICAgICAgICB9CiAgICAKICAgICAgICAgICAgICAgIGxvZ2luTW9kdWxlID0gY29tcG9uZW50ICJMb2dpbiBNb2R1bGUiICJWYWxpZGF0ZXMgaWYgdGhlIHVzZXIgZXhpc3RzIGFuZCB0cmlnZ2VycyBsb2dpbiB0aHJvdWdoIEdvb2dsZSBBdXRoLCBjcmVhdGluZyB1c2VyIGFjY291bnRzIGlmIG5ldy4iIHsKICAgICAgICAgICAgICAgICAgICB0ZWNobm9sb2d5ICJDdXN0b20gVHlwZVNjcmlwdCBNb2R1bGUiCiAgICAgICAgICAgICAgICB9CiAgICAKICAgICAgICAgICAgICAgIGRhdGFiYXNlQWRhcHRlciA9IGNvbXBvbmVudCAiRGF0YWJhc2UgQWRhcHRlciIgIkhhbmRsZXMgZGF0YSBpbnRlcmFjdGlvbiB3aXRoIFBvc3RncmVTUUwsIHN1cHBvcnRpbmcgcXVlcmllcyBhbmQgdXBkYXRlcy4iIHsKICAgICAgICAgICAgICAgICAgICB0ZWNobm9sb2d5ICJTUUwgRGF0YWJhc2UgQ2xpZW50IgogICAgICAgICAgICAgICAgfQogICAgCiAgICAgICAgICAgICAgICB1c2VyQ1JVRCA9IGNvbXBvbmVudCAiVXNlciBDUlVEIiAiTWFuYWdlcyB1c2VyLXJlbGF0ZWQgZGF0YSwgaW5jbHVkaW5nIEtZQyB2ZXJpZmljYXRpb24gYW5kIGdlbmVyYWwgdXNlciBpbmZvcm1hdGlvbi4iIHsKICAgICAgICAgICAgICAgICAgICB0ZWNobm9sb2d5ICJDdXN0b20gVHlwZVNjcmlwdCBNb2R1bGUiCiAgICAgICAgICAgICAgICB9CiAgICAKICAgICAgICAgICAgICAgIHBheW1lbnRHYXRld2F5QWRhcHRlciA9IGNvbXBvbmVudCAiUGF5bWVudCBHYXRld2F5IEFkYXB0ZXIiICJNYW5hZ2VzIFBpeCBRUiBjb2RlIGdlbmVyYXRpb24sIFBpeC10by1VU0RDIGNvbnZlcnNpb25zLCBhbmQgd2l0aGRyYXdhbHMuIiB7CiAgICAgICAgICAgICAgICAgICAgdGVjaG5vbG9neSAiQ3VzdG9tIFR5cGVTY3JpcHQgQWRhcHRlci9CcmFzaWwgQml0Y29pbiIKICAgICAgICAgICAgICAgIH0KICAgIAogICAgICAgICAgICAgICAgd2ViM01vZHVsZSA9IGNvbXBvbmVudCAiV2ViMyBNb2R1bGUiICJNYW5hZ2VzIGRlcG9zaXRzIGFuZCB3aXRoZHJhd2FscyB0byBEZUZpIHBsYXRmb3JtcyB0aHJvdWdoIEFsY2hlbXkuIiB7CiAgICAgICAgICAgICAgICAgICAgdGVjaG5vbG9neSAiV2ViMyBUeXBlU2NyaXB0IFNESyIKICAgICAgICAgICAgICAgIH0KICAgIAogICAgICAgICAgICAgICAgaW5kZXhlck1vZHVsZSA9IGNvbXBvbmVudCAiSW5kZXhlciBNb2R1bGUiICJSZXRyaWV2ZXMgYmxvY2tjaGFpbiBkYXRhIHRocm91Z2ggVGhlIEdyYXBoIGFuZCBzdHJ1Y3R1cmVzIGl0IGZvciBzdG9yYWdlIGFuZCBhY2Nlc3MuIiB7CiAgICAgICAgICAgICAgICAgICAgdGVjaG5vbG9neSAiVGhlIEdyYXBoIEFQSSIKICAgICAgICAgICAgICAgIH0KICAgIAogICAgICAgICAgICAgICAgZ29vZ2xlT2F0aE1vZHVsZSA9IGNvbXBvbmVudCAiR29vZ2xlIE9hdGggTW9kdWxlIiAiSGFuZGxlcyB1c2VyIGF1dGhlbnRpY2F0aW9uIHdpdGggR29vZ2xlIE9BdXRoLCBlbnN1cmluZyBzZWN1cmUgbG9naW5zIGFuZCBKV1QgaXNzdWFuY2UuIiB7CiAgICAgICAgICAgICAgICAgICAgdGVjaG5vbG9neSAiR29vZ2xlIE9BdXRoIgogICAgICAgICAgICAgICAgfQogICAgCiAgICAgICAgICAgICAgICB3ZWJob29rTW9kdWxlID0gY29tcG9uZW50ICJXZWJob29rIE1vZHVsZSIgIlByb2Nlc3NlcyBpbmNvbWluZyB3ZWJob29rcyBmcm9tIHRoZSBwYXltZW50IGdhdGV3YXksIHVwZGF0aW5nIHVzZXIgZGF0YSB1cG9uIGV2ZW50cy4iIHsKICAgICAgICAgICAgICAgICAgICB0ZWNobm9sb2d5ICJDdXN0b20gVHlwZVNjcmlwdCBBZGFwdGVyL0JyYXNpbCBCaXRjb2luIgogICAgICAgICAgICAgICAgfQogICAgICAgICAgICB9CiAgICAKICAgICAgICAgICAgZGF0YWJhc2UgPSBjb250YWluZXIgIkRhdGFiYXNlIiAiU3RvcmVzIGN1c3RvbWVyIGRhdGEsIHRyYW5zYWN0aW9uIGhpc3RvcnksIGFuZCBvdGhlciBjcml0aWNhbCBmaW5hbmNpYWwgcmVjb3Jkcy4iIHsKICAgICAgICAgICAgICAgIHRlY2hub2xvZ3kgIlBvc3RncmVTUUwiCiAgICAgICAgICAgICAgICB0YWdzICJEYXRhYmFzZSIKICAgICAgICAgICAgfQogICAgCiAgICAgICAgICAgIHBheW1lbnRHYXRld2F5ID0gY29udGFpbmVyICIke1BBWU1FTlRfUFJPVklERVJfTkFNRX0iICJQcm9jZXNzZXMgUGl4IGRlcG9zaXRzIGFuZCBjb252ZXJ0cyB0aGVtIHRvIFVTREMsIHN1cHBvcnRpbmcgcGF5bWVudCBhY3Rpb25zLiIgewogICAgICAgICAgICAgICAgdGVjaG5vbG9neSAiQnJhc2lsIEJpdGNvaW4iCiAgICAgICAgICAgICAgICB0YWdzICJTYWFzIgogICAgCiAgICAgICAgICAgICAgICBnZW5lcmF0ZVBJWERlcG9zaXQgPSBjb21wb25lbnQgIkRlcG9zaXQgUVJjb2RlIFBJWCIgIkdlbmVyYXRlcyBhIFBpeCBRUiBjb2RlIGZvciBjdXN0b21lciBkZXBvc2l0cywgaW5pdGlhdGluZyB0aGUgZGVwb3NpdCBwcm9jZXNzLiIKICAgICAgICAgICAgICAgIGdlbmVyYXRlVVNEQ0RlcG9zaXQgPSBjb21wb25lbnQgIkRlcG9zaXQgVVNEQyBBZGRyZXNzIiAiR2VuZXJhdGVzIGEgVVNEQyBBZGRyZXNzIGZvciB3aXRoZHJhdyBmcm9tIERlRmkgcHJvdG9jb2wsIGluaXRpYXRpbmcgdGhlIGRlcG9zaXQgcHJvY2Vzcy4iCiAgICAgICAgICAgICAgICBzd2FwID0gY29tcG9uZW50ICJTV0FQIFBJWC9VU0RDIiAiSGFuZGxlcyBjb252ZXJzaW9uIGJldHdlZW4gUGl4IGFuZCBVU0RDLCBmYWNpbGl0YXRpbmcgY3VycmVuY3kgZXhjaGFuZ2VzLiIKICAgICAgICAgICAgICAgIHdpdGhkcmF3UElYID0gY29tcG9uZW50ICJXaXRoZHJhdyBQSVgiICJGYWNpbGl0YXRlcyBQaXggd2l0aGRyYXdhbHMsIGVuYWJsaW5nIHVzZXJzIHRvIHRyYW5zZmVyIGZ1bmRzIHRvIGV4dGVybmFsIGFjY291bnRzLiIKICAgICAgICAgICAgICAgIHdpdGhkcmF3V2ViMyA9IGNvbXBvbmVudCAiV2l0aGRyYXcgV2ViMyIgIlBlcmZvcm1zIFdlYjMtYmFzZWQgd2l0aGRyYXdhbHMsIHRyYW5zZmVycmluZyBmdW5kcyB0byB0aGUgY29tcGFueSdzIHdhbGxldCBpbiBVU0RDLiIKICAgICAgICAgICAgfQogICAgCiAgICAgICAgICAgIGluZGV4ZXJQcm92aWRlciA9IGNvbnRhaW5lciAiJHtJTkRFWEVSX1BST1ZJREVSX05BTUV9IiAiUmVhZHMgYW5kIGluZGV4ZXMgYmxvY2tjaGFpbiB0cmFuc2FjdGlvbnMsIHByb3ZpZGluZyBoaXN0b3JpY2FsIGRhdGEgZm9yIHVzZXIgYWNjb3VudHMuIiB7CiAgICAgICAgICAgICAgICB0ZWNobm9sb2d5ICJUaGUgR3JhcGgiCiAgICAgICAgICAgICAgICB0YWdzICJTYWFzIgogICAgICAgICAgICB9CiAgICAKICAgICAgICAgICAgYmxvY2tjaGFpbiA9IGNvbnRhaW5lciAiJHtCTE9DS0NIQUlOX1BST1ZJREVSfSIgIkJsb2NrY2hhaW4gcGxhdGZvcm0gc3VwcG9ydGluZyBEZUZpIGludmVzdG1lbnRzIGFuZCBzbWFydCBjb250cmFjdCBpbnRlcmFjdGlvbnMuIiB7CiAgICAgICAgICAgICAgICB0ZWNobm9sb2d5ICJBbGNoZW15IgogICAgICAgICAgICAgICAgdGFncyAiU2FhcyIKICAgIAogICAgICAgICAgICAgICAgdXNkY1Rva2VuID0gY29tcG9uZW50ICJVU0RDIFRva2VuIiAiTWFuYWdlcyBVU0RDIHRva2VuIGludGVyYWN0aW9ucyBvbiB0aGUgYmxvY2tjaGFpbiwgZW5hYmxpbmcgdHJhbnNmZXJzIGZvciB1c2VyIHRyYW5zYWN0aW9ucy4iCiAgICAgICAgICAgICAgICBkZWZpRGVwb3NpdEZ1bmN0aW9uID0gY29tcG9uZW50ICJEZXBvc2l0IEZ1bmN0aW9uIiAiRXhlY3V0ZXMgZGVwb3NpdHMgaW50byBEZUZpIHBvb2xzLCBhbGxvd2luZyB1c2VycyB0byBpbnZlc3QgVVNEQy4iCiAgICAgICAgICAgICAgICBkZWZpV2l0aGRyYXdGdW5jdGlvbiA9IGNvbXBvbmVudCAiV2l0aGRyYXcgRnVuY3Rpb24iICJIYW5kbGVzIHdpdGhkcmF3YWxzIGZyb20gRGVGaSBwb29scywgZW5hYmxpbmcgdXNlcnMgdG8gcmV0cmlldmUgaW52ZXN0ZWQgZnVuZHMuIgogICAgICAgICAgICB9CiAgICAKICAgICAgICAgICAgZ29vZ2xlT2F1dGhQcm92aWRlciA9IGNvbnRhaW5lciAiJHtBVVRIX1BST1ZJREVSX05BTUV9IiAiSGFuZGxlcyB1c2VyIGF1dGhlbnRpY2F0aW9uIHVzaW5nIEdvb2dsZSBPQXV0aCwgaXNzdWluZyBzZWN1cmUgSldUcyBmb3IgbG9naW5zLiIgewogICAgICAgICAgICAgICAgdGFncyAiU2FhcyIKICAgICAgICAgICAgICAgIHRlY2hub2xvZ3kgIk9BdXRoIDIuMCIKICAgIAogICAgICAgICAgICAgICAgbG9naW4gPSBjb21wb25lbnQgIkxvZ2luIiAiSW5pdGlhdGVzIEdvb2dsZSBPQXV0aCB0byBhdXRoZW50aWNhdGUgdXNlcnMgYW5kIGlzc3VlIEpXVCB0b2tlbnMgZm9yIHNlY3VyZSBzZXNzaW9ucy4iCiAgICAgICAgICAgICAgICBsb2dvdXQgPSBjb21wb25lbnQgIkxvZ291dCIgIkludmFsaWRhdGVzIEpXVCB0b2tlbnMgdXBvbiB1c2VyIGxvZ291dCwgbWFpbnRhaW5pbmcgc2Vzc2lvbiBzZWN1cml0eS4iCiAgICAgICAgICAgIH0KICAgIAogICAgICAgICAgICBoc21Qcm92aWRlciA9IGNvbnRhaW5lciAiJHtIU01fUFJPVklERVJfTkFNRX0iICJNYW5hZ2VzIGNyeXB0b2dyYXBoaWMga2V5cyBhbmQgc2VjdXJlIG9wZXJhdGlvbnMsIGluY2x1ZGluZyB3YWxsZXQgY3JlYXRpb24gYW5kIHRyYW5zYWN0aW9uIHNpZ25pbmcuIiB7CiAgICAgICAgICAgICAgICB0YWdzICJTYWFzIgogICAgICAgICAgICAgICAgdGVjaG5vbG9neSAiRElOQU1PIgogICAgCiAgICAgICAgICAgICAgICBuZXdXYWxsZXQgPSBjb21wb25lbnQgIk5ldyBXYWxsZXQiICJHZW5lcmF0ZXMgc2VjdXJlIGNyeXB0b2dyYXBoaWMga2V5cyBmb3IgdXNlciB3YWxsZXRzLCBlbmFibGluZyBEZUZpIHRyYW5zYWN0aW9ucy4iCiAgICAgICAgICAgICAgICBldGhfc2lnbiA9IGNvbXBvbmVudCAiU2lnbiBUeCIgIlNpZ25zIEV0aGVyZXVtIHRyYW5zYWN0aW9ucywgZmFjaWxpdGF0aW5nIHNlY3VyZSBmdW5kIHRyYW5zZmVycyBvbiB0aGUgYmxvY2tjaGFpbi4iCiAgICAgICAgICAgIH0KICAgIAogICAgICAgICAgICAvLyBVc2VyIEludGVyYWN0aW9ucwogICAgICAgICAgICBmcm9udGVuZCAtPiBiYWNrZW5kICJDb21tdW5pY2F0ZXMgdmlhIEhUVFAgQVBJLCBlbmFibGluZyB0aGUgZnJvbnRlbmQgdG8gc2VuZCB1c2VyIHJlcXVlc3RzIHRvIHRoZSBiYWNrZW5kIGZvciBwcm9jZXNzaW5nLiIKICAgICAgICAgICAgYmFja2VuZCAtPiBkYXRhYmFzZSAiUmVhZHMgYW5kIHdyaXRlcyBkYXRhIHRvIHN0b3JlIEtZQy9LWVQgdXNlciBpbmZvcm1hdGlvbiwgdHJhbnNhY3Rpb24gaGlzdG9yaWVzLCBhbmQgYmFsYW5jZXMgc2VjdXJlbHkuIgogICAgICAgICAgICBiYWNrZW5kIC0+IHBheW1lbnRHYXRld2F5ICJJbnRlZ3JhdGVzIGZvciBkZXBvc2l0cywgY29udmVyc2lvbnMsIGFuZCB3aXRoZHJhd2FscywgYWxsb3dpbmcgc2VhbWxlc3MgUGl4IGFuZCBVU0RDIG1hbmFnZW1lbnQuIgogICAgICAgICAgICBiYWNrZW5kIC0+IGJsb2NrY2hhaW4gIkludGVncmF0ZXMgZm9yIERlRmkgZGVwb3NpdHMgYW5kIHdpdGhkcmF3YWxzLCBlbmFibGluZyBpbnRlcmFjdGlvbiB3aXRoIGRlY2VudHJhbGl6ZWQgZmluYW5jZSBwcm90b2NvbHMuIgogICAgICAgICAgICBiYWNrZW5kIC0+IGluZGV4ZXJQcm92aWRlciAiRmV0Y2hlcyBibG9ja2NoYWluIGhpc3RvcnkgZGF0YSwgcHJvdmlkaW5nIHN0cnVjdHVyZWQgdHJhbnNhY3Rpb24gaGlzdG9yeSB0byB1c2Vycy4iCiAgICAgICAgICAgIGJhY2tlbmQgLT4gZ29vZ2xlT2F1dGhQcm92aWRlciAiSGFuZGxlcyBhdXRoZW50aWNhdGlvbiB0aHJvdWdoIEdvb2dsZSBBdXRoLCBzZWN1cmluZyB1c2VyIGxvZ2luIGFuZCBzZXNzaW9uIG1hbmFnZW1lbnQuIgogICAgICAgICAgICBnb29nbGVPYXV0aFByb3ZpZGVyIC0+IGZyb250ZW5kICJSZWRpcmVjdHMgYXV0aGVudGljYXRpb24gcmVzcG9uc2VzIGJhY2sgdG8gdGhlIGZyb250ZW5kIHBvc3QtbG9naW4uIgogICAgICAgICAgICBiYWNrZW5kIC0+IGhzbVByb3ZpZGVyICJBY2Nlc3NlcyBzZWN1cmUga2V5IHN0b3JhZ2UgZm9yIG11bHRpc2lnIGFuZCBvdGhlciBjcnlwdG9ncmFwaGljIGZ1bmN0aW9ucy4iCiAgICAKICAgICAgICAgICAgIyBJbnRlcm5hbCBJbnRlcmFjdGlvbnMKICAgICAgICAgICAgLy8gbG9naW4gZmxvdwogICAgICAgICAgICBmcm9udGVuZCAtPiByZXN0QVBJICJTZW5kcyBmcm9udGVuZCBIVFRQIHJlcXVlc3RzIHRvIHRoZSBSRVNUIEFQSSBmb3IgaGFuZGxpbmcgc3BlY2lmaWMgdXNlciBvcGVyYXRpb25zLiIKICAgICAgICAgICAgcmVzdEFQSSAtPiBsb2dpbk1vZHVsZSAiUm91dGVzIGxvZ2luIHJlcXVlc3RzIGZvciBhdXRoZW50aWNhdGlvbiB2YWxpZGF0aW9uIGFuZCBnZW5lcmF0aW9uLiIKICAgICAgICAgICAgbG9naW5Nb2R1bGUgLT4gZ29vZ2xlT2F0aE1vZHVsZSAiUmVkaXJlY3RzIGxvZ2luIHJlcXVlc3RzIHRvIEdvb2dsZSBPQXV0aCBmb3Igc2VjdXJlIHVzZXIgYXV0aGVudGljYXRpb24uIgogICAgICAgICAgICBnb29nbGVPYXRoTW9kdWxlIC0+IGdvb2dsZU9hdXRoUHJvdmlkZXIgIkF1dGhlbnRpY2F0ZXMgdXNlciB2aWEgR29vZ2xlIEF1dGggZm9yIGEgc2VhbWxlc3MgbG9naW4gZXhwZXJpZW5jZS4iCiAgICAKICAgICAgICAgICAgLy8gb3BlcmF0aW9ucyBmbG93CiAgICAgICAgICAgIGxvZ2luTW9kdWxlIC0+IHBheW1lbnRHYXRld2F5QWRhcHRlciAiSW5pdGlhdGVzIHBheW1lbnQgYWN0aW9ucyBmb3IgdXNlciBhY2NvdW50IGRlcG9zaXRzIGFuZCB3aXRoZHJhd2Fscy4iCiAgICAgICAgICAgIHBheW1lbnRHYXRld2F5QWRhcHRlciAtPiBwYXltZW50R2F0ZXdheSAiSGFuZGxlcyBleHRlcm5hbCByZXF1ZXN0cyB0byBtYW5hZ2UgUGl4IHRyYW5zYWN0aW9ucyBhbmQgY29udmVyc2lvbnMuIgogICAgICAgICAgICBwYXltZW50R2F0ZXdheSAtPiB3ZWJob29rTW9kdWxlIAogICAgICAgICAgICB3ZWJob29rTW9kdWxlIC0+IHVzZXJDUlVEICJVcGRhdGVzIHVzZXIgYWNjb3VudCBkYXRhIGJhc2VkIG9uIGV2ZW50cyByZWNlaXZlZCBmcm9tIHRoZSBwYXltZW50IGdhdGV3YXkuIgogICAgICAgICAgICB1c2VyQ1JVRCAtPiBkYXRhYmFzZUFkYXB0ZXIgIkludGVyZmFjZXMgd2l0aCB0aGUgRGF0YWJhc2UgQWRhcHRlciB0byByZXRyaWV2ZSBhbmQgdXBkYXRlIHVzZXItc3BlY2lmaWMgZGF0YS4iCiAgICAgICAgICAgIGRhdGFiYXNlQWRhcHRlciAtPiBkYXRhYmFzZSAiRXhlY3V0ZXMgU1FMIGNvbW1hbmRzIHRvIHJldHJpZXZlLCBpbnNlcnQsIG9yIHVwZGF0ZSByZWNvcmRzIHdpdGhpbiB0aGUgUG9zdGdyZVNRTCBkYXRhYmFzZS4iCiAgICAKICAgICAgICAgICAgLy8gaW5kZXggb3BzCiAgICAgICAgICAgIHVzZXJDUlVEIC0+IGluZGV4ZXJNb2R1bGUgIlByb3ZpZGVzIHVzZXIgcmVmZXJlbmNlIGRhdGEgZm9yIGNyb3NzLXJlZmVyZW5jaW5nIGJsb2NrY2hhaW4gdHJhbnNhY3Rpb25zLiIKICAgICAgICAgICAgaW5kZXhlck1vZHVsZSAtPiBpbmRleGVyUHJvdmlkZXIgIlF1ZXJpZXMgdGhlIEluZGV4ZXIgUHJvdmlkZXIgdG8gZmV0Y2ggYmxvY2tjaGFpbiB0cmFuc2FjdGlvbiBoaXN0b3J5LiIKICAgIAogICAgICAgICAgICAvLyBkZWZpIG9wcwogICAgICAgICAgICB3ZWJob29rTW9kdWxlIC0+IHdlYjNNb2R1bGUgIlRyaWdnZXJzIFdlYjMgYWN0aW9ucyBiYXNlZCBvbiBwYXltZW50IGV2ZW50cyBmb3IgZGVwb3NpdHMgYW5kIHdpdGhkcmF3YWxzLiIKICAgICAgICAgICAgd2ViM01vZHVsZSAtPiBoc21Qcm92aWRlciAiUmVxdWVzdHMgc2VjdXJlIGNyeXB0b2dyYXBoaWMgb3BlcmF0aW9ucyBsaWtlIHNpZ25pbmcgYW5kIGtleSBtYW5hZ2VtZW50IGZyb20gSFNNLiIKICAgICAgICAgICAgbG9naW5Nb2R1bGUgLT4gd2ViM01vZHVsZSAiQ29vcmRpbmF0ZXMgd2l0aCB0aGUgV2ViMyBNb2R1bGUgdG8gZXhlY3V0ZSBEZUZpIGRlcG9zaXRzIGFuZCB3aXRoZHJhd2FscyBvbiBiZWhhbGYgb2YgdGhlIHVzZXIuIgogICAgICAgICAgICBsb2dpbk1vZHVsZSAtPiB1c2VyQ1JVRCAiUmV0cmlldmVzIG9yIHVwZGF0ZXMgdXNlciBhY2NvdW50IGluZm9ybWF0aW9uIGR1cmluZyB0aGUgbG9naW4gYW5kIEtZQyBwcm9jZXNzZXMuIgogICAgCiAgICAgICAgICAgIC8vIEJsb2NrY2hhaW4gSW50ZXJhY3Rpb25zCiAgICAgICAgICAgIHdlYjNNb2R1bGUgLT4gdXNkY1Rva2VuICJJbnRlcmFjdHMgd2l0aCB0aGUgVVNEQyB0b2tlbiBmb3IgYXBwcm92YWwgYW5kIHRyYW5zZmVyIHRvIERlRmkgUHJvdG9jb2xzLiIKICAgICAgICAgICAgd2ViM01vZHVsZSAtPiBkZWZpRGVwb3NpdEZ1bmN0aW9uICJFeGVjdXRlcyBhIERlRmkgZGVwb3NpdCwgYWRkaW5nIHVzZXIgZnVuZHMgdG8gYSBEZUZpIHBvb2wuIgogICAgICAgICAgICB3ZWIzTW9kdWxlIC0+IGRlZmlXaXRoZHJhd0Z1bmN0aW9uICJJbml0aWF0ZXMgYSBEZUZpIHdpdGhkcmF3YWwsIHRyYW5zZmVycmluZyBmdW5kcyBiYWNrIHRvIHRoZSBjb21wYW55J3Mgc2VjdXJlIEhTTSB3YWxsZXQuIgogICAgCiAgICAgICAgICAgIC8vIEdvb2dsZSBJbnRlcmFjdGlvbnMKICAgICAgICAgICAgZ29vZ2xlT2F0aE1vZHVsZSAtPiBsb2dpbiAiVXNlcyBHb29nbGUgT0F1dGggMi4wIHRvIGF1dGhlbnRpY2F0ZSB0aGUgdXNlciBhbmQgaXNzdWUgYSBzZWN1cmUgSldUIHRva2VuLiIKICAgICAgICAgICAgbG9naW4gLT4gZnJvbnRlbmQgIlJldHVybnMgdGhlIEpXVCB0b2tlbiB0byB0aGUgZnJvbnRlbmQgZm9yIHNlY3VyZSBzZXNzaW9uIGhhbmRsaW5nLiIKICAgICAgICAgICAgZ29vZ2xlT2F0aE1vZHVsZSAtPiBsb2dvdXQgIkhhbmRsZXMgc2Vzc2lvbiB0ZXJtaW5hdGlvbiBieSBpbnZhbGlkYXRpbmcgdGhlIEpXVCB0b2tlbi4iCiAgICAKICAgICAgICAgICAgLy8gSFNNIEludGVyYWN0aW9ucwogICAgICAgICAgICB3ZWIzTW9kdWxlIC0+IG5ld1dhbGxldCAiR2VuZXJhdGVzIGEgc2VjdXJlIHdhbGxldCBhZGRyZXNzIGFuZCBjcnlwdG9ncmFwaGljIGtleSB1c2luZyBIU00uIgogICAgICAgICAgICB3ZWIzTW9kdWxlIC0+IGV0aF9zaWduICJTaWducyBibG9ja2NoYWluIHRyYW5zYWN0aW9ucyB3aXRoIHRoZSBwcml2YXRlIGtleSBzdG9yZWQgaW4gSFNNIGZvciBhZGRlZCBzZWN1cml0eS4iCiAgICAKICAgICAgICAgICAgLy8gUGF5bWVudCBHYXRld2F5IEludGVyYWN0aW9ucwogICAgICAgICAgICBwYXltZW50R2F0ZXdheUFkYXB0ZXIgLT4gZ2VuZXJhdGVQSVhEZXBvc2l0ICJSZXF1ZXN0cyB0aGUgZ2VuZXJhdGlvbiBvZiBhIFBpeCBRUiBjb2RlIGZvciB1c2VyIGRlcG9zaXRzLiIKICAgICAgICAgICAgcGF5bWVudEdhdGV3YXlBZGFwdGVyIC0+IGdlbmVyYXRlVVNEQ0RlcG9zaXQgIlJlcXVlc3RzIHRoZSBnZW5lcmF0aW9uIG9mIFVTREMgYWRkcmVzcyBmb3IgRGVGaSB3aXRoZHJhdy4iCiAgICAgICAgICAgIHBheW1lbnRHYXRld2F5QWRhcHRlciAtPiBzd2FwICJJbml0aWF0ZXMgYSBQaXgtdG8tVVNEQyBzd2FwIGZvciBjdXJyZW5jeSBjb252ZXJzaW9uIHdpdGhpbiB0aGUgcGxhdGZvcm0uIgogICAgICAgICAgICBwYXltZW50R2F0ZXdheUFkYXB0ZXIgLT4gd2l0aGRyYXdQSVggIlByb2Nlc3NlcyBQaXggd2l0aGRyYXdhbHMsIHNlbmRpbmcgZnVuZHMgdG8gYSB1c2VyJ3MgZXh0ZXJuYWwgYWNjb3VudC4iCiAgICAgICAgICAgIHBheW1lbnRHYXRld2F5QWRhcHRlciAtPiB3aXRoZHJhd1dlYjMgIk1hbmFnZXMgV2ViMyB3aXRoZHJhd2Fscywgc2VuZGluZyBmdW5kcyB0byB0aGUgY29tcGFueSdzIHNlY3VyZSBIU00gd2FsbGV0LiIKICAgICAgICB9CiAgICAKICAgICAgICB1c2VyIC0+IHN5c3RlbSAiVXNlcyIKICAgIH0KICAgIHZpZXdzIHsKICAgICAgICAjIFN5c3RlbSBDb250ZXh0IERpYWdyYW0KICAgICAgICBzeXN0ZW1Db250ZXh0IHN5c3RlbSAiSW52ZXN0bWVudF9TeXN0ZW1fQ29udGV4dCIgewogICAgICAgICAgICBpbmNsdWRlICoKICAgICAgICB9CiAgICAKICAgICAgICAjIENvbnRhaW5lciBEaWFncmFtCiAgICAgICAgY29udGFpbmVyIHN5c3RlbSAiSW52ZXN0bWVudF9TeXN0ZW1fQ29udGFpbmVycyIgewogICAgICAgICAgICBpbmNsdWRlICoKICAgICAgICB9CiAgICAKICAgICAgICAjIEJhY2tlbmQgQ29tcG9uZW50cyBWaWV3CiAgICAgICAgY29tcG9uZW50IGJhY2tlbmQgIkJhY2tlbmRfQ29tcG9uZW50c19WaWV3IiB7CiAgICAgICAgICAgIGluY2x1ZGUgKgogICAgICAgIH0KICAgIAogICAgICAgICMgQmxvY2tjaGFpbiBDb21wb25lbnRzIFZpZXcKICAgICAgICBjb21wb25lbnQgYmxvY2tjaGFpbiAiQmxvY2tjaGFpbl9Qcm92aWRlcl9Db21wb25lbnRzX1ZpZXciIHsKICAgICAgICAgICAgaW5jbHVkZSAqCiAgICAgICAgfQogICAgICAgICMgUGF5bWVudCBHYXRld2F5IENvbXBvbmVudHMgVmlldwogICAgICAgIGNvbXBvbmVudCBwYXltZW50R2F0ZXdheSAiUGF5bWVudF9HYXRld2F5X0NvbXBvbmVudHNfVmlldyIgewogICAgICAgICAgICBpbmNsdWRlICoKICAgICAgICB9CiAgICAgICAgIyBIU00gQ29tcG9uZW50cyBWaWV3CiAgICAgICAgY29tcG9uZW50IGhzbVByb3ZpZGVyICJIU01fQ29tcG9uZW50c19WaWV3IiB7CiAgICAgICAgICAgIGluY2x1ZGUgKgogICAgICAgIH0KICAgICAgICAjIEdvb2dsZSBDb21wb25lbnRzIFZpZXcKICAgICAgICBjb21wb25lbnQgZ29vZ2xlT2F1dGhQcm92aWRlciAiR29vZ2xlX09BdXRoX0NvbXBvbmVudHNfVmlldyIgewogICAgICAgICAgICBpbmNsdWRlICoKICAgICAgICB9CiAgICAKICAgICAgICAjIFN0eWxpbmcgZm9yIERpYWdyYW0gRWxlbWVudHMKICAgICAgICBzdHlsZXMgewogICAgICAgICAgICBlbGVtZW50ICJQZXJzb24iIHsKICAgICAgICAgICAgICAgIHNoYXBlIFBlcnNvbgogICAgICAgICAgICAgICAgYmFja2dyb3VuZCAjMDg0MjdiCiAgICAgICAgICAgICAgICBjb2xvciAjZmZmZmZmCiAgICAgICAgICAgIH0KICAgICAgICAgICAgZWxlbWVudCAiQ29udGFpbmVyIiB7CiAgICAgICAgICAgICAgICBiYWNrZ3JvdW5kICM0MzhkZDUKICAgICAgICAgICAgICAgIGNvbG9yICNmZmZmZmYKICAgICAgICAgICAgfQogICAgICAgICAgICBlbGVtZW50ICJDb21wb25lbnQiIHsKICAgICAgICAgICAgICAgIGJhY2tncm91bmQgIzg1YmJmMAogICAgICAgICAgICAgICAgY29sb3IgIzAwMDAwMAogICAgICAgICAgICB9CiAgICAgICAgICAgIGVsZW1lbnQgIlNhYXMiIHsKICAgICAgICAgICAgICAgIHNoYXBlIEhleGFnb24KICAgICAgICAgICAgfQogICAgICAgICAgICBlbGVtZW50ICJGcm9udGVuZCIgewogICAgICAgICAgICAgICAgc2hhcGUgTW9iaWxlRGV2aWNlUG9ydHJhaXQKICAgICAgICAgICAgfQogICAgICAgICAgICBlbGVtZW50ICJCYWNrZW5kIiB7CiAgICAgICAgICAgICAgICBzaGFwZSBSb3VuZGVkQm94CiAgICAgICAgICAgIH0KICAgICAgICAgICAgZWxlbWVudCAiRGF0YWJhc2UiIHsKICAgICAgICAgICAgICAgIHNoYXBlIEN5bGluZGVyCiAgICAgICAgICAgIH0KICAgICAgICB9CiAgICB9Cn0="
   },
   "views" : {
     "componentViews" : [ {
       "containerId" : "4",
       "dimensions" : {
-        "height" : 3075,
-        "width" : 3555
+        "height" : 3164,
+        "width" : 3700
       },
       "elements" : [ {
         "id" : "3",
-        "x" : 200,
-        "y" : 1180
+        "x" : 234,
+        "y" : 1259
       }, {
         "id" : "5",
-        "x" : 788,
-        "y" : 1262
+        "x" : 782,
+        "y" : 1326
       }, {
         "id" : "6",
-        "x" : 1385,
-        "y" : 770
+        "x" : 1544,
+        "y" : 839
       }, {
         "id" : "7",
-        "x" : 2015,
-        "y" : 2065
+        "x" : 2290,
+        "y" : 2025
       }, {
         "id" : "8",
-        "x" : 1385,
-        "y" : 1705
+        "x" : 1544,
+        "y" : 1774
       }, {
         "id" : "9",
-        "x" : 2015,
-        "y" : 585
+        "x" : 2289,
+        "y" : 654
       }, {
         "id" : "10",
-        "x" : 2015,
-        "y" : 1555
+        "x" : 2289,
+        "y" : 1624
       }, {
         "id" : "11",
-        "x" : 788,
-        "y" : 2015
+        "x" : 785,
+        "y" : 1790
       }, {
         "id" : "12",
-        "x" : 788,
-        "y" : 755
+        "x" : 782,
+        "y" : 819
       }, {
         "id" : "13",
-        "x" : 2015,
-        "y" : 1000
+        "x" : 2289,
+        "y" : 1069
       }, {
         "id" : "14",
-        "x" : 2015,
-        "y" : 2575
+        "x" : 2310,
+        "y" : 2710
       }, {
         "id" : "15",
-        "x" : 2890,
-        "y" : 625
-      }, {
-        "id" : "20",
-        "x" : 790,
-        "y" : 2510
+        "x" : 3050,
+        "y" : 695
       }, {
         "id" : "21",
-        "x" : 2890,
-        "y" : 1875
+        "x" : 780,
+        "y" : 2540
       }, {
-        "id" : "25",
-        "x" : 125,
-        "y" : 110
+        "id" : "22",
+        "x" : 3049,
+        "y" : 1944
       }, {
-        "id" : "28",
-        "x" : 2890,
-        "y" : 1195
+        "id" : "26",
+        "x" : 160,
+        "y" : 200
+      }, {
+        "id" : "29",
+        "x" : 3050,
+        "y" : 1265
       } ],
       "externalContainerBoundariesVisible" : false,
       "key" : "Backend_Components_View",
       "order" : 3,
       "relationships" : [ {
-        "id" : "37"
-      }, {
-        "id" : "39"
+        "id" : "38"
       }, {
         "id" : "40"
       }, {
@@ -775,8 +847,6 @@
       }, {
         "id" : "46"
       }, {
-        "id" : "47"
-      }, {
         "id" : "48"
       }, {
         "id" : "49"
@@ -789,28 +859,34 @@
       }, {
         "id" : "53"
       }, {
+        "id" : "54"
+      }, {
         "id" : "55"
+      }, {
+        "id" : "56"
+      }, {
+        "id" : "58"
       } ]
     }, {
-      "containerId" : "21",
+      "containerId" : "22",
       "dimensions" : {
         "height" : 1596,
         "width" : 1605
       },
       "elements" : [ {
         "id" : "4",
-        "x" : 199,
-        "y" : 611
-      }, {
-        "id" : "22",
-        "x" : 934,
-        "y" : 219
+        "x" : 200,
+        "y" : 610
       }, {
         "id" : "23",
         "x" : 934,
-        "y" : 611
+        "y" : 219
       }, {
         "id" : "24",
+        "x" : 934,
+        "y" : 611
+      }, {
+        "id" : "25",
         "x" : 934,
         "y" : 1004
       } ],
@@ -818,53 +894,59 @@
       "key" : "Blockchain_Provider_Components_View",
       "order" : 4,
       "relationships" : [ {
-        "id" : "56"
+        "id" : "59"
       }, {
-        "id" : "58"
+        "id" : "61"
       }, {
-        "id" : "60"
+        "id" : "63"
       } ]
     }, {
       "containerId" : "15",
       "dimensions" : {
-        "height" : 2041,
-        "width" : 1885
+        "height" : 1856,
+        "width" : 1980
       },
       "elements" : [ {
         "id" : "4",
-        "x" : 195,
-        "y" : 700
+        "x" : 200,
+        "y" : 730
       }, {
         "id" : "16",
-        "x" : 961,
-        "y" : 220
+        "x" : 820,
+        "y" : 219
       }, {
         "id" : "17",
-        "x" : 1206,
-        "y" : 595
+        "x" : 1300,
+        "y" : 359
       }, {
         "id" : "18",
-        "x" : 1215,
-        "y" : 1010
+        "x" : 1310,
+        "y" : 724
       }, {
         "id" : "19",
-        "x" : 986,
-        "y" : 1450
+        "x" : 1306,
+        "y" : 1149
+      }, {
+        "id" : "20",
+        "x" : 815,
+        "y" : 1264
       } ],
       "externalContainerBoundariesVisible" : false,
       "key" : "Payment_Gateway_Components_View",
       "order" : 5,
       "relationships" : [ {
-        "id" : "71"
+        "id" : "74"
       }, {
-        "id" : "73"
+        "id" : "76"
       }, {
-        "id" : "75"
+        "id" : "78"
       }, {
-        "id" : "77"
+        "id" : "80"
+      }, {
+        "id" : "82"
       } ]
     }, {
-      "containerId" : "28",
+      "containerId" : "29",
       "dimensions" : {
         "height" : 1266,
         "width" : 1565
@@ -874,11 +956,11 @@
         "x" : 200,
         "y" : 470
       }, {
-        "id" : "29",
+        "id" : "30",
         "x" : 879,
         "y" : 219
       }, {
-        "id" : "30",
+        "id" : "31",
         "x" : 894,
         "y" : 674
       } ],
@@ -886,49 +968,49 @@
       "key" : "HSM_Components_View",
       "order" : 6,
       "relationships" : [ {
-        "id" : "67"
+        "id" : "70"
       }, {
-        "id" : "69"
+        "id" : "72"
       } ]
     }, {
-      "containerId" : "25",
+      "containerId" : "26",
       "dimensions" : {
-        "height" : 1330,
-        "width" : 1554
+        "height" : 1470,
+        "width" : 1593
       },
       "elements" : [ {
         "id" : "3",
-        "x" : 275,
+        "x" : 258,
         "y" : 200
       }, {
         "id" : "4",
-        "x" : 200,
-        "y" : 830
-      }, {
-        "id" : "26",
-        "x" : 884,
-        "y" : 285
+        "x" : 199,
+        "y" : 970
       }, {
         "id" : "27",
-        "x" : 884,
-        "y" : 662
+        "x" : 922,
+        "y" : 410
+      }, {
+        "id" : "28",
+        "x" : 922,
+        "y" : 787
       } ],
       "externalContainerBoundariesVisible" : false,
       "key" : "Google_OAuth_Components_View",
       "order" : 7,
       "relationships" : [ {
-        "id" : "31"
-      }, {
-        "id" : "62"
-      }, {
-        "id" : "63"
+        "id" : "32"
       }, {
         "id" : "65"
+      }, {
+        "id" : "66"
+      }, {
+        "id" : "68"
       } ]
     } ],
     "configuration" : {
       "branding" : { },
-      "lastSavedView" : "HSM_Components_View",
+      "lastSavedView" : "Backend_Components_View",
       "metadataSymbols" : "SquareBrackets",
       "styles" : {
         "elements" : [ {
@@ -982,19 +1064,19 @@
         "x" : 2190,
         "y" : 205
       }, {
-        "id" : "20",
+        "id" : "21",
         "x" : 1674,
         "y" : 1554
       }, {
-        "id" : "21",
+        "id" : "22",
         "x" : 2895,
         "y" : 860
       }, {
-        "id" : "25",
+        "id" : "26",
         "x" : 1569,
         "y" : 219
       }, {
-        "id" : "28",
+        "id" : "29",
         "x" : 2780,
         "y" : 295
       } ],
@@ -1002,11 +1084,13 @@
       "key" : "Investment_System_Containers",
       "order" : 2,
       "relationships" : [ {
-        "id" : "31"
-      }, {
         "id" : "32"
       }, {
-        "id" : "33"
+        "id" : "33",
+        "vertices" : [ {
+          "x" : 2312,
+          "y" : 1382
+        } ]
       }, {
         "id" : "34"
       }, {
@@ -1017,6 +1101,10 @@
         "id" : "37"
       }, {
         "id" : "38"
+      }, {
+        "id" : "39"
+      }, {
+        "id" : "47"
       } ],
       "softwareSystemId" : "2"
     } ],
@@ -1039,7 +1127,7 @@
       "order" : 1,
       "paperSize" : "A6_Landscape",
       "relationships" : [ {
-        "id" : "78"
+        "id" : "83"
       } ],
       "softwareSystemId" : "2"
     } ]

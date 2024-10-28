@@ -2,150 +2,153 @@ model {
     user = person "Customer" "End user performing deposits and investments."
 
     system = softwareSystem "${ORGANISATION_NAME}" "System that enables Pix deposits and DeFi investments" {
-        frontend = container "Frontend" "User interface for deposits and investments." {
+        frontend = container "Frontend" "User interface for deposits and investments, enabling interaction with all core features." {
             technology "React/Next.js"
             tags "Frontend"
         }
 
-        backend = container "Backend" "API responsible for business logic, external provider integration, and the database." {
+        backend = container "Backend" "API responsible for business logic, external provider integration, and database communication." {
             technology "TypeScript/Next.js"
             tags "Backend"
 
-            restAPI = component "REST API" "Manages HTTP connections." {
+            restAPI = component "REST API" "Manages HTTP connections, enabling the frontend to interact with backend services." {
                 technology "Next.js API"
             }
 
-            loginModule = component "Login Module" "Validates if the user exists and triggers login through Google Auth." {
+            loginModule = component "Login Module" "Validates if the user exists and triggers login through Google Auth, creating user accounts if new." {
                 technology "Custom TypeScript Module"
             }
 
-            databaseAdapter = component "Database Adapter" "Handles connection and queries to the PostgreSQL database." {
+            databaseAdapter = component "Database Adapter" "Handles data interaction with PostgreSQL, supporting queries and updates." {
                 technology "SQL Database Client"
             }
 
-            userCRUD = component "User CRUD" "Manages user data including KYC and other information." {
+            userCRUD = component "User CRUD" "Manages user-related data, including KYC verification and general user information." {
                 technology "Custom TypeScript Module"
             }
 
-            paymentGatewayAdapter = component "Payment Gateway Adapter" "Generates Pix QR Codes, converts Pix to USDC, and manages withdrawals to company wallets." {
+            paymentGatewayAdapter = component "Payment Gateway Adapter" "Manages Pix QR code generation, Pix-to-USDC conversions, and withdrawals." {
                 technology "Custom TypeScript Adapter/Brasil Bitcoin"
             }
 
-            web3Module = component "Web3 Module" "Handles deposits and withdrawals from DeFi platforms via the Alchemy blockchain gateway." {
+            web3Module = component "Web3 Module" "Manages deposits and withdrawals to DeFi platforms through Alchemy." {
                 technology "Web3 TypeScript SDK"
             }
 
-            indexerModule = component "Indexer Module" "Fetches blockchain history (via The Graph) and integrates structured data into the user database." {
+            indexerModule = component "Indexer Module" "Retrieves blockchain data through The Graph and structures it for storage and access." {
                 technology "The Graph API"
             }
 
-            googleOathModule = component "Google Oath Module" "Make login using Google Account" {
-                technology "Google Oath"
+            googleOathModule = component "Google Oath Module" "Handles user authentication with Google OAuth, ensuring secure logins and JWT issuance." {
+                technology "Google OAuth"
             }
 
-            webhookModule = component "Webhook Module" "Handles the webhook from the Payment Gateway" {
+            webhookModule = component "Webhook Module" "Processes incoming webhooks from the payment gateway, updating user data upon events." {
                 technology "Custom TypeScript Adapter/Brasil Bitcoin"
             }
         }
 
-        database = container "Database" "Stores customer data and financial transactions." {
+        database = container "Database" "Stores customer data, transaction history, and other critical financial records." {
             technology "PostgreSQL"
             tags "Database"
         }
 
-        paymentGateway = container "${PAYMENT_PROVIDER_NAME}" "Processes Pix deposits and converts them to USDC." {
+        paymentGateway = container "${PAYMENT_PROVIDER_NAME}" "Processes Pix deposits and converts them to USDC, supporting payment actions." {
             technology "Brasil Bitcoin"
             tags "Saas"
-            generateDeposit = component "Deposit QRcode PIX" "Generate a QRcode for client make deposit"
-            swap = component "SWAP PIX/USDC" "Convert PIX to USDC or vice versa"
-            withdrawPIX = component "Withdraw PIX" "Withdraw to client PIX"
-            withdrawWeb3 = component "Withdraw Web3" "Withdraw to HSM wallet"
-               
+
+            generatePIXDeposit = component "Deposit QRcode PIX" "Generates a Pix QR code for customer deposits, initiating the deposit process."
+            generateUSDCDeposit = component "Deposit USDC Address" "Generates a USDC Address for withdraw from DeFi protocol, initiating the deposit process."
+            swap = component "SWAP PIX/USDC" "Handles conversion between Pix and USDC, facilitating currency exchanges."
+            withdrawPIX = component "Withdraw PIX" "Facilitates Pix withdrawals, enabling users to transfer funds to external accounts."
+            withdrawWeb3 = component "Withdraw Web3" "Performs Web3-based withdrawals, transferring funds to the company's wallet in USDC."
         }
 
-        indexerProvider = container "${INDEXER_PROVIDER_NAME}" "Reads and indexes blockchain data transactions." {
+        indexerProvider = container "${INDEXER_PROVIDER_NAME}" "Reads and indexes blockchain transactions, providing historical data for user accounts." {
             technology "The Graph"
             tags "Saas"
         }
 
-        blockchain = container "${BLOCKCHAIN_PROVIDER}" "Blockchain platform managing smart contracts for investments." {
+        blockchain = container "${BLOCKCHAIN_PROVIDER}" "Blockchain platform supporting DeFi investments and smart contract interactions." {
             technology "Alchemy"
             tags "Saas"
 
-            usdcToken = component "USDC Token" "Manages USDC token transfers" {
-                technology "Web3"
-            }
-            defiDepositFunction = component "Deposit Function" "Deposits amount (USDC) into DeFi Pool." {
-                technology "Web3"
-            }
-            defiWithdrawFunction = component "Withdraw Function" "Withdraws balance from DeFi Pool (USDC)." {
-                technology "Web3"
-            }
+            usdcToken = component "USDC Token" "Manages USDC token interactions on the blockchain, enabling transfers for user transactions."
+            defiDepositFunction = component "Deposit Function" "Executes deposits into DeFi pools, allowing users to invest USDC."
+            defiWithdrawFunction = component "Withdraw Function" "Handles withdrawals from DeFi pools, enabling users to retrieve invested funds."
         }
 
-        googleOauthProvider = container "${AUTH_PROVIDER_NAME}" "External service for user authentication via Google." {
+        googleOauthProvider = container "${AUTH_PROVIDER_NAME}" "Handles user authentication using Google OAuth, issuing secure JWTs for logins." {
             tags "Saas"
             technology "OAuth 2.0"
 
-            login = component "Login" "Uses Google OAuth 2.0 to get JWT token"
-            logout = component "Logout" "Disable JWT token"
+            login = component "Login" "Initiates Google OAuth to authenticate users and issue JWT tokens for secure sessions."
+            logout = component "Logout" "Invalidates JWT tokens upon user logout, maintaining session security."
         }
 
-        hsmProvider = container "${HSM_PROVIDER_NAME}" "Manages secure storage of keys for multisig and other critical operations." {
+        hsmProvider = container "${HSM_PROVIDER_NAME}" "Manages cryptographic keys and secure operations, including wallet creation and transaction signing." {
             tags "Saas"
             technology "DINAMO"
 
-            newWallet = component "New Wallet" "Generates a random private key and public key"
-            eth_sign = component "Sign Tx" "Expect a tx to sign and return signature"
+            newWallet = component "New Wallet" "Generates secure cryptographic keys for user wallets, enabling DeFi transactions."
+            eth_sign = component "Sign Tx" "Signs Ethereum transactions, facilitating secure fund transfers on the blockchain."
         }
 
         // User Interactions
-        frontend -> backend "Communicates via HTTP API"
-        backend -> database "Reads and writes data"
-        backend -> paymentGateway "Integrates for deposits, conversions, and withdrawals"
-        backend -> blockchain "Integrates for DeFi deposits and withdrawals"
-        backend -> indexerProvider "Fetches blockchain history data"
-        backend -> googleOauthProvider "Handles authentication through Google Auth"
-        googleOauthProvider -> frontend
-        backend -> hsmProvider "Accesses secure key storage"
+        frontend -> backend "Communicates via HTTP API, enabling the frontend to send user requests to the backend for processing."
+        backend -> database "Reads and writes data to store KYC/KYT user information, transaction histories, and balances securely."
+        backend -> paymentGateway "Integrates for deposits, conversions, and withdrawals, allowing seamless Pix and USDC management."
+        backend -> blockchain "Integrates for DeFi deposits and withdrawals, enabling interaction with decentralized finance protocols."
+        backend -> indexerProvider "Fetches blockchain history data, providing structured transaction history to users."
+        backend -> googleOauthProvider "Handles authentication through Google Auth, securing user login and session management."
+        googleOauthProvider -> frontend "Redirects authentication responses back to the frontend post-login."
+        backend -> hsmProvider "Accesses secure key storage for multisig and other cryptographic functions."
 
-        // Internal Interactions
-        frontend -> restAPI
-        restAPI -> loginModule
-        indexerModule -> indexerProvider
-        userCRUD -> databaseAdapter
-        userCRUD -> indexerModule
-        databaseAdapter -> database
-        loginModule -> paymentGatewayAdapter
-        paymentGatewayAdapter -> paymentGateway
-        loginModule -> web3Module
-        loginModule -> userCRUD
-        web3Module -> hsmProvider
-        loginModule -> googleOathModule
-        googleOathModule -> googleOauthProvider "Authenticates user via Google Auth"
-        webhookModule -> userCRUD
-        webhookModule -> web3Module
+        # Internal Interactions
+        // login flow
+        frontend -> restAPI "Sends frontend HTTP requests to the REST API for handling specific user operations."
+        restAPI -> loginModule "Routes login requests for authentication validation and generation."
+        loginModule -> googleOathModule "Redirects login requests to Google OAuth for secure user authentication."
+        googleOathModule -> googleOauthProvider "Authenticates user via Google Auth for a seamless login experience."
 
+        // operations flow
+        loginModule -> paymentGatewayAdapter "Initiates payment actions for user account deposits and withdrawals."
+        paymentGatewayAdapter -> paymentGateway "Handles external requests to manage Pix transactions and conversions."
+        paymentGateway -> webhookModule 
+        webhookModule -> userCRUD "Updates user account data based on events received from the payment gateway."
+        userCRUD -> databaseAdapter "Interfaces with the Database Adapter to retrieve and update user-specific data."
+        databaseAdapter -> database "Executes SQL commands to retrieve, insert, or update records within the PostgreSQL database."
+
+        // index ops
+        userCRUD -> indexerModule "Provides user reference data for cross-referencing blockchain transactions."
+        indexerModule -> indexerProvider "Queries the Indexer Provider to fetch blockchain transaction history."
+
+        // defi ops
+        webhookModule -> web3Module "Triggers Web3 actions based on payment events for deposits and withdrawals."
+        web3Module -> hsmProvider "Requests secure cryptographic operations like signing and key management from HSM."
+        loginModule -> web3Module "Coordinates with the Web3 Module to execute DeFi deposits and withdrawals on behalf of the user."
+        loginModule -> userCRUD "Retrieves or updates user account information during the login and KYC processes."
 
         // Blockchain Interactions
-        web3Module -> usdcToken
-        web3Module -> defiDepositFunction
-        web3Module -> defiWithdrawFunction
+        web3Module -> usdcToken "Interacts with the USDC token for approval and transfer to DeFi Protocols."
+        web3Module -> defiDepositFunction "Executes a DeFi deposit, adding user funds to a DeFi pool."
+        web3Module -> defiWithdrawFunction "Initiates a DeFi withdrawal, transferring funds back to the company's secure HSM wallet."
 
         // Google Interactions
-        googleOathModule -> login
-        login -> frontend
-        googleOathModule -> logout
+        googleOathModule -> login "Uses Google OAuth 2.0 to authenticate the user and issue a secure JWT token."
+        login -> frontend "Returns the JWT token to the frontend for secure session handling."
+        googleOathModule -> logout "Handles session termination by invalidating the JWT token."
 
         // HSM Interactions
-        web3Module -> newWallet
-        web3Module -> eth_sign
+        web3Module -> newWallet "Generates a secure wallet address and cryptographic key using HSM."
+        web3Module -> eth_sign "Signs blockchain transactions with the private key stored in HSM for added security."
 
         // Payment Gateway Interactions
-        paymentGatewayAdapter -> generateDeposit
-        paymentGatewayAdapter -> swap
-        paymentGatewayAdapter -> withdrawPIX
-        paymentGatewayAdapter -> withdrawWeb3
+        paymentGatewayAdapter -> generatePIXDeposit "Requests the generation of a Pix QR code for user deposits."
+        paymentGatewayAdapter -> generateUSDCDeposit "Requests the generation of USDC address for DeFi withdraw."
+        paymentGatewayAdapter -> swap "Initiates a Pix-to-USDC swap for currency conversion within the platform."
+        paymentGatewayAdapter -> withdrawPIX "Processes Pix withdrawals, sending funds to a user's external account."
+        paymentGatewayAdapter -> withdrawWeb3 "Manages Web3 withdrawals, sending funds to the company's secure HSM wallet."
     }
 
     user -> system "Uses"
