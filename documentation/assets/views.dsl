@@ -2,19 +2,21 @@ views {
     # System context diagram
     systemContext system "Investment_System_Context" {
         include *
-        autolayout lr
     }
 
     # Container diagram
     container system "Investment_System_Containers" {
         include *
-        autolayout lr
     }
 
     # Backend components view
     component backend "Backend_Components_View" {
         include *
-        autoLayout bt
+    }
+
+    # Blochain components view
+    component blockchain "Blockchain_Provider_Components_View" {
+        include *
     }
 
     # Styling for the elements in the diagrams

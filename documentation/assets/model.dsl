@@ -58,30 +58,67 @@ model {
         }
 
         # Email System
-        notificationSystem = container "${NOTIFICATION_PROVIDER_NAME}" "System responsible for send notification (email/SMS) to user" {
+        notificationSystem = container "${NOTIFICATION_PROVIDER_NAME}" "send notification (email/SMS) to user" {
             tags "Saas"
         }
         # Pix Payment System
-        paymentGateway = container "${PAYMENT_PROVIDER_NAME}" "System responsible for Pix deposits and conversion to USDC." {
+        paymentGateway = container "${PAYMENT_PROVIDER_NAME}" "Pix deposits and conversion to USDC." {
             technology "Brasil Bitcoin"
+            tags "Saas"
+        }
+        # Indexer System
+        indexerProvider = container "${INDEXER_PROVIDER_NAME}" "Read and Index blockcahin data transactions." {
+            technology "The Graph"
             tags "Saas"
         }
         # Blockchain Provider (Alchemy)
         blockchain = container "${BLOCKCHAIN_PROVIDER}" "Blockchain platform managing smart contracts for investments." {
             technology "Alchemy"
             tags "Saas"
+
+            usdcToken = component "USDC Token" "Manage USDC Token" {
+                technology "Web3"
+            }
+            defiDepositFunction = component "Deposit Function" "Deposit amount (USDC) in DeFi Pool" {
+                technology "Web3"
+            }
+            defiWithdrawFunction = component "Withdraw Function" "Withdraw the balance from DeFi Pool (USDC)" {
+                technology "Web3"
+            }
         }
 
         # user to system
-        user -> frontend "Interacts via browser"
         frontend -> backend "Communicates via HTTP API"
         backend -> database "Reads and writes data"
         backend -> paymentGateway "Integrates to process deposits, conversions, and withdrawals"
         backend -> blockchain "Integrates for DeFi deposits and withdrawals"
         backend -> notificationSystem "Integrates for send notifications (email/SMS)"
+        backend -> indexerProvider
 
 
         # system to container
+        frontend -> restAPI
+        restAPI -> loginModule
+        restAPI -> indexerModule
+        indexerModule -> indexerProvider
+        restAPI -> userCRUD
+        userCRUD -> database
+        databaseAdapter -> database
+        userCRUD -> databaseAdapter
+        loginModule -> paymentGatewayAdapter
+        loginModule -> web3Module
+        loginModule -> databaseAdapter
+        loginModule -> passkeyModule
+        passkeyModule -> vaultModule
+        passkeyModule -> notificationAdapter
+        notificationAdapter -> notificationSystem
+        paymentGatewayAdapter -> paymentGateway
+        notificationSystem -> frontend
+
+        # container to component
+        web3Module -> usdcToken
+        web3Module -> defiDepositFunction
+        web3Module -> defiWithdrawFunction
     }
     user -> system "Uses"
 }
