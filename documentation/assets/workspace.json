@@ -4,7 +4,7 @@
   "documentation" : { },
   "id" : 1,
   "lastModifiedAgent" : "structurizr-ui",
-  "lastModifiedDate" : "2024-10-27T22:15:24Z",
+  "lastModifiedDate" : "2024-10-28T04:13:06Z",
   "model" : {
     "people" : [ {
       "description" : "End user performing deposits and investments.",
@@ -17,9 +17,9 @@
       "relationships" : [ {
         "description" : "Uses",
         "destinationId" : "2",
-        "id" : "53",
+        "id" : "78",
         "properties" : {
-          "structurizr.dsl.identifier" : "57eed473-1b0b-46d5-b679-72047149dc00"
+          "structurizr.dsl.identifier" : "f0668a8d-208d-4ca4-87d9-4e82101e3905"
         },
         "sourceId" : "1",
         "tags" : "Relationship"
@@ -38,23 +38,23 @@
         "relationships" : [ {
           "description" : "Communicates via HTTP API",
           "destinationId" : "4",
-          "id" : "23",
+          "id" : "31",
           "properties" : {
-            "structurizr.dsl.identifier" : "de35f54e-7859-4c95-b1e2-ef135f4d2798"
+            "structurizr.dsl.identifier" : "78fa9fc9-0a67-42a6-9b63-bb9e0618ac6f"
           },
           "sourceId" : "3",
           "tags" : "Relationship"
         }, {
           "destinationId" : "5",
-          "id" : "29",
+          "id" : "39",
           "properties" : {
-            "structurizr.dsl.identifier" : "1aa5b9d3-ea0e-491c-b160-a6e4965e239d"
+            "structurizr.dsl.identifier" : "b5564df7-1e42-4fe6-9e05-fdc49c9c2b96"
           },
           "sourceId" : "3",
           "tags" : "Relationship"
         } ],
         "tags" : "Element,Container,Frontend",
-        "technology" : "React/Vue.js"
+        "technology" : "React/Next.js"
       }, {
         "components" : [ {
           "description" : "Manages HTTP connections.",
@@ -66,33 +66,17 @@
           },
           "relationships" : [ {
             "destinationId" : "6",
-            "id" : "30",
+            "id" : "40",
             "properties" : {
-              "structurizr.dsl.identifier" : "b2e4596b-a91f-48ed-94c8-e02abd201911"
-            },
-            "sourceId" : "5",
-            "tags" : "Relationship"
-          }, {
-            "destinationId" : "13",
-            "id" : "31",
-            "properties" : {
-              "structurizr.dsl.identifier" : "0ba96e35-55f4-4c8c-b781-6ab877fc8f04"
-            },
-            "sourceId" : "5",
-            "tags" : "Relationship"
-          }, {
-            "destinationId" : "8",
-            "id" : "33",
-            "properties" : {
-              "structurizr.dsl.identifier" : "7b13ac56-dbec-43c3-b37c-4533faa684d3"
+              "structurizr.dsl.identifier" : "c88608a9-75fe-49bf-9f9e-370cca7f7bd7"
             },
             "sourceId" : "5",
             "tags" : "Relationship"
           } ],
           "tags" : "Element,Component",
-          "technology" : "Rust/Tide"
+          "technology" : "Next.js API"
         }, {
-          "description" : "Validates if the user exists and triggers the login service (OTP via email/SMS).",
+          "description" : "Validates if the user exists and triggers login through Google Auth.",
           "documentation" : { },
           "id" : "6",
           "name" : "Login Module",
@@ -100,40 +84,40 @@
             "structurizr.dsl.identifier" : "loginmodule"
           },
           "relationships" : [ {
-            "destinationId" : "11",
-            "id" : "37",
+            "destinationId" : "9",
+            "id" : "45",
             "properties" : {
-              "structurizr.dsl.identifier" : "49df9ee3-5860-433a-9464-355c34e8fbe8"
-            },
-            "sourceId" : "6",
-            "tags" : "Relationship"
-          }, {
-            "destinationId" : "12",
-            "id" : "38",
-            "properties" : {
-              "structurizr.dsl.identifier" : "f06d197a-ab8b-46bb-b2c9-27b9a20ae935"
-            },
-            "sourceId" : "6",
-            "tags" : "Relationship"
-          }, {
-            "destinationId" : "7",
-            "id" : "39",
-            "properties" : {
-              "structurizr.dsl.identifier" : "866eb482-ee93-4888-a786-d23c6dc4692b"
+              "structurizr.dsl.identifier" : "3d3c6432-165b-43eb-868d-85541dbf7edb"
             },
             "sourceId" : "6",
             "tags" : "Relationship"
           }, {
             "destinationId" : "10",
-            "id" : "40",
+            "id" : "47",
             "properties" : {
-              "structurizr.dsl.identifier" : "de665594-c071-4a28-b540-407cc747469b"
+              "structurizr.dsl.identifier" : "f8ec9712-06e1-4eec-a30b-590b0eb819ba"
+            },
+            "sourceId" : "6",
+            "tags" : "Relationship"
+          }, {
+            "destinationId" : "8",
+            "id" : "48",
+            "properties" : {
+              "structurizr.dsl.identifier" : "e8e289c4-9ecd-4298-9336-cc430ba7bd6e"
+            },
+            "sourceId" : "6",
+            "tags" : "Relationship"
+          }, {
+            "destinationId" : "12",
+            "id" : "50",
+            "properties" : {
+              "structurizr.dsl.identifier" : "9848d823-e687-4973-b859-50d8eb5d7f7d"
             },
             "sourceId" : "6",
             "tags" : "Relationship"
           } ],
           "tags" : "Element,Component",
-          "technology" : "Custom Rust Module"
+          "technology" : "Custom TypeScript Module"
         }, {
           "description" : "Handles connection and queries to the PostgreSQL database.",
           "documentation" : { },
@@ -143,16 +127,16 @@
             "structurizr.dsl.identifier" : "databaseadapter"
           },
           "relationships" : [ {
-            "destinationId" : "15",
-            "id" : "35",
+            "destinationId" : "14",
+            "id" : "44",
             "properties" : {
-              "structurizr.dsl.identifier" : "38449b74-0dd7-48b8-ba83-9b6529cc1c8a"
+              "structurizr.dsl.identifier" : "14ff32f6-b6d9-41a1-86e6-686aa9c0f982"
             },
             "sourceId" : "7",
             "tags" : "Relationship"
           } ],
           "tags" : "Element,Component",
-          "technology" : "SQLx"
+          "technology" : "SQL Database Client"
         }, {
           "description" : "Manages user data including KYC and other information.",
           "documentation" : { },
@@ -162,158 +146,221 @@
             "structurizr.dsl.identifier" : "usercrud"
           },
           "relationships" : [ {
-            "destinationId" : "15",
-            "id" : "34",
-            "properties" : {
-              "structurizr.dsl.identifier" : "d566119f-9eaa-4dd2-abae-02d071cd7573"
-            },
-            "sourceId" : "8",
-            "tags" : "Relationship"
-          }, {
             "destinationId" : "7",
-            "id" : "36",
-            "properties" : {
-              "structurizr.dsl.identifier" : "4e8096ba-0b02-4797-b09a-02377f7d0c10"
-            },
-            "sourceId" : "8",
-            "tags" : "Relationship"
-          } ],
-          "tags" : "Element,Component",
-          "technology" : "Custom Rust Module"
-        }, {
-          "description" : "Interfaces with external notification services (Email/SMS).",
-          "documentation" : { },
-          "id" : "9",
-          "name" : "Notification Adapter",
-          "properties" : {
-            "structurizr.dsl.identifier" : "notificationadapter"
-          },
-          "relationships" : [ {
-            "destinationId" : "16",
-            "id" : "43",
-            "properties" : {
-              "structurizr.dsl.identifier" : "3a37ff43-3e98-4dde-a826-9e60b4deb4bd"
-            },
-            "sourceId" : "9",
-            "tags" : "Relationship"
-          } ],
-          "tags" : "Element,Component",
-          "technology" : "Custom Rust Adapter"
-        }, {
-          "description" : "Generates OTP codes for user login.",
-          "documentation" : { },
-          "id" : "10",
-          "name" : "Passkey Module",
-          "properties" : {
-            "structurizr.dsl.identifier" : "passkeymodule"
-          },
-          "relationships" : [ {
-            "destinationId" : "14",
-            "id" : "41",
-            "properties" : {
-              "structurizr.dsl.identifier" : "e5c2745b-223f-445c-a36b-840fa28d797b"
-            },
-            "sourceId" : "10",
-            "tags" : "Relationship"
-          }, {
-            "destinationId" : "9",
             "id" : "42",
             "properties" : {
-              "structurizr.dsl.identifier" : "fb1b88fe-82a5-4271-9439-0caf4a669a9b"
+              "structurizr.dsl.identifier" : "bca666db-4233-4168-b5d5-9c8c6877ddda"
             },
-            "sourceId" : "10",
+            "sourceId" : "8",
+            "tags" : "Relationship"
+          }, {
+            "destinationId" : "11",
+            "id" : "43",
+            "properties" : {
+              "structurizr.dsl.identifier" : "9d611204-bd82-432b-a0d0-7d0103ab1570"
+            },
+            "sourceId" : "8",
             "tags" : "Relationship"
           } ],
           "tags" : "Element,Component",
-          "technology" : "Custom Rust Module"
+          "technology" : "Custom TypeScript Module"
         }, {
           "description" : "Generates Pix QR Codes, converts Pix to USDC, and manages withdrawals to company wallets.",
           "documentation" : { },
-          "id" : "11",
+          "id" : "9",
           "name" : "Payment Gateway Adapter",
           "properties" : {
             "structurizr.dsl.identifier" : "paymentgatewayadapter"
           },
           "relationships" : [ {
-            "destinationId" : "17",
-            "id" : "44",
+            "destinationId" : "15",
+            "id" : "46",
             "properties" : {
-              "structurizr.dsl.identifier" : "a0a85be0-1fd3-4071-ab4b-c62c084daa8c"
+              "structurizr.dsl.identifier" : "194bb3af-1dd5-4e5a-9910-e0d09fba58b1"
             },
-            "sourceId" : "11",
+            "sourceId" : "9",
+            "tags" : "Relationship"
+          }, {
+            "destinationId" : "16",
+            "id" : "70",
+            "properties" : {
+              "structurizr.dsl.identifier" : "baa6c135-2b36-4140-88f9-f804d77b6853"
+            },
+            "sourceId" : "9",
+            "tags" : "Relationship"
+          }, {
+            "destinationId" : "17",
+            "id" : "72",
+            "properties" : {
+              "structurizr.dsl.identifier" : "1f94b94e-440f-4d87-9e2f-aa0954fe30a8"
+            },
+            "sourceId" : "9",
+            "tags" : "Relationship"
+          }, {
+            "destinationId" : "18",
+            "id" : "74",
+            "properties" : {
+              "structurizr.dsl.identifier" : "fa896dba-2f71-4b58-aa40-a49e6a14e784"
+            },
+            "sourceId" : "9",
+            "tags" : "Relationship"
+          }, {
+            "destinationId" : "19",
+            "id" : "76",
+            "properties" : {
+              "structurizr.dsl.identifier" : "27d5d117-947a-4a63-a480-4098757bc425"
+            },
+            "sourceId" : "9",
             "tags" : "Relationship"
           } ],
           "tags" : "Element,Component",
-          "technology" : "Custom Rust Adapter/Brasil Bitcoin"
+          "technology" : "Custom TypeScript Adapter/Brasil Bitcoin"
         }, {
           "description" : "Handles deposits and withdrawals from DeFi platforms via the Alchemy blockchain gateway.",
           "documentation" : { },
-          "id" : "12",
+          "id" : "10",
           "name" : "Web3 Module",
           "properties" : {
             "structurizr.dsl.identifier" : "web3module"
           },
           "relationships" : [ {
-            "destinationId" : "20",
-            "id" : "46",
-            "properties" : {
-              "structurizr.dsl.identifier" : "c3b51dee-a962-4e0b-8d65-834c1e11c45c"
-            },
-            "sourceId" : "12",
-            "tags" : "Relationship"
-          }, {
-            "destinationId" : "19",
-            "id" : "47",
-            "linkedRelationshipId" : "46",
-            "sourceId" : "12"
-          }, {
-            "destinationId" : "21",
+            "destinationId" : "28",
             "id" : "49",
             "properties" : {
-              "structurizr.dsl.identifier" : "b8994c4f-2332-4b23-b832-4dba94f522fe"
+              "structurizr.dsl.identifier" : "b025bdb2-2e83-47fd-9cea-9df4eee1cd6b"
             },
-            "sourceId" : "12",
+            "sourceId" : "10",
             "tags" : "Relationship"
           }, {
             "destinationId" : "22",
-            "id" : "51",
+            "id" : "54",
             "properties" : {
-              "structurizr.dsl.identifier" : "6d39e4cc-d67e-46f3-a884-32c4b12c7b5f"
+              "structurizr.dsl.identifier" : "8f8baa39-e54f-4d25-af47-7121a57ac5c4"
             },
-            "sourceId" : "12",
+            "sourceId" : "10",
+            "tags" : "Relationship"
+          }, {
+            "destinationId" : "21",
+            "id" : "55",
+            "linkedRelationshipId" : "54",
+            "sourceId" : "10"
+          }, {
+            "destinationId" : "23",
+            "id" : "57",
+            "properties" : {
+              "structurizr.dsl.identifier" : "8a9f6926-319a-4572-b537-7251d7bfd573"
+            },
+            "sourceId" : "10",
+            "tags" : "Relationship"
+          }, {
+            "destinationId" : "24",
+            "id" : "59",
+            "properties" : {
+              "structurizr.dsl.identifier" : "5c9f9d39-a179-4c42-95c8-e09afab6bdc4"
+            },
+            "sourceId" : "10",
+            "tags" : "Relationship"
+          }, {
+            "destinationId" : "29",
+            "id" : "66",
+            "properties" : {
+              "structurizr.dsl.identifier" : "c9ebb63a-ddd8-47ee-ba4f-38c19fc84b71"
+            },
+            "sourceId" : "10",
+            "tags" : "Relationship"
+          }, {
+            "destinationId" : "30",
+            "id" : "68",
+            "properties" : {
+              "structurizr.dsl.identifier" : "087ebcf1-20c3-479c-915c-5c209e1d5f86"
+            },
+            "sourceId" : "10",
             "tags" : "Relationship"
           } ],
           "tags" : "Element,Component",
-          "technology" : "Web3 Rust SDK"
+          "technology" : "Web3 TypeScript SDK"
         }, {
           "description" : "Fetches blockchain history (via The Graph) and integrates structured data into the user database.",
           "documentation" : { },
-          "id" : "13",
+          "id" : "11",
           "name" : "Indexer Module",
           "properties" : {
             "structurizr.dsl.identifier" : "indexermodule"
           },
           "relationships" : [ {
-            "destinationId" : "18",
-            "id" : "32",
+            "destinationId" : "20",
+            "id" : "41",
             "properties" : {
-              "structurizr.dsl.identifier" : "90acb103-d028-4572-8bfb-85e7f79b01b7"
+              "structurizr.dsl.identifier" : "c2b5baf6-f8c8-4743-97d6-f58da08b4c46"
             },
-            "sourceId" : "13",
+            "sourceId" : "11",
             "tags" : "Relationship"
           } ],
           "tags" : "Element,Component",
           "technology" : "The Graph API"
         }, {
-          "description" : "Manages user keys, creates OTPs, and handles the company's multisig key management.",
+          "description" : "Make login using Google Account",
           "documentation" : { },
-          "id" : "14",
-          "name" : "Vault Module",
+          "id" : "12",
+          "name" : "Google Oath Module",
           "properties" : {
-            "structurizr.dsl.identifier" : "vaultmodule"
+            "structurizr.dsl.identifier" : "googleoathmodule"
           },
+          "relationships" : [ {
+            "description" : "Authenticates user via Google Auth",
+            "destinationId" : "25",
+            "id" : "51",
+            "properties" : {
+              "structurizr.dsl.identifier" : "6f73100c-2271-4d9b-8046-90ed2fea99ac"
+            },
+            "sourceId" : "12",
+            "tags" : "Relationship"
+          }, {
+            "destinationId" : "26",
+            "id" : "61",
+            "properties" : {
+              "structurizr.dsl.identifier" : "f2d04d12-dd14-4dfe-b875-9dbff861b6d5"
+            },
+            "sourceId" : "12",
+            "tags" : "Relationship"
+          }, {
+            "destinationId" : "27",
+            "id" : "64",
+            "properties" : {
+              "structurizr.dsl.identifier" : "1a6d255a-5fa1-4a45-89f9-61b81cffd3a1"
+            },
+            "sourceId" : "12",
+            "tags" : "Relationship"
+          } ],
           "tags" : "Element,Component",
-          "technology" : "Custom Rust Module"
+          "technology" : "Google Oath"
+        }, {
+          "description" : "Handles the webhook from the Payment Gateway",
+          "documentation" : { },
+          "id" : "13",
+          "name" : "Webhook Module",
+          "properties" : {
+            "structurizr.dsl.identifier" : "webhookmodule"
+          },
+          "relationships" : [ {
+            "destinationId" : "8",
+            "id" : "52",
+            "properties" : {
+              "structurizr.dsl.identifier" : "bad40424-f142-47a9-a938-35b90d314fef"
+            },
+            "sourceId" : "13",
+            "tags" : "Relationship"
+          }, {
+            "destinationId" : "10",
+            "id" : "53",
+            "properties" : {
+              "structurizr.dsl.identifier" : "d081cb17-115f-438c-ba41-57ec69a0d0fe"
+            },
+            "sourceId" : "13",
+            "tags" : "Relationship"
+          } ],
+          "tags" : "Element,Component",
+          "technology" : "Custom TypeScript Adapter/Brasil Bitcoin"
         } ],
         "description" : "API responsible for business logic, external provider integration, and the database.",
         "documentation" : { },
@@ -324,70 +371,120 @@
         },
         "relationships" : [ {
           "description" : "Reads and writes data",
-          "destinationId" : "15",
-          "id" : "24",
+          "destinationId" : "14",
+          "id" : "32",
           "properties" : {
-            "structurizr.dsl.identifier" : "8518448a-b1ac-4247-8af8-8feac6a615ff"
+            "structurizr.dsl.identifier" : "67cbb5b2-551c-40f5-8e77-4f056d2d00c9"
           },
           "sourceId" : "4",
           "tags" : "Relationship"
         }, {
-          "description" : "Integrates to process deposits, conversions, and withdrawals",
-          "destinationId" : "17",
-          "id" : "25",
+          "description" : "Integrates for deposits, conversions, and withdrawals",
+          "destinationId" : "15",
+          "id" : "33",
           "properties" : {
-            "structurizr.dsl.identifier" : "ebb9ac3c-cc27-46cd-98a2-986c6e1af39b"
+            "structurizr.dsl.identifier" : "07f0d3ab-83ac-4904-b366-41a286ab29b6"
           },
           "sourceId" : "4",
           "tags" : "Relationship"
         }, {
           "description" : "Integrates for DeFi deposits and withdrawals",
-          "destinationId" : "19",
-          "id" : "26",
-          "properties" : {
-            "structurizr.dsl.identifier" : "4f0d5f6b-cecc-4f69-8e60-0ec65c8ad0a5"
-          },
-          "sourceId" : "4",
-          "tags" : "Relationship"
-        }, {
-          "description" : "Integrates for send notifications (email/SMS)",
-          "destinationId" : "16",
-          "id" : "27",
-          "properties" : {
-            "structurizr.dsl.identifier" : "647e1991-2a86-41d0-bc9c-741a9a338dc6"
-          },
-          "sourceId" : "4",
-          "tags" : "Relationship"
-        }, {
-          "destinationId" : "18",
-          "id" : "28",
-          "properties" : {
-            "structurizr.dsl.identifier" : "0d80bc5b-5c93-4e45-bba6-8a9762e7062c"
-          },
-          "sourceId" : "4",
-          "tags" : "Relationship"
-        }, {
-          "destinationId" : "20",
-          "id" : "48",
-          "linkedRelationshipId" : "46",
-          "sourceId" : "4"
-        }, {
           "destinationId" : "21",
-          "id" : "50",
-          "linkedRelationshipId" : "49",
-          "sourceId" : "4"
+          "id" : "34",
+          "properties" : {
+            "structurizr.dsl.identifier" : "21c1ea43-b64c-4d6a-923b-c9b8f2ace626"
+          },
+          "sourceId" : "4",
+          "tags" : "Relationship"
+        }, {
+          "description" : "Fetches blockchain history data",
+          "destinationId" : "20",
+          "id" : "35",
+          "properties" : {
+            "structurizr.dsl.identifier" : "feec8c55-1b31-45c7-96aa-b748f9c16738"
+          },
+          "sourceId" : "4",
+          "tags" : "Relationship"
+        }, {
+          "description" : "Handles authentication through Google Auth",
+          "destinationId" : "25",
+          "id" : "36",
+          "properties" : {
+            "structurizr.dsl.identifier" : "383cd74c-2e6b-47e3-8245-dd1c57f66d77"
+          },
+          "sourceId" : "4",
+          "tags" : "Relationship"
+        }, {
+          "description" : "Accesses secure key storage",
+          "destinationId" : "28",
+          "id" : "38",
+          "properties" : {
+            "structurizr.dsl.identifier" : "c8e09773-7c3c-4d1d-9197-2f634ed7719f"
+          },
+          "sourceId" : "4",
+          "tags" : "Relationship"
         }, {
           "destinationId" : "22",
-          "id" : "52",
-          "linkedRelationshipId" : "51",
+          "id" : "56",
+          "linkedRelationshipId" : "54",
+          "sourceId" : "4"
+        }, {
+          "destinationId" : "23",
+          "id" : "58",
+          "linkedRelationshipId" : "57",
+          "sourceId" : "4"
+        }, {
+          "destinationId" : "24",
+          "id" : "60",
+          "linkedRelationshipId" : "59",
+          "sourceId" : "4"
+        }, {
+          "destinationId" : "26",
+          "id" : "62",
+          "linkedRelationshipId" : "61",
+          "sourceId" : "4"
+        }, {
+          "destinationId" : "27",
+          "id" : "65",
+          "linkedRelationshipId" : "64",
+          "sourceId" : "4"
+        }, {
+          "destinationId" : "29",
+          "id" : "67",
+          "linkedRelationshipId" : "66",
+          "sourceId" : "4"
+        }, {
+          "destinationId" : "30",
+          "id" : "69",
+          "linkedRelationshipId" : "68",
+          "sourceId" : "4"
+        }, {
+          "destinationId" : "16",
+          "id" : "71",
+          "linkedRelationshipId" : "70",
+          "sourceId" : "4"
+        }, {
+          "destinationId" : "17",
+          "id" : "73",
+          "linkedRelationshipId" : "72",
+          "sourceId" : "4"
+        }, {
+          "destinationId" : "18",
+          "id" : "75",
+          "linkedRelationshipId" : "74",
+          "sourceId" : "4"
+        }, {
+          "destinationId" : "19",
+          "id" : "77",
+          "linkedRelationshipId" : "76",
           "sourceId" : "4"
         } ],
         "tags" : "Element,Container,Backend",
-        "technology" : "Rust/tide"
+        "technology" : "TypeScript/Next.js"
       }, {
         "description" : "Stores customer data and financial transactions.",
         "documentation" : { },
-        "id" : "15",
+        "id" : "14",
         "name" : "Database",
         "properties" : {
           "structurizr.dsl.identifier" : "database"
@@ -395,27 +492,46 @@
         "tags" : "Element,Container,Database",
         "technology" : "PostgreSQL"
       }, {
-        "description" : "send notification (email/SMS) to user",
-        "documentation" : { },
-        "id" : "16",
-        "name" : "Notification Provider Email/SMS",
-        "properties" : {
-          "structurizr.dsl.identifier" : "notificationsystem"
-        },
-        "relationships" : [ {
-          "destinationId" : "3",
-          "id" : "45",
+        "components" : [ {
+          "description" : "Generate a QRcode for client make deposit",
+          "documentation" : { },
+          "id" : "16",
+          "name" : "Deposit QRcode PIX",
           "properties" : {
-            "structurizr.dsl.identifier" : "db57b089-5d99-4ca9-9a22-a838e59cca84"
+            "structurizr.dsl.identifier" : "generatedeposit"
           },
-          "sourceId" : "16",
-          "tags" : "Relationship"
+          "tags" : "Element,Component"
+        }, {
+          "description" : "Convert PIX to USDC or vice versa",
+          "documentation" : { },
+          "id" : "17",
+          "name" : "SWAP PIX/USDC",
+          "properties" : {
+            "structurizr.dsl.identifier" : "swap"
+          },
+          "tags" : "Element,Component"
+        }, {
+          "description" : "Withdraw to client PIX",
+          "documentation" : { },
+          "id" : "18",
+          "name" : "Withdraw PIX",
+          "properties" : {
+            "structurizr.dsl.identifier" : "withdrawpix"
+          },
+          "tags" : "Element,Component"
+        }, {
+          "description" : "Withdraw to HSM wallet",
+          "documentation" : { },
+          "id" : "19",
+          "name" : "Withdraw Web3",
+          "properties" : {
+            "structurizr.dsl.identifier" : "withdrawweb3"
+          },
+          "tags" : "Element,Component"
         } ],
-        "tags" : "Element,Container,Saas"
-      }, {
-        "description" : "Pix deposits and conversion to USDC.",
+        "description" : "Processes Pix deposits and converts them to USDC.",
         "documentation" : { },
-        "id" : "17",
+        "id" : "15",
         "name" : "Payment Gateway (SaaS Pix)",
         "properties" : {
           "structurizr.dsl.identifier" : "paymentgateway"
@@ -423,9 +539,9 @@
         "tags" : "Element,Container,Saas",
         "technology" : "Brasil Bitcoin"
       }, {
-        "description" : "Read and Index blockcahin data transactions.",
+        "description" : "Reads and indexes blockchain data transactions.",
         "documentation" : { },
-        "id" : "18",
+        "id" : "20",
         "name" : "Indexer Provider",
         "properties" : {
           "structurizr.dsl.identifier" : "indexerprovider"
@@ -434,9 +550,9 @@
         "technology" : "The Graph"
       }, {
         "components" : [ {
-          "description" : "Manage USDC Token",
+          "description" : "Manages USDC token transfers",
           "documentation" : { },
-          "id" : "20",
+          "id" : "22",
           "name" : "USDC Token",
           "properties" : {
             "structurizr.dsl.identifier" : "usdctoken"
@@ -444,9 +560,9 @@
           "tags" : "Element,Component",
           "technology" : "Web3"
         }, {
-          "description" : "Deposit amount (USDC) in DeFi Pool",
+          "description" : "Deposits amount (USDC) into DeFi Pool.",
           "documentation" : { },
-          "id" : "21",
+          "id" : "23",
           "name" : "Deposit Function",
           "properties" : {
             "structurizr.dsl.identifier" : "defidepositfunction"
@@ -454,9 +570,9 @@
           "tags" : "Element,Component",
           "technology" : "Web3"
         }, {
-          "description" : "Withdraw the balance from DeFi Pool (USDC)",
+          "description" : "Withdraws balance from DeFi Pool (USDC).",
           "documentation" : { },
-          "id" : "22",
+          "id" : "24",
           "name" : "Withdraw Function",
           "properties" : {
             "structurizr.dsl.identifier" : "defiwithdrawfunction"
@@ -466,13 +582,89 @@
         } ],
         "description" : "Blockchain platform managing smart contracts for investments.",
         "documentation" : { },
-        "id" : "19",
+        "id" : "21",
         "name" : "Blockchain Provider (Alchemy)",
         "properties" : {
           "structurizr.dsl.identifier" : "blockchain"
         },
         "tags" : "Element,Container,Saas",
         "technology" : "Alchemy"
+      }, {
+        "components" : [ {
+          "description" : "Uses Google OAuth 2.0 to get JWT token",
+          "documentation" : { },
+          "id" : "26",
+          "name" : "Login",
+          "properties" : {
+            "structurizr.dsl.identifier" : "login"
+          },
+          "relationships" : [ {
+            "destinationId" : "3",
+            "id" : "63",
+            "properties" : {
+              "structurizr.dsl.identifier" : "28a3dece-35b4-4898-bc40-97703706bf64"
+            },
+            "sourceId" : "26",
+            "tags" : "Relationship"
+          } ],
+          "tags" : "Element,Component"
+        }, {
+          "description" : "Disable JWT token",
+          "documentation" : { },
+          "id" : "27",
+          "name" : "Logout",
+          "properties" : {
+            "structurizr.dsl.identifier" : "logout"
+          },
+          "tags" : "Element,Component"
+        } ],
+        "description" : "External service for user authentication via Google.",
+        "documentation" : { },
+        "id" : "25",
+        "name" : "Google Authentication",
+        "properties" : {
+          "structurizr.dsl.identifier" : "googleoauthprovider"
+        },
+        "relationships" : [ {
+          "destinationId" : "3",
+          "id" : "37",
+          "properties" : {
+            "structurizr.dsl.identifier" : "c68694b9-76f5-4b2a-860d-be7ac4abf052"
+          },
+          "sourceId" : "25",
+          "tags" : "Relationship"
+        } ],
+        "tags" : "Element,Container,Saas",
+        "technology" : "OAuth 2.0"
+      }, {
+        "components" : [ {
+          "description" : "Generates a random private key and public key",
+          "documentation" : { },
+          "id" : "29",
+          "name" : "New Wallet",
+          "properties" : {
+            "structurizr.dsl.identifier" : "newwallet"
+          },
+          "tags" : "Element,Component"
+        }, {
+          "description" : "Expect a tx to sign and return signature",
+          "documentation" : { },
+          "id" : "30",
+          "name" : "Sign Tx",
+          "properties" : {
+            "structurizr.dsl.identifier" : "eth_sign"
+          },
+          "tags" : "Element,Component"
+        } ],
+        "description" : "Manages secure storage of keys for multisig and other critical operations.",
+        "documentation" : { },
+        "id" : "28",
+        "name" : "HSM Service",
+        "properties" : {
+          "structurizr.dsl.identifier" : "hsmprovider"
+        },
+        "tags" : "Element,Container,Saas",
+        "technology" : "DINAMO"
       } ],
       "description" : "System that enables Pix deposits and DeFi investments",
       "documentation" : { },
@@ -487,103 +679,85 @@
   },
   "name" : "Investment System",
   "properties" : {
-    "structurizr.dsl" : "IWNvbnN0IE9SR0FOSVNBVElPTl9OQU1FICJJbnZlc3RtZW50IFN5c3RlbSIKIWNvbnN0IFBBWU1FTlRfUFJPVklERVJfTkFNRSAiUGF5bWVudCBHYXRld2F5IChTYWFTIFBpeCkiCiFjb25zdCBCTE9DS0NIQUlOX1BST1ZJREVSICJCbG9ja2NoYWluIFByb3ZpZGVyIChBbGNoZW15KSIKIWNvbnN0IE5PVElGSUNBVElPTl9QUk9WSURFUl9OQU1FICJOb3RpZmljYXRpb24gUHJvdmlkZXIgRW1haWwvU01TIgohY29uc3QgSU5ERVhFUl9QUk9WSURFUl9OQU1FICJJbmRleGVyIFByb3ZpZGVyIgoKd29ya3NwYWNlICIke09SR0FOSVNBVElPTl9OQU1FfSIgIkludmVzdG1lbnQgc3lzdGVtIGludGVncmF0ZWQgd2l0aCBQaXggYW5kIERlRmkiIHsKICAgIG1vZGVsIHsKICAgICAgICB1c2VyID0gcGVyc29uICJDdXN0b21lciIgIkVuZCB1c2VyIHBlcmZvcm1pbmcgZGVwb3NpdHMgYW5kIGludmVzdG1lbnRzLiIKICAgIAogICAgICAgIHN5c3RlbSA9IHNvZnR3YXJlU3lzdGVtICIke09SR0FOSVNBVElPTl9OQU1FfSIgIlN5c3RlbSB0aGF0IGVuYWJsZXMgUGl4IGRlcG9zaXRzIGFuZCBEZUZpIGludmVzdG1lbnRzIiB7CiAgICAgICAgICAgIGZyb250ZW5kID0gY29udGFpbmVyICJGcm9udGVuZCIgIlVzZXIgaW50ZXJmYWNlIGZvciBkZXBvc2l0cyBhbmQgaW52ZXN0bWVudHMuIiB7CiAgICAgICAgICAgICAgICB0ZWNobm9sb2d5ICJSZWFjdC9WdWUuanMiCiAgICAgICAgICAgICAgICB0YWdzICJGcm9udGVuZCIKICAgICAgICAgICAgfQogICAgICAgICAgICAKICAgICAgICAgICAgYmFja2VuZCA9IGNvbnRhaW5lciAiQmFja2VuZCIgIkFQSSByZXNwb25zaWJsZSBmb3IgYnVzaW5lc3MgbG9naWMsIGV4dGVybmFsIHByb3ZpZGVyIGludGVncmF0aW9uLCBhbmQgdGhlIGRhdGFiYXNlLiIgewogICAgICAgICAgICAgICAgdGVjaG5vbG9neSAiUnVzdC90aWRlIgogICAgICAgICAgICAgICAgdGFncyAiQmFja2VuZCIKICAgIAogICAgICAgICAgICAgICAgICAgIHJlc3RBUEkgPSBjb21wb25lbnQgIlJFU1QgQVBJIiAiTWFuYWdlcyBIVFRQIGNvbm5lY3Rpb25zLiIgewogICAgICAgICAgICAgICAgICAgICAgICB0ZWNobm9sb2d5ICJSdXN0L1RpZGUiCiAgICAgICAgICAgICAgICAgICAgfQogICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgIGxvZ2luTW9kdWxlID0gY29tcG9uZW50ICJMb2dpbiBNb2R1bGUiICJWYWxpZGF0ZXMgaWYgdGhlIHVzZXIgZXhpc3RzIGFuZCB0cmlnZ2VycyB0aGUgbG9naW4gc2VydmljZSAoT1RQIHZpYSBlbWFpbC9TTVMpLiIgewogICAgICAgICAgICAgICAgICAgICAgICB0ZWNobm9sb2d5ICJDdXN0b20gUnVzdCBNb2R1bGUiCiAgICAgICAgICAgICAgICAgICAgfQogICAgCiAgICAgICAgICAgICAgICAgICAgZGF0YWJhc2VBZGFwdGVyID0gY29tcG9uZW50ICJEYXRhYmFzZSBBZGFwdGVyIiAiSGFuZGxlcyBjb25uZWN0aW9uIGFuZCBxdWVyaWVzIHRvIHRoZSBQb3N0Z3JlU1FMIGRhdGFiYXNlLiIgewogICAgICAgICAgICAgICAgICAgICAgICB0ZWNobm9sb2d5ICJTUUx4IgogICAgICAgICAgICAgICAgICAgIH0KICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICB1c2VyQ1JVRCA9IGNvbXBvbmVudCAiVXNlciBDUlVEIiAiTWFuYWdlcyB1c2VyIGRhdGEgaW5jbHVkaW5nIEtZQyBhbmQgb3RoZXIgaW5mb3JtYXRpb24uIiB7CiAgICAgICAgICAgICAgICAgICAgICAgIHRlY2hub2xvZ3kgIkN1c3RvbSBSdXN0IE1vZHVsZSIKICAgICAgICAgICAgICAgICAgICB9CiAgICAKICAgICAgICAgICAgICAgICAgICBub3RpZmljYXRpb25BZGFwdGVyID0gY29tcG9uZW50ICJOb3RpZmljYXRpb24gQWRhcHRlciIgIkludGVyZmFjZXMgd2l0aCBleHRlcm5hbCBub3RpZmljYXRpb24gc2VydmljZXMgKEVtYWlsL1NNUykuIiB7CiAgICAgICAgICAgICAgICAgICAgICAgIHRlY2hub2xvZ3kgIkN1c3RvbSBSdXN0IEFkYXB0ZXIiCiAgICAgICAgICAgICAgICAgICAgfQogICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgIHBhc3NrZXlNb2R1bGUgPSBjb21wb25lbnQgIlBhc3NrZXkgTW9kdWxlIiAiR2VuZXJhdGVzIE9UUCBjb2RlcyBmb3IgdXNlciBsb2dpbi4iIHsKICAgICAgICAgICAgICAgICAgICAgICAgdGVjaG5vbG9neSAiQ3VzdG9tIFJ1c3QgTW9kdWxlIgogICAgICAgICAgICAgICAgICAgIH0KICAgIAogICAgICAgICAgICAgICAgICAgIHBheW1lbnRHYXRld2F5QWRhcHRlciA9IGNvbXBvbmVudCAiUGF5bWVudCBHYXRld2F5IEFkYXB0ZXIiICJHZW5lcmF0ZXMgUGl4IFFSIENvZGVzLCBjb252ZXJ0cyBQaXggdG8gVVNEQywgYW5kIG1hbmFnZXMgd2l0aGRyYXdhbHMgdG8gY29tcGFueSB3YWxsZXRzLiIgewogICAgICAgICAgICAgICAgICAgICAgICB0ZWNobm9sb2d5ICJDdXN0b20gUnVzdCBBZGFwdGVyL0JyYXNpbCBCaXRjb2luIgogICAgICAgICAgICAgICAgICAgIH0KICAgIAogICAgICAgICAgICAgICAgICAgIHdlYjNNb2R1bGUgPSBjb21wb25lbnQgIldlYjMgTW9kdWxlIiAiSGFuZGxlcyBkZXBvc2l0cyBhbmQgd2l0aGRyYXdhbHMgZnJvbSBEZUZpIHBsYXRmb3JtcyB2aWEgdGhlIEFsY2hlbXkgYmxvY2tjaGFpbiBnYXRld2F5LiIgewogICAgICAgICAgICAgICAgICAgICAgICB0ZWNobm9sb2d5ICJXZWIzIFJ1c3QgU0RLIgogICAgICAgICAgICAgICAgICAgIH0KICAgIAogICAgICAgICAgICAgICAgICAgIGluZGV4ZXJNb2R1bGUgPSBjb21wb25lbnQgIkluZGV4ZXIgTW9kdWxlIiAiRmV0Y2hlcyBibG9ja2NoYWluIGhpc3RvcnkgKHZpYSBUaGUgR3JhcGgpIGFuZCBpbnRlZ3JhdGVzIHN0cnVjdHVyZWQgZGF0YSBpbnRvIHRoZSB1c2VyIGRhdGFiYXNlLiIgewogICAgICAgICAgICAgICAgICAgICAgICB0ZWNobm9sb2d5ICJUaGUgR3JhcGggQVBJIgogICAgICAgICAgICAgICAgICAgIH0KICAgIAogICAgICAgICAgICAgICAgICAgIHZhdWx0TW9kdWxlID0gY29tcG9uZW50ICJWYXVsdCBNb2R1bGUiICJNYW5hZ2VzIHVzZXIga2V5cywgY3JlYXRlcyBPVFBzLCBhbmQgaGFuZGxlcyB0aGUgY29tcGFueSdzIG11bHRpc2lnIGtleSBtYW5hZ2VtZW50LiIgewogICAgICAgICAgICAgICAgICAgICAgICB0ZWNobm9sb2d5ICJDdXN0b20gUnVzdCBNb2R1bGUiCiAgICAgICAgICAgICAgICAgICAgfQogICAgICAgICAgICB9CiAgICAKICAgICAgICAgICAgZGF0YWJhc2UgPSBjb250YWluZXIgIkRhdGFiYXNlIiAiU3RvcmVzIGN1c3RvbWVyIGRhdGEgYW5kIGZpbmFuY2lhbCB0cmFuc2FjdGlvbnMuIiB7CiAgICAgICAgICAgICAgICB0ZWNobm9sb2d5ICJQb3N0Z3JlU1FMIgogICAgICAgICAgICAgICAgdGFncyAiRGF0YWJhc2UiCiAgICAgICAgICAgIH0KICAgIAogICAgICAgICAgICAjIEVtYWlsIFN5c3RlbQogICAgICAgICAgICBub3RpZmljYXRpb25TeXN0ZW0gPSBjb250YWluZXIgIiR7Tk9USUZJQ0FUSU9OX1BST1ZJREVSX05BTUV9IiAic2VuZCBub3RpZmljYXRpb24gKGVtYWlsL1NNUykgdG8gdXNlciIgewogICAgICAgICAgICAgICAgdGFncyAiU2FhcyIKICAgICAgICAgICAgfQogICAgICAgICAgICAjIFBpeCBQYXltZW50IFN5c3RlbQogICAgICAgICAgICBwYXltZW50R2F0ZXdheSA9IGNvbnRhaW5lciAiJHtQQVlNRU5UX1BST1ZJREVSX05BTUV9IiAiUGl4IGRlcG9zaXRzIGFuZCBjb252ZXJzaW9uIHRvIFVTREMuIiB7CiAgICAgICAgICAgICAgICB0ZWNobm9sb2d5ICJCcmFzaWwgQml0Y29pbiIKICAgICAgICAgICAgICAgIHRhZ3MgIlNhYXMiCiAgICAgICAgICAgIH0KICAgICAgICAgICAgIyBJbmRleGVyIFN5c3RlbQogICAgICAgICAgICBpbmRleGVyUHJvdmlkZXIgPSBjb250YWluZXIgIiR7SU5ERVhFUl9QUk9WSURFUl9OQU1FfSIgIlJlYWQgYW5kIEluZGV4IGJsb2NrY2FoaW4gZGF0YSB0cmFuc2FjdGlvbnMuIiB7CiAgICAgICAgICAgICAgICB0ZWNobm9sb2d5ICJUaGUgR3JhcGgiCiAgICAgICAgICAgICAgICB0YWdzICJTYWFzIgogICAgICAgICAgICB9CiAgICAgICAgICAgICMgQmxvY2tjaGFpbiBQcm92aWRlciAoQWxjaGVteSkKICAgICAgICAgICAgYmxvY2tjaGFpbiA9IGNvbnRhaW5lciAiJHtCTE9DS0NIQUlOX1BST1ZJREVSfSIgIkJsb2NrY2hhaW4gcGxhdGZvcm0gbWFuYWdpbmcgc21hcnQgY29udHJhY3RzIGZvciBpbnZlc3RtZW50cy4iIHsKICAgICAgICAgICAgICAgIHRlY2hub2xvZ3kgIkFsY2hlbXkiCiAgICAgICAgICAgICAgICB0YWdzICJTYWFzIgogICAgCiAgICAKICAgICAgICAgICAgICAgIHVzZGNUb2tlbiA9IGNvbXBvbmVudCAiVVNEQyBUb2tlbiIgIk1hbmFnZSBVU0RDIFRva2VuIiB7CiAgICAgICAgICAgICAgICAgICAgdGVjaG5vbG9neSAiV2ViMyIKICAgICAgICAgICAgICAgIH0KICAgICAgICAgICAgICAgIGRlZmlEZXBvc2l0RnVuY3Rpb24gPSBjb21wb25lbnQgIkRlcG9zaXQgRnVuY3Rpb24iICJEZXBvc2l0IGFtb3VudCAoVVNEQykgaW4gRGVGaSBQb29sIiB7CiAgICAgICAgICAgICAgICAgICAgdGVjaG5vbG9neSAiV2ViMyIKICAgICAgICAgICAgICAgIH0KICAgICAgICAgICAgICAgIGRlZmlXaXRoZHJhd0Z1bmN0aW9uID0gY29tcG9uZW50ICJXaXRoZHJhdyBGdW5jdGlvbiIgIldpdGhkcmF3IHRoZSBiYWxhbmNlIGZyb20gRGVGaSBQb29sIChVU0RDKSIgewogICAgICAgICAgICAgICAgICAgIHRlY2hub2xvZ3kgIldlYjMiCiAgICAgICAgICAgICAgICB9CiAgICAgICAgICAgIH0KICAgIAogICAgICAgICAgICAjIHVzZXIgdG8gc3lzdGVtCiAgICAgICAgICAgIGZyb250ZW5kIC0+IGJhY2tlbmQgIkNvbW11bmljYXRlcyB2aWEgSFRUUCBBUEkiCiAgICAgICAgICAgIGJhY2tlbmQgLT4gZGF0YWJhc2UgIlJlYWRzIGFuZCB3cml0ZXMgZGF0YSIKICAgICAgICAgICAgYmFja2VuZCAtPiBwYXltZW50R2F0ZXdheSAiSW50ZWdyYXRlcyB0byBwcm9jZXNzIGRlcG9zaXRzLCBjb252ZXJzaW9ucywgYW5kIHdpdGhkcmF3YWxzIgogICAgICAgICAgICBiYWNrZW5kIC0+IGJsb2NrY2hhaW4gIkludGVncmF0ZXMgZm9yIERlRmkgZGVwb3NpdHMgYW5kIHdpdGhkcmF3YWxzIgogICAgICAgICAgICBiYWNrZW5kIC0+IG5vdGlmaWNhdGlvblN5c3RlbSAiSW50ZWdyYXRlcyBmb3Igc2VuZCBub3RpZmljYXRpb25zIChlbWFpbC9TTVMpIgogICAgICAgICAgICBiYWNrZW5kIC0+IGluZGV4ZXJQcm92aWRlcgogICAgCiAgICAKICAgICAgICAgICAgIyBzeXN0ZW0gdG8gY29udGFpbmVyCiAgICAgICAgICAgIGZyb250ZW5kIC0+IHJlc3RBUEkKICAgICAgICAgICAgcmVzdEFQSSAtPiBsb2dpbk1vZHVsZQogICAgICAgICAgICByZXN0QVBJIC0+IGluZGV4ZXJNb2R1bGUKICAgICAgICAgICAgaW5kZXhlck1vZHVsZSAtPiBpbmRleGVyUHJvdmlkZXIKICAgICAgICAgICAgcmVzdEFQSSAtPiB1c2VyQ1JVRAogICAgICAgICAgICB1c2VyQ1JVRCAtPiBkYXRhYmFzZQogICAgICAgICAgICBkYXRhYmFzZUFkYXB0ZXIgLT4gZGF0YWJhc2UKICAgICAgICAgICAgdXNlckNSVUQgLT4gZGF0YWJhc2VBZGFwdGVyCiAgICAgICAgICAgIGxvZ2luTW9kdWxlIC0+IHBheW1lbnRHYXRld2F5QWRhcHRlcgogICAgICAgICAgICBsb2dpbk1vZHVsZSAtPiB3ZWIzTW9kdWxlCiAgICAgICAgICAgIGxvZ2luTW9kdWxlIC0+IGRhdGFiYXNlQWRhcHRlcgogICAgICAgICAgICBsb2dpbk1vZHVsZSAtPiBwYXNza2V5TW9kdWxlCiAgICAgICAgICAgIHBhc3NrZXlNb2R1bGUgLT4gdmF1bHRNb2R1bGUKICAgICAgICAgICAgcGFzc2tleU1vZHVsZSAtPiBub3RpZmljYXRpb25BZGFwdGVyCiAgICAgICAgICAgIG5vdGlmaWNhdGlvbkFkYXB0ZXIgLT4gbm90aWZpY2F0aW9uU3lzdGVtCiAgICAgICAgICAgIHBheW1lbnRHYXRld2F5QWRhcHRlciAtPiBwYXltZW50R2F0ZXdheQogICAgICAgICAgICBub3RpZmljYXRpb25TeXN0ZW0gLT4gZnJvbnRlbmQKICAgIAogICAgICAgICAgICAjIGNvbnRhaW5lciB0byBjb21wb25lbnQKICAgICAgICAgICAgd2ViM01vZHVsZSAtPiB1c2RjVG9rZW4KICAgICAgICAgICAgd2ViM01vZHVsZSAtPiBkZWZpRGVwb3NpdEZ1bmN0aW9uCiAgICAgICAgICAgIHdlYjNNb2R1bGUgLT4gZGVmaVdpdGhkcmF3RnVuY3Rpb24KICAgICAgICB9CiAgICAgICAgdXNlciAtPiBzeXN0ZW0gIlVzZXMiCiAgICB9CiAgICB2aWV3cyB7CiAgICAgICAgIyBTeXN0ZW0gY29udGV4dCBkaWFncmFtCiAgICAgICAgc3lzdGVtQ29udGV4dCBzeXN0ZW0gIkludmVzdG1lbnRfU3lzdGVtX0NvbnRleHQiIHsKICAgICAgICAgICAgaW5jbHVkZSAqCiAgICAgICAgfQogICAgCiAgICAgICAgIyBDb250YWluZXIgZGlhZ3JhbQogICAgICAgIGNvbnRhaW5lciBzeXN0ZW0gIkludmVzdG1lbnRfU3lzdGVtX0NvbnRhaW5lcnMiIHsKICAgICAgICAgICAgaW5jbHVkZSAqCiAgICAgICAgfQogICAgCiAgICAgICAgIyBCYWNrZW5kIGNvbXBvbmVudHMgdmlldwogICAgICAgIGNvbXBvbmVudCBiYWNrZW5kICJCYWNrZW5kX0NvbXBvbmVudHNfVmlldyIgewogICAgICAgICAgICBpbmNsdWRlICoKICAgICAgICB9CiAgICAKICAgICAgICAjIEJsb2NoYWluIGNvbXBvbmVudHMgdmlldwogICAgICAgIGNvbXBvbmVudCBibG9ja2NoYWluICJCbG9ja2NoYWluX1Byb3ZpZGVyX0NvbXBvbmVudHNfVmlldyIgewogICAgICAgICAgICBpbmNsdWRlICoKICAgICAgICB9CiAgICAKICAgICAgICAjIFN0eWxpbmcgZm9yIHRoZSBlbGVtZW50cyBpbiB0aGUgZGlhZ3JhbXMKICAgICAgICAjIHNoYXBlIDxCb3h8Um91bmRlZEJveHxDaXJjbGV8RWxsaXBzZXxIZXhhZ29ufEN5bGluZGVyfFBpcGV8UGVyc29ufFJvYm90fEZvbGRlcnxXZWJCcm93c2VyfE1vYmlsZURldmljZVBvcnRyYWl0fE1vYmlsZURldmljZUxhbmRzY2FwZXxDb21wb25lbnQ+CiAgICAKICAgICAgICBzdHlsZXMgewogICAgICAgICAgICBlbGVtZW50ICJQZXJzb24iIHsKICAgICAgICAgICAgICAgIHNoYXBlIFBlcnNvbgogICAgICAgICAgICAgICAgYmFja2dyb3VuZCAjMDg0MjdiCiAgICAgICAgICAgICAgICBjb2xvciAjZmZmZmZmCiAgICAgICAgICAgIH0KICAgICAgICAgICAgZWxlbWVudCAiQ29udGFpbmVyIiB7CiAgICAgICAgICAgICAgICBiYWNrZ3JvdW5kICM0MzhkZDUKICAgICAgICAgICAgICAgIGNvbG9yICNmZmZmZmYKICAgICAgICAgICAgfQogICAgICAgICAgICBlbGVtZW50ICJDb21wb25lbnQiIHsKICAgICAgICAgICAgICAgIGJhY2tncm91bmQgIzg1YmJmMAogICAgICAgICAgICAgICAgY29sb3IgIzAwMDAwMAogICAgICAgICAgICB9CiAgICAKICAgICAgICAgICAgZWxlbWVudCAiU2FhcyIgewogICAgICAgICAgICAgICAgc2hhcGUgSGV4YWdvbgogICAgICAgICAgICB9CiAgICAgICAgICAgIGVsZW1lbnQgIkZyb250ZW5kIiB7CiAgICAgICAgICAgICAgICBzaGFwZSBNb2JpbGVEZXZpY2VQb3J0cmFpdAogICAgICAgICAgICB9CiAgICAgICAgICAgIGVsZW1lbnQgIkJhY2tlbmQiIHsKICAgICAgICAgICAgICAgIHNoYXBlIFJvdW5kZWRCb3gKICAgICAgICAgICAgfQogICAgICAgICAgICBlbGVtZW50ICJEYXRhYmFzZSIgewogICAgICAgICAgICAgICAgc2hhcGUgQ3lsaW5kZXIKICAgICAgICAgICAgfQogICAgICAgIH0KICAgIH0KfQ=="
+    "structurizr.dsl" : "Ly8gQ29uc3RhbnRzCiFjb25zdCBPUkdBTklTQVRJT05fTkFNRSAiSW52ZXN0bWVudCBTeXN0ZW0iCiFjb25zdCBQQVlNRU5UX1BST1ZJREVSX05BTUUgIlBheW1lbnQgR2F0ZXdheSAoU2FhUyBQaXgpIgohY29uc3QgQkxPQ0tDSEFJTl9QUk9WSURFUiAiQmxvY2tjaGFpbiBQcm92aWRlciAoQWxjaGVteSkiCiFjb25zdCBOT1RJRklDQVRJT05fUFJPVklERVJfTkFNRSAiTm90aWZpY2F0aW9uIFByb3ZpZGVyIChFbWFpbC9TTVMpIgohY29uc3QgSU5ERVhFUl9QUk9WSURFUl9OQU1FICJJbmRleGVyIFByb3ZpZGVyIgohY29uc3QgQVVUSF9QUk9WSURFUl9OQU1FICJHb29nbGUgQXV0aGVudGljYXRpb24iCiFjb25zdCBIU01fUFJPVklERVJfTkFNRSAiSFNNIFNlcnZpY2UiCgovLyBXb3Jrc3BhY2UKd29ya3NwYWNlICIke09SR0FOSVNBVElPTl9OQU1FfSIgIkludmVzdG1lbnQgc3lzdGVtIGludGVncmF0ZWQgd2l0aCBQaXggYW5kIERlRmkiIHsKICAgIG1vZGVsIHsKICAgICAgICB1c2VyID0gcGVyc29uICJDdXN0b21lciIgIkVuZCB1c2VyIHBlcmZvcm1pbmcgZGVwb3NpdHMgYW5kIGludmVzdG1lbnRzLiIKICAgIAogICAgICAgIHN5c3RlbSA9IHNvZnR3YXJlU3lzdGVtICIke09SR0FOSVNBVElPTl9OQU1FfSIgIlN5c3RlbSB0aGF0IGVuYWJsZXMgUGl4IGRlcG9zaXRzIGFuZCBEZUZpIGludmVzdG1lbnRzIiB7CiAgICAgICAgICAgIGZyb250ZW5kID0gY29udGFpbmVyICJGcm9udGVuZCIgIlVzZXIgaW50ZXJmYWNlIGZvciBkZXBvc2l0cyBhbmQgaW52ZXN0bWVudHMuIiB7CiAgICAgICAgICAgICAgICB0ZWNobm9sb2d5ICJSZWFjdC9OZXh0LmpzIgogICAgICAgICAgICAgICAgdGFncyAiRnJvbnRlbmQiCiAgICAgICAgICAgIH0KICAgIAogICAgICAgICAgICBiYWNrZW5kID0gY29udGFpbmVyICJCYWNrZW5kIiAiQVBJIHJlc3BvbnNpYmxlIGZvciBidXNpbmVzcyBsb2dpYywgZXh0ZXJuYWwgcHJvdmlkZXIgaW50ZWdyYXRpb24sIGFuZCB0aGUgZGF0YWJhc2UuIiB7CiAgICAgICAgICAgICAgICB0ZWNobm9sb2d5ICJUeXBlU2NyaXB0L05leHQuanMiCiAgICAgICAgICAgICAgICB0YWdzICJCYWNrZW5kIgogICAgCiAgICAgICAgICAgICAgICByZXN0QVBJID0gY29tcG9uZW50ICJSRVNUIEFQSSIgIk1hbmFnZXMgSFRUUCBjb25uZWN0aW9ucy4iIHsKICAgICAgICAgICAgICAgICAgICB0ZWNobm9sb2d5ICJOZXh0LmpzIEFQSSIKICAgICAgICAgICAgICAgIH0KICAgIAogICAgICAgICAgICAgICAgbG9naW5Nb2R1bGUgPSBjb21wb25lbnQgIkxvZ2luIE1vZHVsZSIgIlZhbGlkYXRlcyBpZiB0aGUgdXNlciBleGlzdHMgYW5kIHRyaWdnZXJzIGxvZ2luIHRocm91Z2ggR29vZ2xlIEF1dGguIiB7CiAgICAgICAgICAgICAgICAgICAgdGVjaG5vbG9neSAiQ3VzdG9tIFR5cGVTY3JpcHQgTW9kdWxlIgogICAgICAgICAgICAgICAgfQogICAgCiAgICAgICAgICAgICAgICBkYXRhYmFzZUFkYXB0ZXIgPSBjb21wb25lbnQgIkRhdGFiYXNlIEFkYXB0ZXIiICJIYW5kbGVzIGNvbm5lY3Rpb24gYW5kIHF1ZXJpZXMgdG8gdGhlIFBvc3RncmVTUUwgZGF0YWJhc2UuIiB7CiAgICAgICAgICAgICAgICAgICAgdGVjaG5vbG9neSAiU1FMIERhdGFiYXNlIENsaWVudCIKICAgICAgICAgICAgICAgIH0KICAgIAogICAgICAgICAgICAgICAgdXNlckNSVUQgPSBjb21wb25lbnQgIlVzZXIgQ1JVRCIgIk1hbmFnZXMgdXNlciBkYXRhIGluY2x1ZGluZyBLWUMgYW5kIG90aGVyIGluZm9ybWF0aW9uLiIgewogICAgICAgICAgICAgICAgICAgIHRlY2hub2xvZ3kgIkN1c3RvbSBUeXBlU2NyaXB0IE1vZHVsZSIKICAgICAgICAgICAgICAgIH0KICAgIAogICAgICAgICAgICAgICAgcGF5bWVudEdhdGV3YXlBZGFwdGVyID0gY29tcG9uZW50ICJQYXltZW50IEdhdGV3YXkgQWRhcHRlciIgIkdlbmVyYXRlcyBQaXggUVIgQ29kZXMsIGNvbnZlcnRzIFBpeCB0byBVU0RDLCBhbmQgbWFuYWdlcyB3aXRoZHJhd2FscyB0byBjb21wYW55IHdhbGxldHMuIiB7CiAgICAgICAgICAgICAgICAgICAgdGVjaG5vbG9neSAiQ3VzdG9tIFR5cGVTY3JpcHQgQWRhcHRlci9CcmFzaWwgQml0Y29pbiIKICAgICAgICAgICAgICAgIH0KICAgIAogICAgICAgICAgICAgICAgd2ViM01vZHVsZSA9IGNvbXBvbmVudCAiV2ViMyBNb2R1bGUiICJIYW5kbGVzIGRlcG9zaXRzIGFuZCB3aXRoZHJhd2FscyBmcm9tIERlRmkgcGxhdGZvcm1zIHZpYSB0aGUgQWxjaGVteSBibG9ja2NoYWluIGdhdGV3YXkuIiB7CiAgICAgICAgICAgICAgICAgICAgdGVjaG5vbG9neSAiV2ViMyBUeXBlU2NyaXB0IFNESyIKICAgICAgICAgICAgICAgIH0KICAgIAogICAgICAgICAgICAgICAgaW5kZXhlck1vZHVsZSA9IGNvbXBvbmVudCAiSW5kZXhlciBNb2R1bGUiICJGZXRjaGVzIGJsb2NrY2hhaW4gaGlzdG9yeSAodmlhIFRoZSBHcmFwaCkgYW5kIGludGVncmF0ZXMgc3RydWN0dXJlZCBkYXRhIGludG8gdGhlIHVzZXIgZGF0YWJhc2UuIiB7CiAgICAgICAgICAgICAgICAgICAgdGVjaG5vbG9neSAiVGhlIEdyYXBoIEFQSSIKICAgICAgICAgICAgICAgIH0KICAgIAogICAgICAgICAgICAgICAgZ29vZ2xlT2F0aE1vZHVsZSA9IGNvbXBvbmVudCAiR29vZ2xlIE9hdGggTW9kdWxlIiAiTWFrZSBsb2dpbiB1c2luZyBHb29nbGUgQWNjb3VudCIgewogICAgICAgICAgICAgICAgICAgIHRlY2hub2xvZ3kgIkdvb2dsZSBPYXRoIgogICAgICAgICAgICAgICAgfQogICAgCiAgICAgICAgICAgICAgICB3ZWJob29rTW9kdWxlID0gY29tcG9uZW50ICJXZWJob29rIE1vZHVsZSIgIkhhbmRsZXMgdGhlIHdlYmhvb2sgZnJvbSB0aGUgUGF5bWVudCBHYXRld2F5IiB7CiAgICAgICAgICAgICAgICAgICAgdGVjaG5vbG9neSAiQ3VzdG9tIFR5cGVTY3JpcHQgQWRhcHRlci9CcmFzaWwgQml0Y29pbiIKICAgICAgICAgICAgICAgIH0KICAgICAgICAgICAgfQogICAgCiAgICAgICAgICAgIGRhdGFiYXNlID0gY29udGFpbmVyICJEYXRhYmFzZSIgIlN0b3JlcyBjdXN0b21lciBkYXRhIGFuZCBmaW5hbmNpYWwgdHJhbnNhY3Rpb25zLiIgewogICAgICAgICAgICAgICAgdGVjaG5vbG9neSAiUG9zdGdyZVNRTCIKICAgICAgICAgICAgICAgIHRhZ3MgIkRhdGFiYXNlIgogICAgICAgICAgICB9CiAgICAKICAgICAgICAgICAgcGF5bWVudEdhdGV3YXkgPSBjb250YWluZXIgIiR7UEFZTUVOVF9QUk9WSURFUl9OQU1FfSIgIlByb2Nlc3NlcyBQaXggZGVwb3NpdHMgYW5kIGNvbnZlcnRzIHRoZW0gdG8gVVNEQy4iIHsKICAgICAgICAgICAgICAgIHRlY2hub2xvZ3kgIkJyYXNpbCBCaXRjb2luIgogICAgICAgICAgICAgICAgdGFncyAiU2FhcyIKICAgICAgICAgICAgICAgIGdlbmVyYXRlRGVwb3NpdCA9IGNvbXBvbmVudCAiRGVwb3NpdCBRUmNvZGUgUElYIiAiR2VuZXJhdGUgYSBRUmNvZGUgZm9yIGNsaWVudCBtYWtlIGRlcG9zaXQiCiAgICAgICAgICAgICAgICBzd2FwID0gY29tcG9uZW50ICJTV0FQIFBJWC9VU0RDIiAiQ29udmVydCBQSVggdG8gVVNEQyBvciB2aWNlIHZlcnNhIgogICAgICAgICAgICAgICAgd2l0aGRyYXdQSVggPSBjb21wb25lbnQgIldpdGhkcmF3IFBJWCIgIldpdGhkcmF3IHRvIGNsaWVudCBQSVgiCiAgICAgICAgICAgICAgICB3aXRoZHJhd1dlYjMgPSBjb21wb25lbnQgIldpdGhkcmF3IFdlYjMiICJXaXRoZHJhdyB0byBIU00gd2FsbGV0IgogICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgIH0KICAgIAogICAgICAgICAgICBpbmRleGVyUHJvdmlkZXIgPSBjb250YWluZXIgIiR7SU5ERVhFUl9QUk9WSURFUl9OQU1FfSIgIlJlYWRzIGFuZCBpbmRleGVzIGJsb2NrY2hhaW4gZGF0YSB0cmFuc2FjdGlvbnMuIiB7CiAgICAgICAgICAgICAgICB0ZWNobm9sb2d5ICJUaGUgR3JhcGgiCiAgICAgICAgICAgICAgICB0YWdzICJTYWFzIgogICAgICAgICAgICB9CiAgICAKICAgICAgICAgICAgYmxvY2tjaGFpbiA9IGNvbnRhaW5lciAiJHtCTE9DS0NIQUlOX1BST1ZJREVSfSIgIkJsb2NrY2hhaW4gcGxhdGZvcm0gbWFuYWdpbmcgc21hcnQgY29udHJhY3RzIGZvciBpbnZlc3RtZW50cy4iIHsKICAgICAgICAgICAgICAgIHRlY2hub2xvZ3kgIkFsY2hlbXkiCiAgICAgICAgICAgICAgICB0YWdzICJTYWFzIgogICAgCiAgICAgICAgICAgICAgICB1c2RjVG9rZW4gPSBjb21wb25lbnQgIlVTREMgVG9rZW4iICJNYW5hZ2VzIFVTREMgdG9rZW4gdHJhbnNmZXJzIiB7CiAgICAgICAgICAgICAgICAgICAgdGVjaG5vbG9neSAiV2ViMyIKICAgICAgICAgICAgICAgIH0KICAgICAgICAgICAgICAgIGRlZmlEZXBvc2l0RnVuY3Rpb24gPSBjb21wb25lbnQgIkRlcG9zaXQgRnVuY3Rpb24iICJEZXBvc2l0cyBhbW91bnQgKFVTREMpIGludG8gRGVGaSBQb29sLiIgewogICAgICAgICAgICAgICAgICAgIHRlY2hub2xvZ3kgIldlYjMiCiAgICAgICAgICAgICAgICB9CiAgICAgICAgICAgICAgICBkZWZpV2l0aGRyYXdGdW5jdGlvbiA9IGNvbXBvbmVudCAiV2l0aGRyYXcgRnVuY3Rpb24iICJXaXRoZHJhd3MgYmFsYW5jZSBmcm9tIERlRmkgUG9vbCAoVVNEQykuIiB7CiAgICAgICAgICAgICAgICAgICAgdGVjaG5vbG9neSAiV2ViMyIKICAgICAgICAgICAgICAgIH0KICAgICAgICAgICAgfQogICAgCiAgICAgICAgICAgIGdvb2dsZU9hdXRoUHJvdmlkZXIgPSBjb250YWluZXIgIiR7QVVUSF9QUk9WSURFUl9OQU1FfSIgIkV4dGVybmFsIHNlcnZpY2UgZm9yIHVzZXIgYXV0aGVudGljYXRpb24gdmlhIEdvb2dsZS4iIHsKICAgICAgICAgICAgICAgIHRhZ3MgIlNhYXMiCiAgICAgICAgICAgICAgICB0ZWNobm9sb2d5ICJPQXV0aCAyLjAiCiAgICAKICAgICAgICAgICAgICAgIGxvZ2luID0gY29tcG9uZW50ICJMb2dpbiIgIlVzZXMgR29vZ2xlIE9BdXRoIDIuMCB0byBnZXQgSldUIHRva2VuIgogICAgICAgICAgICAgICAgbG9nb3V0ID0gY29tcG9uZW50ICJMb2dvdXQiICJEaXNhYmxlIEpXVCB0b2tlbiIKICAgICAgICAgICAgfQogICAgCiAgICAgICAgICAgIGhzbVByb3ZpZGVyID0gY29udGFpbmVyICIke0hTTV9QUk9WSURFUl9OQU1FfSIgIk1hbmFnZXMgc2VjdXJlIHN0b3JhZ2Ugb2Yga2V5cyBmb3IgbXVsdGlzaWcgYW5kIG90aGVyIGNyaXRpY2FsIG9wZXJhdGlvbnMuIiB7CiAgICAgICAgICAgICAgICB0YWdzICJTYWFzIgogICAgICAgICAgICAgICAgdGVjaG5vbG9neSAiRElOQU1PIgogICAgCiAgICAgICAgICAgICAgICBuZXdXYWxsZXQgPSBjb21wb25lbnQgIk5ldyBXYWxsZXQiICJHZW5lcmF0ZXMgYSByYW5kb20gcHJpdmF0ZSBrZXkgYW5kIHB1YmxpYyBrZXkiCiAgICAgICAgICAgICAgICBldGhfc2lnbiA9IGNvbXBvbmVudCAiU2lnbiBUeCIgIkV4cGVjdCBhIHR4IHRvIHNpZ24gYW5kIHJldHVybiBzaWduYXR1cmUiCiAgICAgICAgICAgIH0KICAgIAogICAgICAgICAgICAvLyBVc2VyIEludGVyYWN0aW9ucwogICAgICAgICAgICBmcm9udGVuZCAtPiBiYWNrZW5kICJDb21tdW5pY2F0ZXMgdmlhIEhUVFAgQVBJIgogICAgICAgICAgICBiYWNrZW5kIC0+IGRhdGFiYXNlICJSZWFkcyBhbmQgd3JpdGVzIGRhdGEiCiAgICAgICAgICAgIGJhY2tlbmQgLT4gcGF5bWVudEdhdGV3YXkgIkludGVncmF0ZXMgZm9yIGRlcG9zaXRzLCBjb252ZXJzaW9ucywgYW5kIHdpdGhkcmF3YWxzIgogICAgICAgICAgICBiYWNrZW5kIC0+IGJsb2NrY2hhaW4gIkludGVncmF0ZXMgZm9yIERlRmkgZGVwb3NpdHMgYW5kIHdpdGhkcmF3YWxzIgogICAgICAgICAgICBiYWNrZW5kIC0+IGluZGV4ZXJQcm92aWRlciAiRmV0Y2hlcyBibG9ja2NoYWluIGhpc3RvcnkgZGF0YSIKICAgICAgICAgICAgYmFja2VuZCAtPiBnb29nbGVPYXV0aFByb3ZpZGVyICJIYW5kbGVzIGF1dGhlbnRpY2F0aW9uIHRocm91Z2ggR29vZ2xlIEF1dGgiCiAgICAgICAgICAgIGdvb2dsZU9hdXRoUHJvdmlkZXIgLT4gZnJvbnRlbmQKICAgICAgICAgICAgYmFja2VuZCAtPiBoc21Qcm92aWRlciAiQWNjZXNzZXMgc2VjdXJlIGtleSBzdG9yYWdlIgogICAgCiAgICAgICAgICAgIC8vIEludGVybmFsIEludGVyYWN0aW9ucwogICAgICAgICAgICBmcm9udGVuZCAtPiByZXN0QVBJCiAgICAgICAgICAgIHJlc3RBUEkgLT4gbG9naW5Nb2R1bGUKICAgICAgICAgICAgaW5kZXhlck1vZHVsZSAtPiBpbmRleGVyUHJvdmlkZXIKICAgICAgICAgICAgdXNlckNSVUQgLT4gZGF0YWJhc2VBZGFwdGVyCiAgICAgICAgICAgIHVzZXJDUlVEIC0+IGluZGV4ZXJNb2R1bGUKICAgICAgICAgICAgZGF0YWJhc2VBZGFwdGVyIC0+IGRhdGFiYXNlCiAgICAgICAgICAgIGxvZ2luTW9kdWxlIC0+IHBheW1lbnRHYXRld2F5QWRhcHRlcgogICAgICAgICAgICBwYXltZW50R2F0ZXdheUFkYXB0ZXIgLT4gcGF5bWVudEdhdGV3YXkKICAgICAgICAgICAgbG9naW5Nb2R1bGUgLT4gd2ViM01vZHVsZQogICAgICAgICAgICBsb2dpbk1vZHVsZSAtPiB1c2VyQ1JVRAogICAgICAgICAgICB3ZWIzTW9kdWxlIC0+IGhzbVByb3ZpZGVyCiAgICAgICAgICAgIGxvZ2luTW9kdWxlIC0+IGdvb2dsZU9hdGhNb2R1bGUKICAgICAgICAgICAgZ29vZ2xlT2F0aE1vZHVsZSAtPiBnb29nbGVPYXV0aFByb3ZpZGVyICJBdXRoZW50aWNhdGVzIHVzZXIgdmlhIEdvb2dsZSBBdXRoIgogICAgICAgICAgICB3ZWJob29rTW9kdWxlIC0+IHVzZXJDUlVECiAgICAgICAgICAgIHdlYmhvb2tNb2R1bGUgLT4gd2ViM01vZHVsZQogICAgCiAgICAKICAgICAgICAgICAgLy8gQmxvY2tjaGFpbiBJbnRlcmFjdGlvbnMKICAgICAgICAgICAgd2ViM01vZHVsZSAtPiB1c2RjVG9rZW4KICAgICAgICAgICAgd2ViM01vZHVsZSAtPiBkZWZpRGVwb3NpdEZ1bmN0aW9uCiAgICAgICAgICAgIHdlYjNNb2R1bGUgLT4gZGVmaVdpdGhkcmF3RnVuY3Rpb24KICAgIAogICAgICAgICAgICAvLyBHb29nbGUgSW50ZXJhY3Rpb25zCiAgICAgICAgICAgIGdvb2dsZU9hdGhNb2R1bGUgLT4gbG9naW4KICAgICAgICAgICAgbG9naW4gLT4gZnJvbnRlbmQKICAgICAgICAgICAgZ29vZ2xlT2F0aE1vZHVsZSAtPiBsb2dvdXQKICAgIAogICAgCiAgICAKICAgICAgICAgICAgLy8gSFNNIEludGVyYWN0aW9ucwogICAgICAgICAgICB3ZWIzTW9kdWxlIC0+IG5ld1dhbGxldAogICAgICAgICAgICB3ZWIzTW9kdWxlIC0+IGV0aF9zaWduCiAgICAKICAgIAogICAgICAgICAgICAvLyBQYXltZW50IEdhdGV3YXkgSW50ZXJhY3Rpb25zCiAgICAgICAgICAgIHBheW1lbnRHYXRld2F5QWRhcHRlciAtPiBnZW5lcmF0ZURlcG9zaXQKICAgICAgICAgICAgcGF5bWVudEdhdGV3YXlBZGFwdGVyIC0+IHN3YXAKICAgICAgICAgICAgcGF5bWVudEdhdGV3YXlBZGFwdGVyIC0+IHdpdGhkcmF3UElYCiAgICAgICAgICAgIHBheW1lbnRHYXRld2F5QWRhcHRlciAtPiB3aXRoZHJhd1dlYjMKICAgICAgICB9CiAgICAKICAgICAgICB1c2VyIC0+IHN5c3RlbSAiVXNlcyIKICAgIH0KICAgIHZpZXdzIHsKICAgICAgICAjIFN5c3RlbSBDb250ZXh0IERpYWdyYW0KICAgICAgICBzeXN0ZW1Db250ZXh0IHN5c3RlbSAiSW52ZXN0bWVudF9TeXN0ZW1fQ29udGV4dCIgewogICAgICAgICAgICBpbmNsdWRlICoKICAgICAgICB9CiAgICAKICAgICAgICAjIENvbnRhaW5lciBEaWFncmFtCiAgICAgICAgY29udGFpbmVyIHN5c3RlbSAiSW52ZXN0bWVudF9TeXN0ZW1fQ29udGFpbmVycyIgewogICAgICAgICAgICBpbmNsdWRlICoKICAgICAgICB9CiAgICAKICAgICAgICAjIEJhY2tlbmQgQ29tcG9uZW50cyBWaWV3CiAgICAgICAgY29tcG9uZW50IGJhY2tlbmQgIkJhY2tlbmRfQ29tcG9uZW50c19WaWV3IiB7CiAgICAgICAgICAgIGluY2x1ZGUgKgogICAgICAgIH0KICAgIAogICAgICAgICMgQmxvY2tjaGFpbiBDb21wb25lbnRzIFZpZXcKICAgICAgICBjb21wb25lbnQgYmxvY2tjaGFpbiAiQmxvY2tjaGFpbl9Qcm92aWRlcl9Db21wb25lbnRzX1ZpZXciIHsKICAgICAgICAgICAgaW5jbHVkZSAqCiAgICAgICAgfQogICAgICAgICMgUGF5bWVudCBHYXRld2F5IENvbXBvbmVudHMgVmlldwogICAgICAgIGNvbXBvbmVudCBwYXltZW50R2F0ZXdheSAiUGF5bWVudF9HYXRld2F5X0NvbXBvbmVudHNfVmlldyIgewogICAgICAgICAgICBpbmNsdWRlICoKICAgICAgICB9CiAgICAgICAgIyBIU00gQ29tcG9uZW50cyBWaWV3CiAgICAgICAgY29tcG9uZW50IGhzbVByb3ZpZGVyICJIU01fQ29tcG9uZW50c19WaWV3IiB7CiAgICAgICAgICAgIGluY2x1ZGUgKgogICAgICAgIH0KICAgICAgICAjIEdvb2dsZSBDb21wb25lbnRzIFZpZXcKICAgICAgICBjb21wb25lbnQgZ29vZ2xlT2F1dGhQcm92aWRlciAiR29vZ2xlX09BdXRoX0NvbXBvbmVudHNfVmlldyIgewogICAgICAgICAgICBpbmNsdWRlICoKICAgICAgICB9CiAgICAKICAgICAgICAjIFN0eWxpbmcgZm9yIERpYWdyYW0gRWxlbWVudHMKICAgICAgICBzdHlsZXMgewogICAgICAgICAgICBlbGVtZW50ICJQZXJzb24iIHsKICAgICAgICAgICAgICAgIHNoYXBlIFBlcnNvbgogICAgICAgICAgICAgICAgYmFja2dyb3VuZCAjMDg0MjdiCiAgICAgICAgICAgICAgICBjb2xvciAjZmZmZmZmCiAgICAgICAgICAgIH0KICAgICAgICAgICAgZWxlbWVudCAiQ29udGFpbmVyIiB7CiAgICAgICAgICAgICAgICBiYWNrZ3JvdW5kICM0MzhkZDUKICAgICAgICAgICAgICAgIGNvbG9yICNmZmZmZmYKICAgICAgICAgICAgfQogICAgICAgICAgICBlbGVtZW50ICJDb21wb25lbnQiIHsKICAgICAgICAgICAgICAgIGJhY2tncm91bmQgIzg1YmJmMAogICAgICAgICAgICAgICAgY29sb3IgIzAwMDAwMAogICAgICAgICAgICB9CiAgICAgICAgICAgIGVsZW1lbnQgIlNhYXMiIHsKICAgICAgICAgICAgICAgIHNoYXBlIEhleGFnb24KICAgICAgICAgICAgfQogICAgICAgICAgICBlbGVtZW50ICJGcm9udGVuZCIgewogICAgICAgICAgICAgICAgc2hhcGUgTW9iaWxlRGV2aWNlUG9ydHJhaXQKICAgICAgICAgICAgfQogICAgICAgICAgICBlbGVtZW50ICJCYWNrZW5kIiB7CiAgICAgICAgICAgICAgICBzaGFwZSBSb3VuZGVkQm94CiAgICAgICAgICAgIH0KICAgICAgICAgICAgZWxlbWVudCAiRGF0YWJhc2UiIHsKICAgICAgICAgICAgICAgIHNoYXBlIEN5bGluZGVyCiAgICAgICAgICAgIH0KICAgICAgICB9CiAgICB9Cn0="
   },
   "views" : {
     "componentViews" : [ {
       "containerId" : "4",
       "dimensions" : {
-        "height" : 2617,
-        "width" : 4058
+        "height" : 3075,
+        "width" : 3555
       },
       "elements" : [ {
         "id" : "3",
-        "x" : 274,
-        "y" : 769
+        "x" : 200,
+        "y" : 1180
       }, {
         "id" : "5",
-        "x" : 999,
-        "y" : 844
+        "x" : 788,
+        "y" : 1262
       }, {
         "id" : "6",
-        "x" : 1854,
-        "y" : 844
+        "x" : 1385,
+        "y" : 770
       }, {
         "id" : "7",
-        "x" : 2709,
-        "y" : 1467
+        "x" : 2015,
+        "y" : 2065
       }, {
         "id" : "8",
-        "x" : 1854,
-        "y" : 1467
+        "x" : 1385,
+        "y" : 1705
       }, {
         "id" : "9",
-        "x" : 999,
-        "y" : 244
+        "x" : 2015,
+        "y" : 585
       }, {
         "id" : "10",
-        "x" : 1854,
-        "y" : 244
+        "x" : 2015,
+        "y" : 1555
       }, {
         "id" : "11",
-        "x" : 2709,
-        "y" : 1058
+        "x" : 788,
+        "y" : 2015
       }, {
         "id" : "12",
-        "x" : 2709,
-        "y" : 651
+        "x" : 788,
+        "y" : 755
       }, {
         "id" : "13",
-        "x" : 999,
-        "y" : 1467
+        "x" : 2015,
+        "y" : 1000
       }, {
         "id" : "14",
-        "x" : 2709,
-        "y" : 244
+        "x" : 2015,
+        "y" : 2575
       }, {
         "id" : "15",
-        "x" : 1854,
-        "y" : 2097
+        "x" : 2890,
+        "y" : 625
       }, {
-        "id" : "16",
-        "x" : 199,
-        "y" : 199
+        "id" : "20",
+        "x" : 790,
+        "y" : 2510
       }, {
-        "id" : "17",
-        "x" : 3407,
-        "y" : 1097
+        "id" : "21",
+        "x" : 2890,
+        "y" : 1875
       }, {
-        "id" : "18",
-        "x" : 992,
-        "y" : 2027
+        "id" : "25",
+        "x" : 125,
+        "y" : 110
       }, {
-        "id" : "19",
-        "x" : 3407,
-        "y" : 500
+        "id" : "28",
+        "x" : 2890,
+        "y" : 1195
       } ],
       "externalContainerBoundariesVisible" : false,
       "key" : "Backend_Components_View",
       "order" : 3,
       "relationships" : [ {
-        "id" : "29"
-      }, {
-        "id" : "30"
-      }, {
-        "id" : "31"
-      }, {
-        "id" : "32"
-      }, {
-        "id" : "33"
-      }, {
-        "id" : "34"
-      }, {
-        "id" : "35"
-      }, {
-        "id" : "36"
-      }, {
         "id" : "37"
-      }, {
-        "id" : "38"
       }, {
         "id" : "39"
       }, {
@@ -599,46 +773,162 @@
       }, {
         "id" : "45"
       }, {
+        "id" : "46"
+      }, {
         "id" : "47"
+      }, {
+        "id" : "48"
+      }, {
+        "id" : "49"
+      }, {
+        "id" : "50"
+      }, {
+        "id" : "51"
+      }, {
+        "id" : "52"
+      }, {
+        "id" : "53"
+      }, {
+        "id" : "55"
       } ]
     }, {
-      "containerId" : "19",
+      "containerId" : "21",
       "dimensions" : {
-        "height" : 1558,
-        "width" : 1720
+        "height" : 1596,
+        "width" : 1605
       },
       "elements" : [ {
         "id" : "4",
-        "x" : 210,
-        "y" : 657
-      }, {
-        "id" : "20",
-        "x" : 945,
-        "y" : 265
-      }, {
-        "id" : "21",
-        "x" : 945,
-        "y" : 657
+        "x" : 199,
+        "y" : 611
       }, {
         "id" : "22",
-        "x" : 945,
-        "y" : 1050
+        "x" : 934,
+        "y" : 219
+      }, {
+        "id" : "23",
+        "x" : 934,
+        "y" : 611
+      }, {
+        "id" : "24",
+        "x" : 934,
+        "y" : 1004
       } ],
       "externalContainerBoundariesVisible" : false,
       "key" : "Blockchain_Provider_Components_View",
       "order" : 4,
-      "paperSize" : "A5_Landscape",
       "relationships" : [ {
-        "id" : "48"
+        "id" : "56"
       }, {
-        "id" : "50"
+        "id" : "58"
       }, {
-        "id" : "52"
+        "id" : "60"
+      } ]
+    }, {
+      "containerId" : "15",
+      "dimensions" : {
+        "height" : 2041,
+        "width" : 1885
+      },
+      "elements" : [ {
+        "id" : "4",
+        "x" : 195,
+        "y" : 700
+      }, {
+        "id" : "16",
+        "x" : 961,
+        "y" : 220
+      }, {
+        "id" : "17",
+        "x" : 1206,
+        "y" : 595
+      }, {
+        "id" : "18",
+        "x" : 1215,
+        "y" : 1010
+      }, {
+        "id" : "19",
+        "x" : 986,
+        "y" : 1450
+      } ],
+      "externalContainerBoundariesVisible" : false,
+      "key" : "Payment_Gateway_Components_View",
+      "order" : 5,
+      "relationships" : [ {
+        "id" : "71"
+      }, {
+        "id" : "73"
+      }, {
+        "id" : "75"
+      }, {
+        "id" : "77"
+      } ]
+    }, {
+      "containerId" : "28",
+      "dimensions" : {
+        "height" : 1266,
+        "width" : 1565
+      },
+      "elements" : [ {
+        "id" : "4",
+        "x" : 200,
+        "y" : 470
+      }, {
+        "id" : "29",
+        "x" : 879,
+        "y" : 219
+      }, {
+        "id" : "30",
+        "x" : 894,
+        "y" : 674
+      } ],
+      "externalContainerBoundariesVisible" : false,
+      "key" : "HSM_Components_View",
+      "order" : 6,
+      "relationships" : [ {
+        "id" : "67"
+      }, {
+        "id" : "69"
+      } ]
+    }, {
+      "containerId" : "25",
+      "dimensions" : {
+        "height" : 1330,
+        "width" : 1554
+      },
+      "elements" : [ {
+        "id" : "3",
+        "x" : 275,
+        "y" : 200
+      }, {
+        "id" : "4",
+        "x" : 200,
+        "y" : 830
+      }, {
+        "id" : "26",
+        "x" : 884,
+        "y" : 285
+      }, {
+        "id" : "27",
+        "x" : 884,
+        "y" : 662
+      } ],
+      "externalContainerBoundariesVisible" : false,
+      "key" : "Google_OAuth_Components_View",
+      "order" : 7,
+      "relationships" : [ {
+        "id" : "31"
+      }, {
+        "id" : "62"
+      }, {
+        "id" : "63"
+      }, {
+        "id" : "65"
       } ]
     } ],
     "configuration" : {
       "branding" : { },
-      "lastSavedView" : "Backend_Components_View",
+      "lastSavedView" : "HSM_Components_View",
       "metadataSymbols" : "SquareBrackets",
       "styles" : {
         "elements" : [ {
@@ -672,56 +962,61 @@
     },
     "containerViews" : [ {
       "dimensions" : {
-        "height" : 2158,
-        "width" : 3666
+        "height" : 2235,
+        "width" : 3652
       },
       "elements" : [ {
         "id" : "3",
-        "x" : 655,
-        "y" : 955
+        "x" : 1131,
+        "y" : 864
       }, {
         "id" : "4",
-        "x" : 1402,
-        "y" : 1030
+        "x" : 2005,
+        "y" : 939
+      }, {
+        "id" : "14",
+        "x" : 2184,
+        "y" : 1629
       }, {
         "id" : "15",
-        "x" : 1402,
-        "y" : 1555
+        "x" : 2190,
+        "y" : 205
       }, {
-        "id" : "16",
-        "x" : 1402,
-        "y" : 440
+        "id" : "20",
+        "x" : 1674,
+        "y" : 1554
       }, {
-        "id" : "17",
-        "x" : 2255,
-        "y" : 985
+        "id" : "21",
+        "x" : 2895,
+        "y" : 860
       }, {
-        "id" : "18",
-        "x" : 2255,
-        "y" : 1510
+        "id" : "25",
+        "x" : 1569,
+        "y" : 219
       }, {
-        "id" : "19",
-        "x" : 2255,
-        "y" : 440
+        "id" : "28",
+        "x" : 2780,
+        "y" : 295
       } ],
       "externalSoftwareSystemBoundariesVisible" : false,
       "key" : "Investment_System_Containers",
       "order" : 2,
-      "paperSize" : "A3_Landscape",
       "relationships" : [ {
-        "id" : "23"
+        "id" : "31"
       }, {
-        "id" : "24"
+        "id" : "32"
       }, {
-        "id" : "25"
+        "id" : "33"
       }, {
-        "id" : "26"
+        "id" : "34"
       }, {
-        "id" : "27"
+        "id" : "35"
       }, {
-        "id" : "28"
+        "id" : "36"
       }, {
-        "id" : "45"
+        "id" : "37"
+      }, {
+        "id" : "38"
       } ],
       "softwareSystemId" : "2"
     } ],
@@ -744,7 +1039,7 @@
       "order" : 1,
       "paperSize" : "A6_Landscape",
       "relationships" : [ {
-        "id" : "53"
+        "id" : "78"
       } ],
       "softwareSystemId" : "2"
     } ]

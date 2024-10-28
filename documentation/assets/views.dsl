@@ -1,27 +1,37 @@
 views {
-    # System context diagram
+    # System Context Diagram
     systemContext system "Investment_System_Context" {
         include *
     }
 
-    # Container diagram
+    # Container Diagram
     container system "Investment_System_Containers" {
         include *
     }
 
-    # Backend components view
+    # Backend Components View
     component backend "Backend_Components_View" {
         include *
     }
 
-    # Blochain components view
+    # Blockchain Components View
     component blockchain "Blockchain_Provider_Components_View" {
         include *
     }
+    # Payment Gateway Components View
+    component paymentGateway "Payment_Gateway_Components_View" {
+        include *
+    }
+    # HSM Components View
+    component hsmProvider "HSM_Components_View" {
+        include *
+    }
+    # Google Components View
+    component googleOauthProvider "Google_OAuth_Components_View" {
+        include *
+    }
 
-    # Styling for the elements in the diagrams
-    # shape <Box|RoundedBox|Circle|Ellipse|Hexagon|Cylinder|Pipe|Person|Robot|Folder|WebBrowser|MobileDevicePortrait|MobileDeviceLandscape|Component>
-
+    # Styling for Diagram Elements
     styles {
         element "Person" {
             shape Person
@@ -36,7 +46,6 @@ views {
             background #85bbf0
             color #000000
         }
-
         element "Saas" {
             shape Hexagon
         }
