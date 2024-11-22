@@ -24,7 +24,7 @@ export default function Name() {
         placeholder="Last Name"
         className="bg-gray-800 text-white rounded p-3 w-80"
       />
-      <Link href="/dashboard/home">
+      <Link href="/login/phone">
         <button
           className="bg-gray-500 text-white px-6 py-3 rounded-full mt-4"
           disabled={!firstName || !lastName}
