@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Link from 'next/link';
 
 export const metadata: Metadata = {
   title: {
@@ -40,16 +41,13 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <h1 className="text-3xl font-bold">Hello World!</h1>
-        <p>
-        Investment System with Blockchain Integration.
-        </p>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <p>© 2024 Pix Dollar. All rights reserved.</p>
-      </footer>
+    <div className="flex flex-col items-center justify-center min-h-screen bg-black text-white">
+      <h1 className="text-5xl font-bold mb-12">Strike</h1>
+      <Link href="/login/email">
+        <button className="bg-white text-black px-6 py-3 rounded-full text-lg">
+          Get Started
+        </button>
+      </Link>
     </div>
   );
 }
